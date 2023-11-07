@@ -267,7 +267,6 @@ lines(c_d[6,48:140],type="l",lwd=3,lty=3,col="aquamarine4")
 legend("bottomright",c("Disposable income","Consumption"),  bty = "n", cex = 1.5,
        lty=c(1,3), lwd=c(3,3), col = c("aquamarine","aquamarine4"), box.lwd=0)
 
-
 #Figure 5
 plot(y[2,48:140],type="l",col=4,lwd=3,lty=1,font.main=1,cex.main=1.5,
      main="Figure 5  Evolution of national income \n following change in target capital stock",
