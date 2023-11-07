@@ -50,8 +50,8 @@ nScenarios=6
 alpha2=0.1 #Propensity to consume out of wealth
 delta=0.1 #Depreciation rate
 gamma=0.15 #Reaction speed of adjustment of capital to its target value
-alpha1r = 0.5 #Propensity to consume out of wages if c_d=c_d(r)
-alpha1w = 0.75 #Propensity to consume out of interests if c_d=c_d(r)
+alpha1r = 0.5 #Propensity to consume out of interests if c_d=c_d(r)
+alpha1w = 0.75 #Propensity to consume out of wages if c_d=c_d(r)
 alpha0=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Set autonomous component of consumption as a matrix (for shocks) 
 alpha1=matrix(data=0.75,nrow=nScenarios,ncol=nPeriods) #Set autonomous propensity to consume out of income as a matrix (for shocks) 
 kappa=matrix(data=1,nrow=nScenarios,ncol=nPeriods)  #Capital-output ratio
