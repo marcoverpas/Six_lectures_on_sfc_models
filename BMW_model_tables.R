@@ -3,7 +3,7 @@
 # Monetary Economics
 # Chapter 7 
 
-# Version: 2 November 2023
+# Version: 8 November 2023
 
 ################################################################################
 # Copyright (c) 2023 Marco Veronese Passarella
@@ -68,10 +68,10 @@ kable(H_BS)
 
 #Create firms aggregates
 P <-c( "",                                                                    
-       round(-ld[scen,yr], digits = 2),                                                                    
+       round(-l_d[scen,yr], digits = 2),                                                                    
        round(k[scen,yr], digits = 2),                                                                    
        0,
-       round(-ld[scen,yr]+k[scen,yr], digits = 2)
+       round(-l_d[scen,yr]+k[scen,yr], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -84,10 +84,10 @@ kable(F_BS)
 
 #Create banks aggregates
 B  <-c( round(-ms[scen,yr], digits = 2),                                                                    
-        round(ls[scen,yr], digits = 2),                                                                    
+        round(l_s[scen,yr], digits = 2),                                                                    
         "",
         0,
-        round(ms[scen,yr]-ls[scen,yr], digits = 2)
+        round(ms[scen,yr]-l_s[scen,yr], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -100,7 +100,7 @@ kable(B_BS)
 
 #Create "row total" column
 Tot  <-c( round(mh[scen,yr]-ms[scen,yr], digits = 2),                                                                    
-          round(-ld[scen,yr]+ls[scen,yr], digits = 2),                                                                    
+          round(-l_d[scen,yr]+l_s[scen,yr], digits = 2),                                                                    
           round(k[scen,yr], digits = 2),
           round(-mh[scen,yr], digits = 2),
           round(k[scen,yr]-mh[scen,yr], digits = 2)
@@ -136,16 +136,16 @@ rownames<-c( "Consumption",
 ################################################################################
 
 #Create households aggregates
-H <-c( round(-c[scen,yr], digits = 2),
+H <-c( round(-c_d[scen,yr], digits = 2),
        "",
        "",
-       round(wbd[scen,yr], digits = 2),                                                                    
+       round(wb_d[scen,yr], digits = 2),                                                                    
        "",
        "",
        round(rm[scen,yr-1]*mh[scen,yr-1], digits = 2),
        "",
        round(-mh[scen,yr]+mh[scen,yr-1], digits = 2),
-       round(-c[scen,yr]+wbd[scen,yr]+rm[scen,yr-1]*mh[scen,yr-1]-mh[scen,yr]+mh[scen,yr-1], digits = 2)
+       round(-c_d[scen,yr]+wb_d[scen,yr]+rm[scen,yr-1]*mh[scen,yr-1]-mh[scen,yr]+mh[scen,yr-1], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -157,16 +157,16 @@ kable(H_TFM)
 ################################################################################
 
 #Create firms (current) aggregates
-Fc <-c( round(c[scen,yr], digits = 2),
-        round(id[scen,yr], digits = 2),
+Fc <-c( round(c_s[scen,yr], digits = 2),
+        round(i_d[scen,yr], digits = 2),
         paste("[",round(y[scen,yr], digits = 2),"]"),                                                                      
-        round(-wbs[scen,yr], digits = 2),
+        round(-wb_s[scen,yr], digits = 2),
         round(-da[scen,yr], digits = 2),
-        round(-rl[scen,yr-1]*ld[scen,yr-1], digits = 2),
+        round(-rl[scen,yr-1]*l_d[scen,yr-1], digits = 2),
         "",
         "",
         "",
-        round(c[scen,yr]+id[scen,yr]-wbs[scen,yr]-da[scen,yr]-rl[scen,yr-1]*ld[scen,yr-1], digits = 2)
+        round(c_s[scen,yr]+i_d[scen,yr]-wb_s[scen,yr]-da[scen,yr]-rl[scen,yr-1]*l_d[scen,yr-1], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -179,15 +179,15 @@ kable(Fc_TFM)
 
 #Create firms (capital) aggregates
 Fk <-c( "",
-        round(-id[scen,yr], digits = 2),
+        round(-i_d[scen,yr], digits = 2),
         "",                                                                      
         "",
         round(da[scen,yr], digits = 2),
         "",
         "",
-        round(ld[scen,yr]-ld[scen,yr-1], digits = 2),
+        round(l_d[scen,yr]-l_d[scen,yr-1], digits = 2),
         "",
-        round(-id[scen,yr]+da[scen,yr]+ld[scen,yr]-ld[scen,yr-1], digits = 2)
+        round(-i_d[scen,yr]+da[scen,yr]+l_d[scen,yr]-l_d[scen,yr-1], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -204,12 +204,12 @@ B   <-c( "",
          "",                                                                      
          "",
          "",
-         round(rl[scen,yr-1]*ls[scen,yr-1], digits = 2),
+         round(rl[scen,yr-1]*l_s[scen,yr-1], digits = 2),
          round(-rm[scen,yr-1]*ms[scen,yr-1], digits = 2),
-         round(-ls[scen,yr]+ls[scen,yr-1], digits = 2),
+         round(-l_s[scen,yr]+l_s[scen,yr-1], digits = 2),
          round(ms[scen,yr]-ms[scen,yr-1], digits = 2),
-         round(rl[scen,yr-1]*ls[scen,yr-1]-rm[scen,yr-1]*ms[scen,yr-1]+
-               -ls[scen,yr]+ls[scen,yr-1]+ms[scen,yr]-ms[scen,yr-1], digits = 2)
+         round(rl[scen,yr-1]*l_s[scen,yr-1]-rm[scen,yr-1]*ms[scen,yr-1]+
+               -l_s[scen,yr]+l_s[scen,yr-1]+ms[scen,yr]-ms[scen,yr-1], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -221,19 +221,19 @@ kable(B_TFM)
 ################################################################################
 
 #Create "row total" column
-Tot   <-c(round(c[scen,yr]-c[scen,yr], digits = 2),
-          round(id[scen,yr]-id[scen,yr], digits = 2),
+Tot   <-c(round(c_d[scen,yr]-c_s[scen,yr], digits = 2),
+          round(i_d[scen,yr]-i_s[scen,yr], digits = 2),
           "",                                                                    
-          round(wbd[scen,yr]-wbs[scen,yr], digits = 2),
+          round(wb_d[scen,yr]-wb_s[scen,yr], digits = 2),
           round(-da[scen,yr]+af[scen,yr], digits = 2),
-          round(-rl[scen,yr-1]*ld[scen,yr-1]+rl[scen,yr-1]*ls[scen,yr-1], digits = 2),
+          round(-rl[scen,yr-1]*l_d[scen,yr-1]+rl[scen,yr-1]*l_s[scen,yr-1], digits = 2),
           round(rm[scen,yr-1]*mh[scen,yr-1]-rm[scen,yr-1]*ms[scen,yr-1], digits = 2),
-          round((ld[scen,yr]-ld[scen,yr-1])-(ls[scen,yr]-ls[scen,yr-1]), digits = 2),
+          round((l_d[scen,yr]-l_d[scen,yr-1])-(l_s[scen,yr]-l_s[scen,yr-1]), digits = 2),
           round(-(mh[scen,yr]-mh[scen,yr-1])-(ms[scen,yr]-ms[scen,yr-1]), digits = 2),
-          round(wbd[scen,yr]-wbs[scen,yr]-da[scen,yr]+af[scen,yr]+
-                -rl[scen,yr-1]*ld[scen,yr-1]+rl[scen,yr-1]*ls[scen,yr-1]+
+          round(wb_d[scen,yr]-wb_s[scen,yr]-da[scen,yr]+af[scen,yr]+
+                -rl[scen,yr-1]*l_d[scen,yr-1]+rl[scen,yr-1]*l_s[scen,yr-1]+
                 rm[scen,yr-1]*mh[scen,yr-1]-rm[scen,yr-1]*ms[scen,yr-1]+
-                (ld[scen,yr]-ld[scen,yr-1])-(ls[scen,yr]-ls[scen,yr-1])+
+                (l_d[scen,yr]-l_d[scen,yr-1])-(l_s[scen,yr]-l_s[scen,yr-1])+
                 -(mh[scen,yr]-mh[scen,yr-1])-(ms[scen,yr]-ms[scen,yr-1]), digits = 2)
 )                                                                    
 
