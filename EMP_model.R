@@ -56,10 +56,10 @@ library(knitr)
 
 
 #Upload data: time series for transactions-flow matrix and balance sheet
-#Data_PC <- read.csv("https://www.dropbox.com/s/iwjktda2slimx84/EE_data_2022_10.csv?dl=1") 
-Data_PC <- read.csv("C:/Users/Marco Passarella/Google Drive/New Conferences/Six lectures on SFC models/Models/PC_data.csv")
+Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_data.csv?rlkey=5t0leh5zxwqq2m07va8brq9yc&dl=1") 
+#Data_PC <- read.csv("C:/.../PC_data.csv")
 
-#Source: (our elaboration on) Eurostat data, December 2021
+#Source: (our elaboration on) Eurostat data on Italy, December 2021
 
 ##############################################################################
 
