@@ -3,7 +3,7 @@
 # Monetary Economics
 # Chapter 7 
 
-# Version: 6 November 2022
+# Version: 8 November 2022
 
 ################################################################################
 # Copyright (c) 2023 Marco Veronese Passarella
@@ -58,26 +58,26 @@ nodes = data.frame("name" =
                      )) 
 
 #Select period
-period=5
+yr=5
 
 #Create the flows
 links = as.data.frame(matrix(c(
-  0, 6, c[1,period],  
-  6, 4, c[1,period],
-  1, 7, id[1,period],
-  7, 4, id[1,period],
-  1, 8, wbs[1,period],
-  8, 3, wbs[1,period],
-  1, 9, da[1,period],
-  9, 4, da[1,period],
-  1, 10, rl[1,period-1]*ld[1,period-1],
-  10, 5, rl[1,period-1]*ld[1,period-1],
-  2, 11, rm[1,period-1]*mh[1,period-1],
-  11, 3, rm[1,period-1]*mh[1,period-1],
-  0, 13, mh[1,period]-mh[1,period-1],
-  13, 5, mh[1,period]-mh[1,period-1],
-  2, 12, ld[1,period]-ld[1,period-1],
-  12, 4, ld[1,period]-ld[1,period-1]
+  0, 6, c_d[1,yr],  
+  6, 4, c_s[1,yr],
+  1, 7, i_d[1,yr],
+  7, 4, i_s[1,yr],
+  1, 8, wb_s[1,yr],
+  8, 3, wb_d[1,yr],
+  1, 9, da[1,yr],
+  9, 4, da[1,yr],
+  1, 10, rl[1,yr-1]*l_d[1,yr-1],
+  10, 5, rl[1,yr-1]*l_s[1,yr-1],
+  2, 11, rm[1,yr-1]*ms[1,yr-1],
+  11, 3, rm[1,yr-1]*mh[1,yr-1],
+  0, 13, mh[1,yr]-mh[1,yr-1],
+  13, 5, ms[1,yr]-ms[1,yr-1],
+  2, 12, l_s[1,yr]-l_s[1,yr-1],
+  12, 4, l_d[1,yr]-l_d[1,yr-1]
   
 ), 
 
@@ -95,5 +95,3 @@ sankeyNetwork(Links = links, Nodes = nodes,
               Source = "source", Target = "target",
               Value = "value", NodeID = "name", colourScale=my_color,
               fontSize= 25, nodeWidth = 30)
-
-
