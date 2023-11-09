@@ -258,7 +258,7 @@ kable(TFM_Matrix) #Unload kableExtra to use this
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 3. Balance sheet of Model PC in period", yr, "under scenario", scen)
+caption1 <- paste("Table 1. Balance sheet of Model PC in period", yr, "under scenario", scen)
 caption2 <- paste("Table 2. Transactions-flow matrix of Model PC in period ",yr, "under scenario", scen)
 
 #Create html table for BS
