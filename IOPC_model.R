@@ -70,7 +70,7 @@ beta2_g_bar=0.52 #Government consumption share of product 2
 #STEP 3: CREATE VARIABLES AND ATTRIBUTE INITIAL VALUES
 
 #Use 'array' function to create 3-dimension variables
-y=array(data=0,dim=c(nScenarios,nPeriods,nIndustries)) #Gross output by industry (real)
+x=array(data=0,dim=c(nScenarios,nPeriods,nIndustries)) #Gross output by industry (real)
 d=array(data=0,dim=c(nScenarios,nPeriods,nIndustries)) #Demand by industry (real)
 beta_c=array(data=0,dim=c(nScenarios,nPeriods,nIndustries)) #Real consumption composition
 beta_g=array(data=0,dim=c(nScenarios,nPeriods,nIndustries)) #Real government expenditure composition
@@ -89,7 +89,7 @@ v=matrix(data=64.87+21.62,nrow=nScenarios,ncol=nPeriods) #Households wealth
 yd=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Disposable income of households
 cons=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Consumption (real)
 g=matrix(data=20,nrow=nScenarios,ncol=nPeriods) #Government expenditure (real)
-yn=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Value of net output
+y=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Value of net output (GDP)
 p_c=matrix(data=1,nrow=nScenarios,ncol=nPeriods) #Average price for the consumers
 p_g=matrix(data=1,nrow=nScenarios,ncol=nPeriods) #Average price for the government
 A=matrix(data=c(0.11,0.21,0.12,0.22),nrow=nIndustries,ncol=nIndustries) #Matrix of technical coefficients
@@ -161,16 +161,16 @@ for (j in 1:nScenarios){
        d[j,i,] = beta_c[j,i,]*cons[j,i] + beta_g[j,i,]*g[j,i]
       
        #Real gross output by industry ***
-       y[j,i,] = solve(I-A) %*% d[j,i,]
+       x[j,i,] = solve(I-A) %*% d[j,i,]
       
        #Value of net output (GDP) ***
-       yn[j,i] = t(p[j,i,]) %*% d[j,i,]
+       y[j,i] = t(p[j,i,]) %*% d[j,i,]
       
       
       #C) Households
       
-       #Disposable income - eq. 4.2 ***
-       yd[j,i] = yn[j,i] - t[j,i] + r[j,i-1]*b_h[j,i-1]
+       #Disposable income - eq. 4.2
+       yd[j,i] = y[j,i] - t[j,i] + r[j,i-1]*b_h[j,i-1]
       
        #Wealth accumulation - eq. 4.4 ***
        v[j,i] = v[j,i-1] + (yd[j,i] - p_c[j,i]*cons[j,i])
@@ -194,7 +194,7 @@ for (j in 1:nScenarios){
       #E) Government
       
        #Tax payments - eq. 4.3 ***
-       t[j,i] = theta*(yn[j,i] + r[j,i-1]*b_h[j,i-1])
+       t[j,i] = theta*(y[j,i] + r[j,i-1]*b_h[j,i-1])
       
        #Supply of government bills - eq. 4.8
        b_s[j,i] = b_s[j,i-1] + ( p_g[j,i]*g[j,i] + r[j,i-1]*b_s[j,i-1]) - (t[j,i] + r[j,i-1]*b_cb[j,i-1])
@@ -215,7 +215,7 @@ for (j in 1:nScenarios){
       #G) Additional calculations
       
        #Inputs required by industry ***
-       k[j,i,] = A %*% y[j,i,]
+       k[j,i,] = A %*% x[j,i,]
       
       
       }
@@ -240,7 +240,7 @@ layout(matrix(c(1,2,3,4,5,6), 3, 2, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     cex.axis=1.5,cex.lab=1.5,ylab = 'Â£',
      xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
@@ -265,24 +265,24 @@ legend("right",c("Share of money balances","Share of bills (right axis)"),  bty 
 #Figure 2
 plot(yd[2,2:45],type="l", col=1, lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 2  Disposable income and consumption following \n a 100 points increase in interest rate",
-     ylab = '£',xlab = 'Time',ylim = range(86,91),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(86,91),cex.axis=1.5,cex.lab=1.5)
 lines(cons[2,2:45],type="l",lwd=3,lty=2,col=4)
 legend("right",c("Disposable income","Consumption"),  bty = "n",
        cex=1.5, lty=c(1,2), lwd=c(3,3), col = c(1,4), box.lty=0)
 
 #Figure 3 
-plot(yn[3,2:60],type="l", col=2, lwd=3, lty=1, font.main=1,cex.main=1.5,
+plot(y[3,2:60],type="l", col=2, lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 3  National income (GDP) following an \n increase in the propensity to consume",
-     ylab = '£',xlab = 'Time',ylim = range(105,126),cex.axis=1.5,cex.lab=1.5)
-abline(h=yn[3,2],col="green",lty=2,lwd=2)
-abline(h=yn[3,60],col="blue",lty=2,lwd=2)
+     ylab = 'Â£',xlab = 'Time',ylim = range(105,126),cex.axis=1.5,cex.lab=1.5)
+abline(h=y[3,2],col="green",lty=2,lwd=2)
+abline(h=y[3,60],col="blue",lty=2,lwd=2)
 legend("right",c("National income","Old steady state","New steady state"),  bty = "n",
        cex=1.5, lty=c(1,2,2), lwd=c(3,2,2), col = c(2,"blue","green"), box.lty=0)
 
 #Figure 4
 plot(k[2,2:45,1]*p[2,2:45,1],type="l", col="dodgerblue", lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 4  Demand for industry 1 products as inputs \n for other industries following each shock",
-     ylab = '£',xlab = 'Time',ylim = range(18,23),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(18,23),cex.axis=1.5,cex.lab=1.5)
 lines(k[3,2:45,1]*p[2,2:45,1],type="l", col="goldenrod3", lwd=3, lty=1)
 legend("topright",c("Higher interest rate","Higher consumption"),  bty = "n",
        cex=1.5, lty=c(1,2,2), lwd=c(3,2,2), col = c("dodgerblue","goldenrod3"), box.lty=0)
@@ -290,7 +290,7 @@ legend("topright",c("Higher interest rate","Higher consumption"),  bty = "n",
 #Figure 5
 plot(k[2,2:45,2]*p[2,2:45,2],type="l", col="dodgerblue", lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 5  Demand for industry 2 products as inputs \n for other industries following each shock",
-     ylab = '£',xlab = 'Time',ylim = range(32,42),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(32,42),cex.axis=1.5,cex.lab=1.5)
 lines(k[3,2:45,2]*p[2,2:45,2],type="l", col="goldenrod3", lwd=3, lty=1)
 legend("topright",c("Higher interest rate","Higher consumption"),  bty = "n",
        cex=1.5, lty=c(1,2,2), lwd=c(3,2,2), col = c("dodgerblue","goldenrod3"), box.lty=0)
@@ -299,19 +299,19 @@ legend("topright",c("Higher interest rate","Higher consumption"),  bty = "n",
 layout(matrix(c(1,2), 1, 2, byrow = TRUE))
 
 #Figure 6
-stacked_values <- rbind(y[3, 2:45, 1] * A[1] * p[3, 2:45, 1], y[3, 2:45, 2] * A[3] * p[3, 2:45, 1], d[3,2:45,1]*p[3,2:45,1])
+stacked_values <- rbind(x[3, 2:45, 1] * A[1] * p[3, 2:45, 1], x[3, 2:45, 2] * A[3] * p[3, 2:45, 1], d[3,2:45,1]*p[3,2:45,1])
 barplot(stacked_values, beside = FALSE, col = c("dodgerblue", "goldenrod3","red1"), 
         names.arg = 2:45, main = "Figure 6  Production of industry 1\nfollowing shock to consumption",
-        font.main=1, ylab = '£', xlab = 'Time', ylim = c(0, 125),
+        font.main=1, ylab = 'Â£', xlab = 'Time', ylim = c(0, 125),
         cex.axis = 1.25, cex.lab = 1.25, border = "white",xaxt = "n", 
         legend.text = c("Inputs for industry 1", "Inputs for industry 2","Final demand of products 1"))
 axis(1, at = seq(0, 60, by = 10), labels = seq(0, 60, by = 10))
 
 #Figure 7
-stacked_values <- rbind(y[3, 2:45, 1] * A[2] * p[3, 2:45, 2], y[3, 2:45, 2] * A[4] * p[3, 2:45, 2], d[3,2:45,2]*p[3,2:45,2])
+stacked_values <- rbind(x[3, 2:45, 1] * A[2] * p[3, 2:45, 2], x[3, 2:45, 2] * A[4] * p[3, 2:45, 2], d[3,2:45,2]*p[3,2:45,2])
 barplot(stacked_values, beside = FALSE, col = c("dodgerblue", "goldenrod3","red1"), 
         names.arg = 2:45, main = "Figure 7  Production of industry 2\nfollowing shock to consumption",
-       font.main=1, ylab = '£', xlab = 'Time', ylim = c(0, 125), 
+       font.main=1, ylab = 'Â£', xlab = 'Time', ylim = c(0, 125), 
         cex.axis = 1.25, cex.lab = 1.25, border = "white",xaxt = "n", 
         legend.text = c("Inputs for industry 1", "Inputs for industry 2","Final demand of products 2"))
 axis(1, at = seq(0, 60, by = 10), labels = seq(0, 60, by = 10))
