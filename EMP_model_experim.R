@@ -1,6 +1,6 @@
 # Model EMP for R: experiments
 # equations taken from Model PC
-# from Wynne Godley and Marc Lavoie
+# Wynne Godley and Marc Lavoie
 # Monetary Economics
 # Chapter 4 
 
@@ -101,7 +101,27 @@ PC_model <- SIMULATE(PC_model
                      ,ConstantAdjustment=constantAdjList
                      ,quietly=TRUE)
 
+################################################################################
 
+#CONSISTENCY CHECK
+
+#Create consistency statement 
+aerror=0
+error=0
+for (i in 1:23){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
+aerror = error/23
+if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
+  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
+  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+
+#Plot redundant equation
+layout(matrix(c(1), 1, 1, byrow = TRUE))
+plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
+     main=expression("Consistency check (alternative scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
+     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     xlab = 'Time',ylim = range(-1,1))
+
+################################################################################
 
 #PLOTS FOR VISUAL INSPECTION 
 
