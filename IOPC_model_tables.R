@@ -327,8 +327,8 @@ kable(IO_Matrix) #Unload kableExtra to use this
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 1. Balance sheet of Model PC in period", yr, "under baseline")
-caption2 <- paste("Table 2. Transactions-flow matrix of Model PC in period ",yr, "under baseline")
+caption1 <- paste("Table 1. Balance sheet of Model IO-PC in period", yr, "under baseline")
+caption2 <- paste("Table 2. Transactions-flow matrix of Model IO-PC in period ",yr, "under baseline")
 caption3 <- paste("Table 3. Input-output matrix of Model IO-PC in period ",yr, "under baseline")
 
 #Create html table for BS
