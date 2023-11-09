@@ -326,9 +326,6 @@ kable(IO_Matrix) #Unload kableExtra to use this
 #Upload libraries
 library(kableExtra)
 
-#Upload libraries
-library(kableExtra)
-
 #Create captions
 caption1 <- paste("Table 1. Balance sheet of Model PC in period", yr, "under baseline")
 caption2 <- paste("Table 2. Transactions-flow matrix of Model PC in period ",yr, "under baseline")
