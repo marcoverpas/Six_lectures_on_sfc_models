@@ -147,13 +147,13 @@ rownames<-c( "Consumption",
 #Create households aggregates
 H <-c( round(-cons[1,yr]*p_c[1,yr], digits = 2),
        "",
-       round(yn[1,yr], digits = 2),                                                                    
+       round(y[1,yr], digits = 2),                                                                    
        round(r[1,yr-1]*b_h[1,yr-1], digits = 2),
        "",
        round(-t[1,yr], digits = 2),
        round(-h_h[1,yr]+h_h[1,yr-1], digits = 2),
        round(-b_h[1,yr]+b_h[1,yr-1], digits = 2),
-       round(-cons[1,yr]*p_c[1,yr]+yn[1,yr]+r[1,yr-1]*b_h[1,yr-1]-t[1,yr]+
+       round(-cons[1,yr]*p_c[1,yr]+y[1,yr]+r[1,yr-1]*b_h[1,yr-1]-t[1,yr]+
                -h_h[1,yr]+h_h[1,yr-1]-b_h[1,yr]+b_h[1,yr-1], digits = 2)
 )                                                                    
 
@@ -168,13 +168,13 @@ kable(H_TFM)
 #Create firms aggregates
 P <-c( round(cons[1,yr]*p_c[1,yr], digits = 2),
        round(g[1,yr]*p_g[1,yr], digits = 2),
-       round(-yn[1,yr], digits = 2),                                                                    
+       round(-y[1,yr], digits = 2),                                                                    
        "",
        "",
        "",
        "",
        "",
-       round(cons[1,yr]*p_c[1,yr]+g[1,yr]*p_g[1,yr]-yn[1,yr], digits = 2)
+       round(cons[1,yr]*p_c[1,yr]+g[1,yr]*p_g[1,yr]-y[1,yr], digits = 2)
 )                                                                    
 
 #Create table of results
@@ -232,7 +232,7 @@ kable(CB_TFM)
 #Create "row total" column
 Tot   <-c(round(cons[1,yr]*p_c[1,yr]-cons[1,yr]*p_c[1,yr], digits = 2),
           round(g[1,yr]*p_g[1,yr]-g[1,yr]*p_g[1,yr], digits = 2),
-          round(yn[1,yr]-yn[1,yr], digits = 2),                                                                    
+          round(y[1,yr]-y[1,yr], digits = 2),                                                                    
           round(r[1,yr-1]*b_h[1,yr-1]+r[1,yr-1]*b_cb[1,yr-1]-r[1,yr-1]*b_s[1,yr-1], digits = 2),
           round(r[1,yr-1]*b_cb[1,yr-1]-r[1,yr-1]*b_cb[1,yr-1], digits = 2),
           round(-t[1,yr]+t[1,yr], digits = 2),
@@ -240,7 +240,7 @@ Tot   <-c(round(cons[1,yr]*p_c[1,yr]-cons[1,yr]*p_c[1,yr], digits = 2),
           round(-b_h[1,yr]+b_h[1,yr-1]-b_cb[1,yr]+b_cb[1,yr-1]+b_s[1,yr]-b_s[1,yr-1], digits = 2),
           round(cons[1,yr]*p_c[1,yr]-cons[1,yr]*p_c[1,yr]+
                   g[1,yr]*p_g[1,yr]-g[1,yr]*p_g[1,yr]+
-                  yn[1,yr]-yn[1,yr]+
+                  y[1,yr]-y[1,yr]+
                   r[1,yr-1]*b_h[1,yr-1]+r[1,yr-1]*b_cb[1,yr-1]-r[1,yr-1]*b_s[1,yr-1]+
                   r[1,yr-1]*b_cb[1,yr-1]-r[1,yr-1]*b_cb[1,yr-1]+
                   -t[1,yr]+t[1,yr]+
@@ -271,10 +271,10 @@ rownames <-c( "Inudstry 1 (production)",
 )
 
 #Create industry 1 column
-Ind1 <- c(round(y[1,yr,1]*A[1]*p[1,yr,1], digits = 2),                                                                    
-          round(y[1,yr,1]*A[2]*p[1,yr,2], digits = 2),
-          round(y[1,yr,1]*p[1,yr,1]-(y[1,yr,1]*A[1]*p[1,yr,1]+y[1,yr,1]*A[2]*p[1,yr,2]), digits = 2),
-          round(y[1,yr,1]*p[1,yr,1], digits = 2)
+Ind1 <- c(round(x[1,yr,1]*A[1]*p[1,yr,1], digits = 2),                                                                    
+          round(x[1,yr,1]*A[2]*p[1,yr,2], digits = 2),
+          round(x[1,yr,1]*p[1,yr,1]-(x[1,yr,1]*A[1]*p[1,yr,1]+x[1,yr,1]*A[2]*p[1,yr,2]), digits = 2),
+          round(x[1,yr,1]*p[1,yr,1], digits = 2)
 )
 
 #Create table of results
@@ -282,10 +282,10 @@ IO_Ind1<-as.data.frame(Ind1,row.names=rownames)
 kable(IO_Ind1)
 
 #Create industry 2 column
-Ind2 <- c(round(y[1,yr,2]*A[3]*p[1,yr,1], digits = 2),                                                                    
-           round(y[1,yr,2]*A[4]*p[1,yr,2], digits = 2),
-           round(y[1,yr,2]*p[1,yr,2]-(y[1,yr,2]*A[3]*p[1,yr,1]+y[1,yr,2]*A[4]*p[1,yr,2]), digits = 2),
-           round(y[1,yr,2]*p[1,yr,2], digits = 2)
+Ind2 <- c(round(x[1,yr,2]*A[3]*p[1,yr,1], digits = 2),                                                                    
+           round(x[1,yr,2]*A[4]*p[1,yr,2], digits = 2),
+           round(x[1,yr,2]*p[1,yr,2]-(x[1,yr,2]*A[3]*p[1,yr,1]+x[1,yr,2]*A[4]*p[1,yr,2]), digits = 2),
+           round(x[1,yr,2]*p[1,yr,2], digits = 2)
 )
 
 #Create table of results
@@ -295,7 +295,7 @@ kable(IO_Ind2)
 #Create final demand column
 Dem <- c(round(d[1,yr,1]*p[1,yr,1], digits = 2),                                                                    
          round(d[1,yr,2]*p[1,yr,2], digits = 2),
-         round(yn[1,yr], digits = 2),
+         round((d[1,yr,1]*p[1,yr,1]+d[1,yr,2]*p[1,yr,2]), digits = 2),
          "")
 
 
@@ -304,10 +304,10 @@ IO_Dem<-as.data.frame(Dem,row.names=rownames)
 kable(IO_Dem)
 
 #Create output column
-Out <- c(round(y[1,yr,1]*A[1]*p[1,yr,1]+y[1,yr,2]*A[3]*p[1,yr,1]+d[1,yr,1]*p[1,yr,1], digits = 2),                                                                    
-         round(y[1,yr,1]*A[2]*p[1,yr,2]+y[1,yr,2]*A[4]*p[1,yr,2]+d[1,yr,2]*p[1,yr,2], digits = 2),
+Out <- c(round(x[1,yr,1]*A[1]*p[1,yr,1]+x[1,yr,2]*A[3]*p[1,yr,1]+d[1,yr,1]*p[1,yr,1], digits = 2),                                                                    
+         round(x[1,yr,1]*A[2]*p[1,yr,2]+x[1,yr,2]*A[4]*p[1,yr,2]+d[1,yr,2]*p[1,yr,2], digits = 2),
          "",
-         round(p[1,yr,1]*y[1,yr,1]+p[1,yr,2]*y[1,yr,2], digits = 2))
+         round(p[1,yr,1]*x[1,yr,1]+p[1,yr,2]*x[1,yr,2], digits = 2))
 
 
 #Create table of results
