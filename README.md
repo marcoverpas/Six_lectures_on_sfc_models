@@ -1,6 +1,6 @@
 # Six lectures on SFC models
 
-Codes used in the 6 lectures on SFC models delivered on November-December 2023 at Central University of Finance and Economics, Beijing, China. Specifically, these R files reproduce PC, PC-EX1, BMW, and REG "toy models" from Goodley and Lavoie, "Monetary Economics", including additional features. An empirically-calibrated version (named EMP), an input-output version (named IO-PC), and an ecosystem-augmented version (named ECO-PC) of Model PC are provided too. 
+Codes used in the 6 lectures on SFC models delivered on November-December 2023 at Central University of Finance and Economics, Beijing, China. Specifically, these R files reproduce PC, PC-EX1, BMW, and REG (toy) models from Goodley and Lavoie, "Monetary Economics", including additional features. An empirically-calibrated version (named EMP), an input-output version (named IO-PC), and an ecosystem-augmented version (named ECO-PC) of Model PC are provided too. 
 
 ## Table of Contents
 
