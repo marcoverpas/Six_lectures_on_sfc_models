@@ -89,7 +89,7 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 [in progress]
 
-## Model_Emp
+## Model_EMP
 
 Empirical SFC Models are SFC models whose coefficients are calibrated or estimated based on observed data. They are usually developed for studying national economies. There are two branches of Empirical SFC models:
 
@@ -109,6 +109,12 @@ install.packages(bimets)
 library(bimets)
 
 ```
+
+Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) in such a way to fit Model PC equations. Unlike previous models, EMP has been coded using a specific package for R ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model is structured in 5 different files:
+
+- [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
+
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) ...
 
 [in progress]
 
