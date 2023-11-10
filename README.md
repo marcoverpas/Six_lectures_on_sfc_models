@@ -4,29 +4,29 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023, 
 
 ## Table of Contents
 
-- [Standard packages](#standard)
-- [Additional features](#features)
-- [Model IO-PC](#model_iopc)
-- [Model ECO-PC](#model_ecopc)
-- [Model EMP](#model_emp)
+- [Standard_packages](#Standard_packages)
+- [Additional_features](#Additional_features)
+- [Model_IO-PC](#Model_IO-PC)
+- [Model_ECO-PC](#Model_ECO-PC)
+- [Model_EMP](#Model_EMP)
 
-## Standard packages
-
-[in progress]
-
-## Additional features
+## Standard_packages
 
 [in progress]
 
-## Model IO-PC
+## Additional_features
 
 [in progress]
 
-## Model ECO-PC
+## Model_IO-PC
 
 [in progress]
 
-## model_emp
+## Model_ECO-PC
+
+[in progress]
+
+## Model_Emp
 
 [in progress]
 
