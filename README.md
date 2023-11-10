@@ -37,7 +37,7 @@ install.packages(bimets)
 # Load the package
 library(bimets)
 
-```R
+```
 
 [in progress]
 
