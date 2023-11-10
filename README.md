@@ -1,6 +1,6 @@
 # Six lectures on SFC models
 
-Codes used in the 6 lectures on SFC models delivered on November-December 2023 at Central University of Finance and Economics, Beijing, China. Specifically, these R files reproduce PC, PC-EX1, BMW, and REG models from Goodley and Lavoie, "Monetary Economics", including additional features. An empirically-calibrated version (named EMP), an input-output version (named IO-PC), and an ecosystem-augmented version (named ECO-PC) of Model PC are provided too. 
+Codes used in the 6 lectures on SFC models delivered on November-December 2023 at Central University of Finance and Economics, Beijing, China. Specifically, these R files reproduce PC, PC-EX1, BMW, and REG "toy models" from Goodley and Lavoie, "Monetary Economics", including additional features. An empirically-calibrated version (named EMP), an input-output version (named IO-PC), and an ecosystem-augmented version (named ECO-PC) of Model PC are provided too. 
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023 a
 
 ## Introduction
 
-In the laste three decades, macroeconomic modelling has been dominated by Dynamic Stochastic General Equilibrium (DSGE). However, dissatisfaction with these models has been growing since the mid-2000s. Three primary weaknesses have been identified in DSGE models: unrealistic assumptions, a limited range of considerations, and poor data fit, including logical inconsistencies and empirical non sequitur in aggregate production functions.
+In the laste three decades, macroeconomic modelling has been dominated by Dynamic Stochastic General Equilibrium (DSGE) models. However, dissatisfaction with these models has been growing since the mid-2000s. Three primary weaknesses have been identified in DSGE models: unrealistic assumptions, a limited range of considerations, and poor data fit, including logical inconsistencies and empirical non sequitur in aggregate production functions.
 
 In response to these shortcomings, alternative models have emerged, each aiming to address specific deficiencies. Computable General Equilibrium (CGE) models, though sharing assumptions with DSGE, attempt to broaden the scope. Leontief-like Input-Output (IO) models provide more room for a sound economic analysis but still face limitations. Heterogeneous agent-based models, network analysis, and other complexity models offer novel perspectives. Notably, Stock-Flow Consistent (SFC) models have gained traction, finding applications in empirical research by institutions like the [Bank of England](https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2016/a-dynamic-model-of-financial-balances-for-the-uk) and the [Italian Ministry of Economy and Finance](https://www.sciencedirect.com/science/article/abs/pii/S0264999322003509).
 
@@ -44,7 +44,7 @@ Unlike DSGE models, which often rely on a unified platform like Dynare, SFC mode
 
 ## Model_PC
 
-This is a model developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". PC stands for portfolio choice, because households can hold their wealth in terms of cash and/or government bills.
+This is one of the simplest SFC models. It is developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". PC stands for portfolio choice, because households can hold their wealth in terms of cash and/or government bills.
 Key assumptions are as follows:
 
 - Closed economy
