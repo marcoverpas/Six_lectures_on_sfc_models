@@ -43,7 +43,24 @@ Unlike Dynamic Stochastic General Equilibrium (DSGE) models, which often rely on
 
 ## Model_PC
 
-[in progress]
+This is a model developed in chapter 4 of Godley and Lavoie, "An Integrated Approach to Credit, Money, Income, Production and Wealth". PC stands for portfolio choice, because households can hold their wealth in terms of cash and/or government bills.
+Key assumptions are as follows:
+
+- Closed economy
+
+- Four agents: households, “firms”, government, central bank
+
+- Two financial assets: government bills and outside money (cash)
+
+- No investment (accumulation) and no inventories
+
+- Fixed prices and zero net profits
+
+- No banks, no inside money (bank deposits)
+
+- No ecosystem
+
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too (here[here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)) . 
 
 ## Model_BMW
 
