@@ -41,4 +41,3 @@ library(bimets)
 
 [in progress]
 
-![Example Image](https://www.dropbox.com/s/mxe2if0etmhxnk76gd50i/fig_1_emp.png?raw=1)
