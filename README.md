@@ -127,5 +127,3 @@ library(bimets)
 - [Marco Veronese Passarella (GitHub)](https://github.com/marcoverpas) 
 
 - [Gennaro Zezza](https://gennaro.zezza.it/?page_id=10&lang=en)
--  
-![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/d7b3eded-d378-4c30-bac0-b2a1050be41b)
