@@ -31,8 +31,11 @@ The simplicity or complexity of SFC models dictates the approach to solving them
 ![fig_lang](https://raw.githubusercontent.com/marcoverpas/figures/main/languages.png)
 
 Coefficients in SFC models play a crucial role in shaping model behaviour. Researchers have several options for determining these coefficients:
+
 a) Fine-tuning: Coefficients can be fine-tuned to achieve specific baseline scenarios, drawing insights from previous studies or selecting values from a reasonable range.
+
 b) Calibration: Researchers may calibrate coefficients to match the model's predictions with observed data, aligning the model with real-world economic conditions.
+
 c) Estimation: Econometric methods, including Ordinary Least Squares (OLS) and cointegration techniques, enable the estimation of coefficients from observed data, enhancing the model's empirical relevance.
 
 Unlike Dynamic Stochastic General Equilibrium (DSGE) models, which often rely on a unified platform like Dynare, SFC modeling lacks a universally adopted program. The pioneering codes used in Godley and Lavoie's work were developed by Gennaro Zezza using EViews and Excel. However, the landscape has evolved over time. R (utilized through RStudio) has become the predominant programming environment for SFC modeling, owing to its flexibility and extensive capabilities. Dedicated R packages such as SFCR and Godley provide specialized tools for SFC modeling. Additionally, Bimets, developed by the Bank of Italy, offers a platform for empirical SFC model development. Alternative programming languages, including Matlab (with or without Dynare), Mathematica, Python, and Julia, find applications in SFC modeling, particularly for creating agent-based SFC models. Minsky, a software package developed by Steve Keen, stands out as a tool for visually modeling macroeconomic system dynamics.
