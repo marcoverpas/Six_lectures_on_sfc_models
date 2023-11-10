@@ -110,7 +110,7 @@ library(bimets)
 
 ```
 
-Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) in such a way to fit Model PC equations. Unlike previous models, EMP has been coded using a specific package for R ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model is structured in 5 different files:
+Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
 - [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
 
@@ -118,7 +118,6 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 [in progress]
 
-![fig1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
 
 ## Useful_links
 
