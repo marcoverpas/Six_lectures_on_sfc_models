@@ -24,6 +24,21 @@ SFC models serve as system dynamics models, analysing complex systems over time,
 
 Crucially, SFC models adhere to four accounting principles: flow consistency, stock consistency, stock-flow consistency, and quadruple book-keeping. The economy is divided into sectors, each represented by accounting matrices and dynamic equations reflecting the System of National Accounts.
 
+Standard SFC models typically fall within the range of medium-scale macro-econometric dynamic models. These models are commonly formulated in discrete time using difference equations. However, continuous-time formulations using differential equations are also employed, providing a more nuanced representation of economic processes. The decision between discrete and continuous time depends on the temporal granularity required for the analysis.
+
+The simplicity or complexity of SFC models dictates the approach to solving them. The simplest models, often featuring a limited number of equations, can be solved analytically by finding steady-state solutions. These solutions provide insights into the long-term behavior of the model. More advanced SFC models, characterized by increased complexity and a larger number of equations, necessitate computational methods. Computer simulations become essential for understanding the dynamic interactions within the system. Numerical techniques, such as iterative methods and numerical integration, are employed to capture the intricate dynamics of these models.
+
+Coefficients in SFC models play a crucial role in shaping model behaviour. Researchers have several options for determining these coefficients:
+a) Fine-tuning: Coefficients can be fine-tuned to achieve specific baseline scenarios, drawing insights from previous studies or selecting values from a reasonable range.
+b) Calibration: Researchers may calibrate coefficients to match the model's predictions with observed data, aligning the model with real-world economic conditions.
+c) Estimation: Econometric methods, including Ordinary Least Squares (OLS) and cointegration techniques, enable the estimation of coefficients from observed data, enhancing the model's empirical relevance.
+
+Unlike Dynamic Stochastic General Equilibrium (DSGE) models, which often rely on a unified platform like Dynare, SFC modeling lacks a universally adopted program. The pioneering codes used in Godley and Lavoie's work were developed by Gennaro Zezza using EViews and Excel. However, the landscape has evolved over time. R (utilized through RStudio) has become the predominant programming environment for SFC modeling, owing to its flexibility and extensive capabilities. Dedicated R packages such as SFCR and Godley provide specialized tools for SFC modeling. Additionally, Bimets, developed by the Bank of Italy, offers a platform for empirical SFC model development. Alternative programming languages, including Matlab (with or without Dynare), Mathematica, Python, and Julia, find applications in SFC modeling, particularly for creating agent-based SFC models. Minsky, a software package developed by Steve Keen, stands out as a tool for visually modeling macroeconomic system dynamics.
+
+![fig1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+
+
+
 ## Model_PC
 
 [in progress]
