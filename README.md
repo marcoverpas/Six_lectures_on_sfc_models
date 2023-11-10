@@ -28,7 +28,7 @@ Standard SFC models typically fall within the range of medium-scale macro-econom
 
 The simplicity or complexity of SFC models dictates the approach to solving them. The simplest models, often featuring a limited number of equations, can be solved analytically by finding steady-state solutions. These solutions provide insights into the long-term behavior of the model. More advanced SFC models, characterized by increased complexity and a larger number of equations, necessitate computational methods. Computer simulations become essential for understanding the dynamic interactions within the system. Numerical techniques, such as iterative methods and numerical integration, are employed to capture the intricate dynamics of these models.
 
-![fig1_emp](https://raw.githubusercontent.com/marcoverpas/figures/blob/main/languages.png)
+![fig_lang](https://raw.githubusercontent.com/marcoverpas/figures/main/languages.png)
 
 Coefficients in SFC models play a crucial role in shaping model behaviour. Researchers have several options for determining these coefficients:
 a) Fine-tuning: Coefficients can be fine-tuned to achieve specific baseline scenarios, drawing insights from previous studies or selecting values from a reasonable range.
