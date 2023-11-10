@@ -114,7 +114,15 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 - [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
 
-- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) ...
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
+
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R) performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
+
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R) allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
+
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R) generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
+
+- [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) uses exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
 
 [in progress]
 
