@@ -122,7 +122,7 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 - [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R) generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
 
-- [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) uses exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
+- [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
 
 [in progress]
 
