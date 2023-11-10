@@ -91,6 +91,14 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 ## Model_Emp
 
+Empirical SFC Models are SFC models whose coefficients are calibrated or estimated based on observed data. They are usually developed for studying national economies. There are two branches of Empirical SFC models:
+
+- Type I or data-to-theory models: these models are tailored to the country-specific sectoral balance sheets and flow of funds statistics of the economy under investigation.
+
+- Type II or theory-to-data models: these models are developed based on a theoretical SFC model, and then data are collected and adequately reclassified to estimate the coefficients of the model.
+
+[Bimets](https://cran.r-project.org/web/packages/bimets/index.html) is a software framework for R designed for time series analysis and econometric modeling (here is the reference manual). It allows creating and manipulating time series, specifying simultaneous equation models, and performing model estimation, structural stability analysis, deterministic and stochastic simulation, and forecasting, and optimal control. It can be conveniently used to develop, estimate, and simulate empirical SFC models, especially Type II models.
+
 [in progress]
 
 ```R
