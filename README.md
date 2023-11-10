@@ -18,7 +18,7 @@ In the laste three decades, macroeconomic modelling has been dominated by Dynami
 
 In response to these shortcomings, alternative models have emerged, each aiming to address specific deficiencies. Computable General Equilibrium (CGE) models, though sharing assumptions with DSGE, attempt to broaden the scope. Leontief-like Input-Output (IO) models provide more room for a sound economic analysis but still face limitations. Heterogeneous agent-based models, network analysis, and other complexity models offer novel perspectives. Notably, Stock-Flow Consistent (SFC) models have gained traction, finding applications in empirical research by institutions like the Bank of England and the Italian Ministry of Economy and Finance.
 
-The resurgence of interest in SFC models can be traced back to Wynne Godley's successful predictions of the U.S. crises in 2001 and 2007. Godley's work, culminating in the seminal "Monetary Economics: An Integrated Approach" (2007), laid the foundation for SFC modelling. SFC models, rooted in national accounts and flow of funds, integrate financial and real aspects of the economy, allowing for the identification of unsustainable processes.
+The resurgence of interest in SFC models can be traced back to Wynne Godley's successful predictions of the U.S. crises in 2001 and 2007. Godley's work laid the foundation for SFC modelling. SFC models, rooted in national accounts and flow of funds, integrate financial and real aspects of the economy, allowing for the identification of unsustainable processes.
 
 SFC models serve as system dynamics models, analysing complex systems over time, tracking flows, stocks, and utilising feedback loops. Basic SFC models have evolved into various forms, including Open-Economy or Multi-Area SFC models (MA-SFC), Ecological SFC models (ECO-SFC), Interacting Heterogeneous Agent-Based SFC models (AB-SFC), Input-output SFC Models (IO-SFC), and Empirical SFC Models (E-SFC).
 
@@ -38,7 +38,7 @@ b) Calibration: Researchers may calibrate coefficients to match the model's pred
 
 c) Estimation: Econometric methods, including Ordinary Least Squares (OLS) and cointegration techniques, enable the estimation of coefficients from observed data, enhancing the model's empirical relevance.
 
-Unlike Dynamic Stochastic General Equilibrium (DSGE) models, which often rely on a unified platform like Dynare, SFC modeling lacks a universally adopted program. The pioneering codes used in Godley and Lavoie's work were developed by Gennaro Zezza using EViews and Excel. However, the landscape has evolved over time. R (utilized through RStudio) has become the predominant programming environment for SFC modeling, owing to its flexibility and extensive capabilities. Dedicated R packages such as SFCR and Godley provide specialized tools for SFC modeling. Additionally, Bimets, developed by the Bank of Italy, offers a platform for empirical SFC model development. Alternative programming languages, including Matlab (with or without Dynare), Mathematica, Python, and Julia, find applications in SFC modeling, particularly for creating agent-based SFC models. Minsky, a software package developed by Steve Keen, stands out as a tool for visually modeling macroeconomic system dynamics.
+Unlike DSGE models, which often rely on a unified platform like Dynare, SFC modeling lacks a universally adopted program. The pioneering codes used in Godley and Lavoie's work were developed by Gennaro Zezza using EViews and Excel. However, the landscape has evolved over time. R (utilized through RStudio) has become the predominant programming environment for SFC modeling, owing to its flexibility and extensive capabilities. Dedicated R packages such as SFCR and Godley provide specialized tools for SFC modeling. Additionally, Bimets, developed by the Bank of Italy, offers a platform for empirical SFC model development. Alternative programming languages, including Matlab (with or without Dynare), Mathematica, Python, and Julia, find applications in SFC modeling, particularly for creating agent-based SFC models. Minsky, a software package developed by Steve Keen, stands out as a tool for visually modeling macroeconomic system dynamics.
 
 
 ## Model_PC
@@ -60,7 +60,13 @@ Key assumptions are as follows:
 
 - No ecosystem
 
-The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too (here[here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)) . 
+Note that model variables have been modelled as matrices, where rows represent different scenarios and columns denote distinct periods. Parameters and exogenous variables are typically represented as scalars. However, variables susceptible to shocks are treated as matrices (as they change over time). Equilibrium solutions for the system of simultaneous equations have been derived without relying on any dedicated package, but rather through a sufficiently high number of iterations. Lastly, the redundant equation is used to double-check model consistency over time in the baseline scenario. 
+
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)). The expectation-augmented version, named PCECX1, is available ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R)).
+
+Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few additional lines of code are enough to generate these tables automatically, both in HTML and LaTeX format (go to the [code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
+
+The code also allows for creating the Sankey diagram of transactions and changes in stocks ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_sankey.R)).
 
 ## Model_BMW
 
