@@ -4,13 +4,13 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023, 
 
 ## Table of Contents
 
-- [Standard_packages](#Standard_packages)
+- [Basic_models](#Standard_models)
 - [Additional_features](#Additional_features)
 - [Model_IO-PC](#Model_IO-PC)
 - [Model_ECO-PC](#Model_ECO-PC)
 - [Model_EMP](#Model_EMP)
 
-## Standard_packages
+## Basic_models
 
 [in progress]
 
@@ -41,4 +41,4 @@ library(bimets)
 
 [in progress]
 
-![Example Image](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+![fig1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
