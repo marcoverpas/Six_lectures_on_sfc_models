@@ -6,16 +6,33 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023, 
 
 - [Standard packages](#standard)
 - [Additional features](#features)
-- [New models](#new_models)
+- [Model IO-PC](#model_iopc)
+- [Model ECO-PC](#model_ecopc)
+- [Model EMP](#model_emp)
 
-## standard
-
-[in progress]
-
-## features
+## Standard packages
 
 [in progress]
 
-## new_models
+## Additional features
 
-[in progress}
+[in progress]
+
+## Model IO-PC
+
+[in progress]
+
+## Model ECO-PC
+
+[in progress]
+
+## Model EMP
+
+[in progress]
+
+```R
+# Install required packages
+install.packages(bimets)
+
+# Load the package
+library(bimets)
