@@ -41,3 +41,4 @@ library(bimets)
 
 [in progress]
 
+![Example Image](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
