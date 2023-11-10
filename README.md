@@ -128,7 +128,9 @@ library(bimets)
 
 - [Karsten Kohler](https://karstenkohler.com/) 
 
-- [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html) 
+- [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
+
+- [Prante and Kohler](https://macrosimulation.org/) 
 
 - [Marco Veronese Passarella (website)](https://www.marcopassarella.it/en/teaching-2/) 
 
