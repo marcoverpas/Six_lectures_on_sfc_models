@@ -11,6 +11,7 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023, 
 - [Model_IO-PC](#Model_IO-PC)
 - [Model_ECO-PC](#Model_ECO-PC)
 - [Model_EMP](#Model_EMP)
+- [Useful_links](#Useful_links)
 
 ## Introduction
 
@@ -104,3 +105,27 @@ library(bimets)
 [in progress]
 
 ![fig1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+
+## Useful_links
+
+- [Alessandro Bramucci](https://www.alessandrobramucci.com/project/interactive_macro/) 
+
+- [Alessandro Caiani](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit) 
+
+- [Yannis Dafermos and Maria Nikolaidi](https://yannisdafermos.com/sfc-modelling/) 
+
+- [Michal Gamrot](https://github.com/gamrot/godley/) 
+
+- [Antoine Godin](http://www.antoinegodin.eu/)
+
+- [Karsten Kohler](https://karstenkohler.com/) 
+
+- [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html) 
+
+- [Marco Veronese Passarella (website)](https://www.marcopassarella.it/en/teaching-2/) 
+
+- [Marco Veronese Passarella (GitHub)](https://github.com/marcoverpas) 
+
+- [Gennaro Zezza](https://gennaro.zezza.it/?page_id=10&lang=en)
+-  
+![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/d7b3eded-d378-4c30-bac0-b2a1050be41b)
