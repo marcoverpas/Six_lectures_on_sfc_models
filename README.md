@@ -138,7 +138,7 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 - [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
 
-- [Prante and Kohler](https://macrosimulation.org/) 
+- [Franz Prante and Karsten Kohler](https://macrosimulation.org/) 
 
 - [Marco Veronese Passarella (website)](https://www.marcopassarella.it/en/teaching-2/) 
 
