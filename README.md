@@ -118,6 +118,9 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 [in progress]
 
+![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+
+
 
 ## Useful_links
 
