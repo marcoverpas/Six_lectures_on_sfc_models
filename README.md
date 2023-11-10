@@ -41,4 +41,4 @@ library(bimets)
 
 [in progress]
 
-https://www.dropbox.com/scl/fi/mxe2if0etmhxnk76gd50i/fig_1_emp.png?rlkey=9t1212i71jsr9z7kkzb4z9hjy&dl=0
+![Example Image](https://www.dropbox.com/s/mxe2if0etmhxnk76gd50i/fig_1_emp.png?raw=1)
