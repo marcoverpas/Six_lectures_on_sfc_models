@@ -26,7 +26,7 @@ Codes used in the 6 lectures on SFC models delivered on November-December 2023, 
 
 [in progress]
 
-## Model EMP
+## model_emp
 
 [in progress]
 
