@@ -60,7 +60,7 @@ H <-c( round(PC_modelData$h_h[yr], digits = 2),
 #Create table of results
 H_BS<-as.data.frame(H,row.names=rownames)
 
-#Print firms column
+#Print households column
 kable(H_BS)
 
 ################################################################################
@@ -90,7 +90,7 @@ G   <-c( "",
 #Create table of results
 G_BS<-as.data.frame(G,row.names=rownames)
 
-#Print firms column
+#Print government column
 kable(G_BS)
 
 ################################################################################
@@ -105,7 +105,7 @@ CB  <-c( round(-PC_modelData$h_s[yr], digits = 2),
 #Create table of results
 CB_BS<-as.data.frame(CB,row.names=rownames)
 
-#Print firms column
+#Print CB column
 kable(CB_BS)
 
 ################################################################################
@@ -122,7 +122,7 @@ Tot  <-c( round(PC_modelData$h_h[yr]-PC_modelData$h_s[yr], digits = 2),
 #Create table of results
 Tot_BS<-as.data.frame(Tot,row.names=rownames)
 
-#Print firms column
+#Print total column
 kable(Tot_BS)
 
 ################################################################################
@@ -163,7 +163,7 @@ H <-c( round(-PC_modelData$cons[yr], digits = 2),
 #Create table of results
 H_TFM<-as.data.frame(H,row.names=rownames)
 
-#Print firms column
+#Print households column
 kable(H_TFM)
 
 ################################################################################
@@ -207,7 +207,7 @@ G   <-c( "",
 #Create table of results
 G_TFM<-as.data.frame(G,row.names=rownames)
 
-#Print firms column
+#Print government column
 kable(G_TFM)
 
 ################################################################################
@@ -227,7 +227,7 @@ CB   <-c( "",
 #Create table of results
 CB_TFM<-as.data.frame(CB,row.names=rownames)
 
-#Print firms column
+#Print CB column
 kable(CB_TFM)
 
 ################################################################################
@@ -254,7 +254,7 @@ Tot   <-c(round(PC_modelData$cons[yr]-PC_modelData$cons[yr], digits = 2),
 #Create table of results
 Tot_TFM<-as.data.frame(Tot,row.names=rownames)
 
-#Print firms column
+#Print total column
 kable(Tot_TFM)
 
 ################################################################################
