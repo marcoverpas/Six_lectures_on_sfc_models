@@ -11,6 +11,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 - [Model IO-PC](#Model_IO-PC)
 - [Model ECO-PC](#Model_ECO-PC)
 - [Model EMP](#Model_EMP)
+  - [1) Model and data](##Model_and_data) 
 - [Useful links](#Useful_links)
 
 ## Introduction
@@ -103,7 +104,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
-### 1) Model and data
+### 1) Model_and_data
 
 The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. As usual, the first step is to prepare the workspace:
 
