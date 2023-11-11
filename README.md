@@ -110,7 +110,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 [in progress]
 
-Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
+Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files
 
 ### 7_2_Model_and_data
 
