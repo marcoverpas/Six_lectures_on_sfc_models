@@ -350,8 +350,6 @@ legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c
 A consistency check, based on the redundant equation, can be conducted too (we refer to the [complete code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R)). After that, in-sample predictions can be adjusted to the observed series using prediction errors, that is, by exogenising the endogenous variables of the model. 
 
 ```R
-################################################################################
-
 #B) INSAMPLE PREDICTION (ADJUSTMENT)
 
 # Define new exogenisation list to 2021
@@ -650,7 +648,6 @@ yr=27
 #scen=1
 
 ################################################################################
-################################################################################
 
 #Create row names for BS matrix
 rownames<-c( "Cash (money)",
@@ -905,7 +902,14 @@ kable(TFM_Matrix) #Unload kableExtra to use this
 
 ################################################################################
 
-#Create html and latex tables
+```
+
+Once again, a LaTeX version of the table can be generated using *kableExtra*.
+
+
+```R
+
+#Create html and latex versions of the TFM table
 
 #Upload libraries
 library(kableExtra)
@@ -926,10 +930,9 @@ TFM_Matrix %>%
 
 ### 7.6_Sankey_diagram
 
-The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
+The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks. A few additional packages are required here.
 
 ```R
-#Sankey diagram of money transactions-flow and nominal changes in stocks
 
 #Upload libraries for Sankey diagram
 library(networkD3)
@@ -999,43 +1002,15 @@ sankeyNetwork(Links = links, Nodes = nodes,
 
 ```
 
+
+![sankey_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_emp.png)
+
+
 ### 7.7_Experiments
 
-Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
+Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario). Firstly, we rename the values of selected varaibles under the baseline scenario (deterministic out-of-sample simulations).
 
 ```R
-#A) CREATE BASELINE SCENARIO
-
-# Extend exogenous and conditionally-evaluated variables up to 2028
-PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
-
-# Define exogenisation list
-exogenizeList <- list(
-  
-  r = TRUE,                     #Interest rate (whole period)
-  t = c(1998,1,2021,1),         #Taxes
-  cons = c(1998,1,2021,1),      #Consumption
-  b_h = c(1998,1,2021,1)        #Bills held by households
-  
-)
-
-# Define add-factor list (defining exogenous adjustments: policy + available predictions)
-constantAdjList <- list(
-  
-  cons = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A'),  #Shock to consumption 
-  t    = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A')  #Shock to taxes
-  
-)
-
-# Simulate model
-PC_model <- SIMULATE(PC_model
-                     ,simType='DYNAMIC' #try also: 'FORECAST'
-                     ,TSRANGE=c(1998,1,2028,1)
-                     ,simConvergence=0.00001
-                     ,simIterLimit=1000
-                     ,Exogenize=exogenizeList
-                     ,ConstantAdjustment=constantAdjList
-                     ,quietly=TRUE)
 
 #Attribute values to selected variables
 y_0=PC_model$simulation$y
@@ -1043,7 +1018,11 @@ cons_0=PC_model$simulation$cons
 t_0=PC_model$simulation$t
 b_h_0=PC_model$simulation$b_h
 
-################################################################################
+```
+
+Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the *constantAdjList* and then re-running the model.
+
+```R
 #B) CREATE ALTERNATIVE SCENARIO
 
 # Extend exogenous and conditionally-evaluated variables up to 2028
@@ -1076,26 +1055,6 @@ PC_model <- SIMULATE(PC_model
                      ,Exogenize=exogenizeList
                      ,ConstantAdjustment=constantAdjList
                      ,quietly=TRUE)
-
-################################################################################
-
-#CONSISTENCY CHECK
-
-#Create consistency statement 
-aerror=0
-error=0
-for (i in 1:23){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
-aerror = error/23
-if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
-  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
-  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
-
-#Plot redundant equation
-layout(matrix(c(1), 1, 1, byrow = TRUE))
-plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
-     main=expression("Consistency check (alternative scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
-     xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
 
@@ -1149,6 +1108,9 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
        col = c("deepskyblue4","red1"), box.lty=0)
 
 ```
+
+
+![fig_5_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_5_emp.png)
 
 ## 8_Useful_links
 
