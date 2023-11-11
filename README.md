@@ -5,13 +5,13 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 ## Table of Contents
 
 - [Introduction](#Introduction)
-- [Model_PC](#Model_PC)
-- [Model_BMW](#Model_BMW)
-- [Model_REG](#Model_REG)
-- [Model_IO-PC](#Model_IO-PC)
-- [Model_ECO-PC](#Model_ECO-PC)
-- [Model_EMP](#Model_EMP)
-- [Useful_links](#Useful_links)
+- [Model PC](#Model_PC)
+- [Model BMW](#Model_BMW)
+- [Model REG](#Model_REG)
+- [Model IO-PC](#Model_IO-PC)
+- [Model ECO-PC](#Model_ECO-PC)
+- [Model EMP](#Model_EMP)
+- [Useful links](#Useful_links)
 
 ## Introduction
 
