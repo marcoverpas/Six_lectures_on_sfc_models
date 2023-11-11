@@ -383,7 +383,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
 
-The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations. Afterward, we can simulate the model out of sample using either the function DYNAMIC (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function FORECAST (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
+The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations. Afterward, we can simulate the model out of sample using either the function `DYNAMIC` (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function `FORECAST` (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
 
 ```R
 # Extend exogenous and conditionally-evaluated variables up to 2028
@@ -481,7 +481,7 @@ PC_model <- STOCHSIMULATE(PC_model
                          ,quietly=TRUE)
 ```
 
-It is important to stress that two types of shocks for the stochastic structure of the model can be selected. NORM stands for "normal distribution." In this case, parameters must contain the mean and the standard deviation of the normal distribution. UNIF stands for "uniform distribution." The related parameters must contain the lower and upper bounds of the uniform distribution.
+It is important to stress that two types of shocks for the stochastic structure of the model can be selected. `NORM` stands for "normal distribution." In this case, parameters must contain the mean and the standard deviation of the normal distribution. `UNIF` stands for "uniform distribution." The related parameters must contain the lower and upper bounds of the uniform distribution.
 
 Having specified that, we can now re-plot the charts.
 
@@ -578,7 +578,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 The fourth file, named [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R), allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
 
-Both the "knitr" and "kableExtra" packages are required. However, we highly recommend loading the latter after the tables have been created.
+Both the `knitr` and `kableExtra` packages are required. However, we highly recommend loading the latter after the tables have been created.
 
 We start with the balance-sheet matrix.
 
@@ -814,7 +814,7 @@ TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
 kable(TFM_Matrix) #Unload kableExtra to use this
 ```
 
-Once again, a LaTeX version of the table can be generated using "kableExtra".
+Once again, a LaTeX version of the table can be generated using `kableExtra`.
 
 ```R
 #Upload libraries
@@ -920,7 +920,7 @@ t_0=PC_model$simulation$t
 b_h_0=PC_model$simulation$b_h
 ```
 
-Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the *constantAdjList* option and then re-run the model. More specifically, we test the effect of a fixed-sum increase in taxation amounting to 3 billion EUR.
+Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the `constantAdjList` option and then re-run the model. More specifically, we test the effect of a fixed-sum increase in taxation amounting to 3 billion EUR.
 
 ```R
 # Extend exogenous and conditionally-evaluated variables up to 2028
