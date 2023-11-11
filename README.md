@@ -920,7 +920,7 @@ t_0=PC_model$simulation$t
 b_h_0=PC_model$simulation$b_h
 ```
 
-Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the *constantAdjList* and then re-running the model.
+Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the *constantAdjList* option and then re-run the model. More specifically, we test the effect of a fixed-sum increase in taxation amounting to 3 billion EUR.
 
 ```R
 # Extend exogenous and conditionally-evaluated variables up to 2028
