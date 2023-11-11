@@ -446,7 +446,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 ```
 ![fig_3_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_3_emp.png)
 
-The simulations above are deterministic in nature. However, Bimets also allows conducting stochastic simulations using the STOCHSIMULATE function. This enables the analysis of forecast errors in structural econometric models arising from random disturbances, coefficient estimation errors, etc. More precisely, the model is solved for different values of specified stochastic disturbances, the structure of which is defined by users, specifying probability distributions and time ranges. Mean and standard deviation for each simulated endogenous variable are stored in the output model object.
+The simulations above are deterministic in nature. However, Bimets also allows conducting stochastic simulations using the `STOCHSIMULATE` function. This enables the analysis of forecast errors in structural econometric models arising from random disturbances, coefficient estimation errors, etc. More precisely, the model is solved for different values of specified stochastic disturbances, the structure of which is defined by users, specifying probability distributions and time ranges. Mean and standard deviation for each simulated endogenous variable are stored in the output model object.
 
 ```R
 #Define stochastic structure (disturbances)
