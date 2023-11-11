@@ -866,6 +866,8 @@ TFM_Matrix %>%
 
 ```
 
+![tfm_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/tfm_emp.png)
+
 ### 7.6_Sankey_diagram
 
 The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks. A few additional packages are required here.
