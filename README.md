@@ -125,11 +125,9 @@ if(!is.null(dev.list())) dev.off()
 
 #Clear console
 cat("\014")
-
 ```
 
 The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure.
-
 
 ```R
 #Upload libraries
@@ -141,7 +139,6 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 
 #Alternatively, upload data from your folder
 #Data_PC <- read.csv("C:/.../PC_data.csv")
-
 ```
 
 We can now define the system of identities and behavioural equations as a txt file. Bimets' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
@@ -203,9 +200,7 @@ TSRANGE 1998 1 2021 1
 EQ> r = par0 + par1*TSLAG(r,1)
 COEFF> par0 par1
 
-
 END"
-
 ```
 
 The next step is to upload the observed series into the model. 
@@ -247,20 +242,16 @@ PC_modelData=list(
 
 #Load the data into the model
 PC_model=LOAD_MODEL_DATA(PC_model,PC_modelData)
-
 ```
 We can now estimate model coefficients 
 
 ```R
-
-
 #Estimate model coefficients
 PC_model=ESTIMATE(PC_model
                  ,TSRANGE=c(1998,1,2019,1)            #Choose time range for estimations
                  #,forceTSRANGE = TRUE                 #Force same time range for all estimations
                  #,CHOWTEST = TRUE                     #Perform Chow test: stability analysis
 )
-
 ```
 
 When the CHOWTEST argument is set to TRUE, the model conducts a structural stability analysis to identify breaks. 
@@ -283,13 +274,11 @@ PC_model <- SIMULATE(PC_model
                      ,simIterLimit=100
                      ,Exogenize=exogenizeList
                      ,quietly=TRUE)
-
 ```
 
 We can now plot the simulated series against the observed series.
 
 ```R
-
 #PLOTS FOR VISUAL INSPECTION 
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
@@ -324,7 +313,6 @@ plot(PC_model$simulation$b_h,col="red1",lty=1,lwd=1,font.main=1,cex.main=1,main=
 lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","red1"), box.lty=0)
-
 ```
 
 ![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
@@ -350,14 +338,11 @@ PC_model <- SIMULATE(PC_model
                     ,simIterLimit=100
                     ,Exogenize=exogenizeList
                     ,quietly=TRUE)
-
-
 ```
 
 Simulated series now perfectly match observed ones over the considered period.
 
 ```R
-
 #PLOTS FOR VISUAL INSPECTION 
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
@@ -392,7 +377,6 @@ plot(PC_model$simulation$b_h,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,mai
 lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","green4"), box.lty=0)
-
 ```
 
 ![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_emp.png)
@@ -461,8 +445,6 @@ plot(PC_model$simulation$b_h,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main
 lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","deepskyblue4"), box.lty=0)
-
-
 ```
 ![fig_3_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_3_emp.png)
 
@@ -499,8 +481,6 @@ PC_model <- STOCHSIMULATE(PC_model
                          ,Exogenize=exogenizeList
                          ,ConstantAdjustment=constantAdjList
                          ,quietly=TRUE)
-
-
 ```
 
 It is important to stress that two types of shocks for the stochastic structure of the model can be selected. NORM stands for "normal distribution." In this case, parameters must contain the mean and the standard deviation of the normal distribution. UNIF stands for "uniform distribution." The related parameters must contain the lower and upper bounds of the uniform distribution.
@@ -592,7 +572,6 @@ polygon(
   border = NA )
 legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1,
        lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
-
 ```
 
 ![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
@@ -693,14 +672,11 @@ kable(Tot_BS)
 #Create BS matrix
 BS_Matrix<-cbind(H_BS,F_BS,CB_BS,G_BS,Tot_BS)
 kable(BS_Matrix) #Unload kableExtra to use this
-
 ```
 
 The commands above allow visualising the BS matrix in the console. However, an HTML version and a LaTeX version of the table can be generated too by adding the following commands.
 
-
 ```R
-
 #Upload libraries
 library(kableExtra)
 
@@ -715,11 +691,9 @@ BS_Matrix %>%
       col.names = c("Households","Firms","Central bank","Government","Row total"),
       align="r") %>%
   kable_classic(full_width = F, html_font = "helvetica")
-
 ```
 
 ![bs_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/bs_emp.png)
-
 
 We can now move to the transactions-flow matrix.
 
@@ -840,13 +814,9 @@ kable(Tot_TFM)
 #Create TFM matrix
 TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
 kable(TFM_Matrix) #Unload kableExtra to use this
-
-################################################################################
-
 ```
 
 Once again, a LaTeX version of the table can be generated using "kableExtra".
-
 
 ```R
 #Upload libraries
@@ -863,7 +833,6 @@ TFM_Matrix %>%
       col.names = c("Households","Firms","Central bank","Government","Row total"),
       align="r") %>%
   kable_classic(full_width = F, html_font = "helvetica")
-
 ```
 
 ![tfm_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/tfm_emp.png)
@@ -873,7 +842,6 @@ TFM_Matrix %>%
 The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks. A few additional packages are required here.
 
 ```R
-
 #Upload libraries for Sankey diagram
 library(networkD3)
 library(htmlwidgets)
@@ -929,7 +897,6 @@ links = as.data.frame(matrix(c(
 #connected from. The second number represents the node connected to. The third
 #number is the value of the node.  
 
-
 byrow = TRUE, ncol = 3))
 names(links) = c("source", "target", "value")
 my_color <- 'd3.scaleOrdinal() .domain([]) .range(["blue","green","yellow","red","purple","khaki","peru","violet","cyan","pink","orange","beige","white"])'
@@ -939,32 +906,25 @@ sankeyNetwork(Links = links, Nodes = nodes,
               Source = "source", Target = "target",
               Value = "value", NodeID = "name", colourScale=my_color,
               fontSize= 25, nodeWidth = 30)
-
 ```
 
-
 ![sankey_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_emp.png)
-
 
 ### 7.7_Experiments
 
 Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario). Firstly, we rename the values of selected varaibles under the baseline scenario (deterministic out-of-sample simulations).
 
 ```R
-
 #Attribute values to selected variables
 y_0=PC_model$simulation$y
 cons_0=PC_model$simulation$cons
 t_0=PC_model$simulation$t
 b_h_0=PC_model$simulation$b_h
-
 ```
 
 Secondly, we create one or more alternative scenarios by adding exogenous corrections to selected variables through the *constantAdjList* and then re-running the model.
 
 ```R
-#B) CREATE ALTERNATIVE SCENARIO
-
 # Extend exogenous and conditionally-evaluated variables up to 2028
 PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
 
@@ -995,8 +955,6 @@ PC_model <- SIMULATE(PC_model
                      ,Exogenize=exogenizeList
                      ,ConstantAdjustment=constantAdjList
                      ,quietly=TRUE)
-
-################################################################################
 
 #PLOTS FOR VISUAL INSPECTION 
 
@@ -1046,9 +1004,7 @@ lines(PC_modelData$b_h,col="deepskyblue4",lty=1,lwd=2)
 abline(v=2021,col=mycol1)
 legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1, lty=c(1,1), lwd=c(2,2),
        col = c("deepskyblue4","red1"), box.lty=0)
-
 ```
-
 
 ![fig_5_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_5_emp.png)
 
