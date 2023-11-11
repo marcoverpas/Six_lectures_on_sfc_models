@@ -121,7 +121,8 @@ cat("\014")
 
 ```
 
-The next step is to upload data from a folder. This code take the observed series from a DropBox folder. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit PC simplified structure. 
+The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure.
+
 
 ```R
 
@@ -141,7 +142,7 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 
 ```
 
-We can now define the system of equations.
+We can now define the system of identities and behavioural equations as a txt file. Bimets' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
 
 ```R
 
@@ -207,7 +208,11 @@ COEFF> par0 par1
 
 END"
 
-##############################################################################
+```
+
+The next step is to upload the observed series into the model. 
+
+```R
 
 #D) LOAD THE MODEL AND ESTIMATE COEFFICIENTS
 
@@ -249,14 +254,22 @@ PC_modelData=list(
 #Load the data into the model
 PC_model=LOAD_MODEL_DATA(PC_model,PC_modelData)
 
+```
+We can now estimate model coefficients 
+
+```R
+
+
 #Estimate model coefficients
 PC_model=ESTIMATE(PC_model
                  ,TSRANGE=c(1998,1,2019,1)            #Choose time range for estimations
-                 ,forceTSRANGE = TRUE
-                 ,CHOWTEST = TRUE                     #Chow test: stability analysis
+                 #,forceTSRANGE = TRUE                 #Force same time range for all estimations
+                 #,CHOWTEST = TRUE                     #Perform Chow test: stability analysis
 )
 
 ```
+
+When the CHOWTEST argument is set to TRUE, the model conducts a structural stability analysis to identify breaks. 
 
 ### 2) In-sample predictions
 
