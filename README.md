@@ -146,8 +146,6 @@ We can now define the system of identities and behavioural equations as a txt fi
 ```R
 S_model.txt="MODEL
 
-COMMENT> FIRMS SECTOR ----------------------------------------------------------
-
 COMMENT> GDP - eq. 4.1
 IDENTITY> y
 EQ> y = cons + g                      
