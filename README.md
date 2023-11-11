@@ -275,7 +275,7 @@ When the CHOWTEST argument is set to TRUE, the model conducts a structural stabi
 
 The second file, named [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R), performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
 
-More precisely, the first step is to run the model to assess its fit with observed series. In this case, endogenous variables should not be exogenized, except for the policy tools (the policy rate, *r*, in this simplified model).
+More precisely, the first step is to run the model to assess its fit with observed series. In this case, endogenous variables should not be exogenised, except for the policy tools (the policy rate, *r*, in this simplified model). Since we are conducting an in-sample simulation, we choose a static prediction approach, implying that historical values for the lagged endogenous variables are utilised in the solutions of subsequent periods.
 
 ```R
 #A) INSAMPLE PREDICTION (NO ADJUSTMENT)
@@ -291,6 +291,12 @@ PC_model <- SIMULATE(PC_model
                      ,simIterLimit=100
                      ,Exogenize=exogenizeList
                      ,quietly=TRUE)
+
+```R
+
+We can now plot the simulated series against the observed series.
+
+```
 
 #PLOTS FOR VISUAL INSPECTION 
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
@@ -327,6 +333,13 @@ lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","red1"), box.lty=0)
 
+
+```R
+
+A consistency check, based on the redundant equation, is conducted too. 
+
+
+```
 ################################################################################
 
 #CONSISTENCY CHECK
@@ -627,7 +640,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 ```
 
-![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
 
 ### 4) SFC tables
