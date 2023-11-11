@@ -117,8 +117,6 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. As usual, the first step is to prepare the workspace:
 
 ```R
-#STEP 1: PREPARE THE WORK-SPACE
-
 #Clear environment
 rm(list=ls(all=TRUE))
 
@@ -134,9 +132,6 @@ The next step is to upload data from a folder. This code takes the observed seri
 
 
 ```R
-
-#STEP 2: UPLOAD LIBRARIES AND DATA
-
 #Upload libraries
 library(bimets)
 library(knitr)
@@ -147,17 +142,11 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 #Alternatively, upload data from your folder
 #Data_PC <- read.csv("C:/.../PC_data.csv")
 
-#Source: (our elaboration on) Eurostat data on Italy, December 2021
-
 ```
 
 We can now define the system of identities and behavioural equations as a txt file. Bimets' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
 
 ```R
-
-#B) DEFINE MODEL EQUATIONS
-
-
 S_model.txt="MODEL
 
 COMMENT> FIRMS SECTOR ----------------------------------------------------------
@@ -222,9 +211,6 @@ END"
 The next step is to upload the observed series into the model. 
 
 ```R
-
-#D) LOAD THE MODEL AND ESTIMATE COEFFICIENTS
-
 #Load the model
 PC_model=LOAD_MODEL(modelText = S_model.txt)
 
@@ -259,7 +245,6 @@ PC_modelData=list(
   
 )
 
-
 #Load the data into the model
 PC_model=LOAD_MODEL_DATA(PC_model,PC_modelData)
 
@@ -287,8 +272,6 @@ The second file, named [EMP_model_insample.R](https://github.com/marcoverpas/Six
 More precisely, the first step is to run the model to assess its fit with observed series. In this case, endogenous variables should not be exogenised, except for the policy tools (the policy rate, *r*, in this simplified model). Since we are conducting an in-sample simulation, we choose a static prediction approach, implying that historical values for the lagged endogenous variables are utilised in the solutions of subsequent periods.
 
 ```R
-#A) INSAMPLE PREDICTION (NO ADJUSTMENT)
-
 # Define exogenisation list to 2021
 exogenizeList <- list(  r = TRUE  )    #Interest rate
                                   
@@ -342,7 +325,6 @@ lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","red1"), box.lty=0)
 
-
 ```
 
 ![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
@@ -350,8 +332,6 @@ legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c
 A consistency check, based on the redundant equation, can be conducted too (we refer to the [complete code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R)). After that, in-sample predictions can be adjusted to the observed series using prediction errors, that is, by exogenising the endogenous variables of the model. 
 
 ```R
-#B) INSAMPLE PREDICTION (ADJUSTMENT)
-
 # Define new exogenisation list to 2021
 exogenizeList <- list(
   
@@ -424,8 +404,6 @@ The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/S
 The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations. Afterward, we can simulate the model out of sample using either the function DYNAMIC (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function FORECAST (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
 
 ```R
-#A) OUT-OF-SAMPLE PREDICTION (DETERMINISTIC)
-
 # Extend exogenous and conditionally-evaluated variables up to 2028
 PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
 
@@ -491,10 +469,6 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 The simulations above are deterministic in nature. However, Bimets also allows conducting stochastic simulations using the STOCHSIMULATE function. This enables the analysis of forecast errors in structural econometric models arising from random disturbances, coefficient estimation errors, etc. More precisely, the model is solved for different values of specified stochastic disturbances, the structure of which is defined by users, specifying probability distributions and time ranges. Mean and standard deviation for each simulated endogenous variable are stored in the output model object.
 
 ```R
-
-
-#B) OUT-OF-SAMPLE PREDICTION (STOCHASTIC)
-
 #Define stochastic structure (disturbances)
 myStochStructure <- list(
   
@@ -534,9 +508,6 @@ It is important to stress that two types of shocks for the stochastic structure 
 Having specified that, we can now re-plot the charts.
 
 ```R
-
-#PLOTS FOR VISUAL INSPECTION 
-
 #Set layout
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
@@ -634,7 +605,6 @@ Both the "knitr" and "kableExtra" packages are required. However, we highly reco
 
 We start with the balance-sheet matrix.
 
-
 ```R
 #Create BS and TFM tables using observed time series
 
@@ -647,15 +617,11 @@ yr=27
 #Choose a scenario (note: 1 = baseline)
 #scen=1
 
-################################################################################
-
 #Create row names for BS matrix
 rownames<-c( "Cash (money)",
              "Bills",
              "Wealth",
              "Column total")
-
-################################################################################
 
 #Create households aggregates
 H <-c( round(PC_modelData$h_h[yr], digits = 2),                                                                    
@@ -670,8 +636,6 @@ H_BS<-as.data.frame(H,row.names=rownames)
 #Print firms column
 kable(H_BS)
 
-################################################################################
-
 #Create firms aggregates
 P <-c( "",                                                                    
        "",                                                                    
@@ -685,8 +649,6 @@ F_BS<-as.data.frame(P,row.names=rownames)
 #Print firms column
 kable(F_BS)
 
-################################################################################
-
 #Create government aggregates
 G   <-c( "",                                                                    
          round(-PC_modelData$b_s[yr], digits = 2),                                                                    
@@ -697,10 +659,8 @@ G   <-c( "",
 #Create table of results
 G_BS<-as.data.frame(G,row.names=rownames)
 
-#Print firms column
+#Print government column
 kable(G_BS)
-
-################################################################################
 
 #Create CB aggregates
 CB  <-c( round(-PC_modelData$h_s[yr], digits = 2),                                                                    
@@ -712,10 +672,8 @@ CB  <-c( round(-PC_modelData$h_s[yr], digits = 2),
 #Create table of results
 CB_BS<-as.data.frame(CB,row.names=rownames)
 
-#Print firms column
+#Print CB column
 kable(CB_BS)
-
-################################################################################
 
 #Create "row total" column
 Tot  <-c( round(PC_modelData$h_h[yr]-PC_modelData$h_s[yr], digits = 2),                                                                    
@@ -729,10 +687,8 @@ Tot  <-c( round(PC_modelData$h_h[yr]-PC_modelData$h_s[yr], digits = 2),
 #Create table of results
 Tot_BS<-as.data.frame(Tot,row.names=rownames)
 
-#Print firms column
+#Print total column
 kable(Tot_BS)
-
-################################################################################
 
 #Create BS matrix
 BS_Matrix<-cbind(H_BS,F_BS,CB_BS,G_BS,Tot_BS)
@@ -744,8 +700,6 @@ The commands above allow visualising the BS matrix in the console. However, an H
 
 
 ```R
-
-#Create html and latex versions of BS matrix
 
 #Upload libraries
 library(kableExtra)
@@ -770,7 +724,6 @@ BS_Matrix %>%
 We can now move to the transactions-flow matrix.
 
 ```R
-
 #Create row names for TFM
 rownames<-c( "Consumption",
              "Government expenditure",
@@ -781,8 +734,6 @@ rownames<-c( "Consumption",
              "Change in cash",
              "Change in bills",
              "Column total")
-
-################################################################################
 
 #Create households aggregates
 H <-c( round(-PC_modelData$cons[yr], digits = 2),
@@ -800,10 +751,8 @@ H <-c( round(-PC_modelData$cons[yr], digits = 2),
 #Create table of results
 H_TFM<-as.data.frame(H,row.names=rownames)
 
-#Print firms column
+#Print households column
 kable(H_TFM)
-
-################################################################################
 
 #Create firms aggregates
 P <-c( round(PC_modelData$cons[yr], digits = 2),
@@ -822,8 +771,6 @@ F_TFM<-as.data.frame(P,row.names=rownames)
 
 #Print firms column
 kable(F_TFM)
-
-################################################################################
 
 #Create government aggregates
 G   <-c( "",
@@ -844,10 +791,8 @@ G   <-c( "",
 #Create table of results
 G_TFM<-as.data.frame(G,row.names=rownames)
 
-#Print firms column
+#Print government column
 kable(G_TFM)
-
-################################################################################
 
 #Create CB aggregates
 CB   <-c( "",
@@ -864,10 +809,8 @@ CB   <-c( "",
 #Create table of results
 CB_TFM<-as.data.frame(CB,row.names=rownames)
 
-#Print firms column
+#Print CB column
 kable(CB_TFM)
-
-################################################################################
 
 #Create "row total" column
 Tot   <-c(round(PC_modelData$cons[yr]-PC_modelData$cons[yr], digits = 2),
@@ -891,10 +834,8 @@ Tot   <-c(round(PC_modelData$cons[yr]-PC_modelData$cons[yr], digits = 2),
 #Create table of results
 Tot_TFM<-as.data.frame(Tot,row.names=rownames)
 
-#Print firms column
+#Print total column
 kable(Tot_TFM)
-
-################################################################################
 
 #Create TFM matrix
 TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
@@ -904,13 +845,10 @@ kable(TFM_Matrix) #Unload kableExtra to use this
 
 ```
 
-Once again, a LaTeX version of the table can be generated using *kableExtra*.
+Once again, a LaTeX version of the table can be generated using "kableExtra".
 
 
 ```R
-
-#Create html and latex versions of the TFM table
-
 #Upload libraries
 library(kableExtra)
 
