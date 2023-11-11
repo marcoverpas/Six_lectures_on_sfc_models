@@ -705,7 +705,7 @@ The commands above allow visualising the BS matrix in the console. However, an H
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 3. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
+caption1 <- paste("Table 1. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
 
 #Create html table for BS
 BS_Matrix %>%
