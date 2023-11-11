@@ -103,7 +103,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
-### [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
+### 1) [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
 
 ```R
 #STEP 1: PREPARE THE WORK-SPACE
@@ -248,15 +248,145 @@ PC_model=ESTIMATE(PC_model
 
 ```
 
-### [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
+### 2) [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
 
-### [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R) performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
+```R
+#A) INSAMPLE PREDICTION (NO ADJUSTMENT)
 
-### [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R) allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
+# Define exogenisation list to 2021
+exogenizeList <- list(  r = TRUE  )    #Interest rate
+                                  
+# In-sample prediction (no add factors)
+PC_model <- SIMULATE(PC_model
+                     ,simType='STATIC'
+                     ,TSRANGE=c(1998,1,2021,1)
+                     ,simConvergence=0.00001
+                     ,simIterLimit=100
+                     ,Exogenize=exogenizeList
+                     ,quietly=TRUE)
 
-### [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R) generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
+#PLOTS FOR VISUAL INSPECTION 
+layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
-### [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
+# GDP
+plot(PC_model$simulation$y,col="red1",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$y*0.95),max(PC_model$simulation$y*1.05)))
+lines(PC_modelData$y,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","red1"), box.lty=0)
+
+# Consumption
+plot(PC_model$simulation$cons,col="red1",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$cons*0.95),max(PC_model$simulation$cons*1.05)))
+lines(PC_modelData$cons,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","red1"), box.lty=0)
+
+# Tax revenue
+plot(PC_model$simulation$t,col="red1",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$t*0.95),max(PC_model$simulation$t*1.05)))
+lines(PC_modelData$t,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","red1"), box.lty=0)
+
+# Bills held by househeolds
+plot(PC_model$simulation$b_h,col="red1",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$b_h*0.95),max(PC_model$simulation$b_h*1.05)))
+lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","red1"), box.lty=0)
+
+################################################################################
+
+#CONSISTENCY CHECK
+
+#Create consistency statement 
+aerror=0
+error=0
+for (i in 1:23){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
+aerror = error/23
+if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
+  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
+  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+
+#Plot redundant equation
+layout(matrix(c(1), 1, 1, byrow = TRUE))
+plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
+     main=expression("Consistency check (baseline scenario, no adj.): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
+     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     xlab = 'Time',ylim = range(-1,1))
+
+################################################################################
+
+#B) INSAMPLE PREDICTION (ADJUSTMENT)
+
+# Define new exogenisation list to 2021
+exogenizeList <- list(
+  
+  r = TRUE,                     #Interest rate
+  t = TRUE,                     #Taxes
+  cons = TRUE,                  #Consumption
+  b_h = TRUE                    #Bills held by households
+  
+)
+
+# Simulate model
+PC_model <- SIMULATE(PC_model
+                    ,simType='STATIC'
+                    ,TSRANGE=c(1998,1,2021,1)
+                    ,simConvergence=0.00001
+                    ,simIterLimit=100
+                    ,Exogenize=exogenizeList
+                    ,quietly=TRUE)
+
+#PLOTS FOR VISUAL INSPECTION 
+layout(matrix(c(1:4), 2, 2, byrow = TRUE))
+
+# GDP
+plot(PC_model$simulation$y,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$y*0.95),max(PC_model$simulation$y*1.05)))
+lines(PC_modelData$y,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","green4"), box.lty=0)
+
+# Consumption
+plot(PC_model$simulation$cons,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$cons*0.95),max(PC_model$simulation$cons*1.05)))
+lines(PC_modelData$cons,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","green4"), box.lty=0)
+
+# Tax revenue
+plot(PC_model$simulation$t,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$t*0.95),max(PC_model$simulation$t*1.05)))
+lines(PC_modelData$t,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","green4"), box.lty=0)
+
+# Bills held by households
+plot(PC_model$simulation$b_h,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
+     ylim=range(min(PC_model$simulation$b_h*0.95),max(PC_model$simulation$b_h*1.05)))
+lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","green4"), box.lty=0)
+
+```
+
+### 3) [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R) performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
+
+### 4) [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R) allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
+
+### 5) [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R) generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
+
+### 6) [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
 
 [in progress]
 
