@@ -12,12 +12,12 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 - [6 Model ECO-PC](#6_Model_ECO-PC)
 - [7 Model EMP](#7_Model_EMP)
     - [7.1 Introduction](#7_1_Introduction)
-    - [7.2 Model and data](#7.2_Model_and_data)
-    - [7.3 In-sample predictions](#7.3_In-sample_predictions)
-    - [7.4 Out-of-sample predictions](#7.4_Out-of-sample_predictions)
-    - [7.5 In-sample predictions](#7.5_SFC_tables)
-    - [7.6 Sankey diagram](#7.6_Sankey_diagram)
-    - [7.7 Experiments](#7.3_Experiments)
+    - [7.2 Model and data](#7_2_Model_and_data)
+    - [7.3 In-sample predictions](#7_3_In-sample_predictions)
+    - [7.4 Out-of-sample predictions](#7_4_Out-of-sample_predictions)
+    - [7.5 In-sample predictions](#7_5_SFC_tables)
+    - [7.6 Sankey diagram](#7_6_Sankey_diagram)
+    - [7.7 Experiments](#7_7_Experiments)
 - [8 Useful links](#8_Useful_links)
 
 ## 1_Introduction
@@ -112,7 +112,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
-### 7.2_Model_and_data
+### 7_2_Model_and_data
 
 The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. As usual, the first step is to prepare the workspace:
 
@@ -254,7 +254,7 @@ PC_model=ESTIMATE(PC_model
 
 When the CHOWTEST argument is set to TRUE, the model conducts a structural stability analysis to identify breaks. 
 
-### 7.3_In-sample_predictions
+### 7_3_In-sample_predictions
 
 The second file, named [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R), performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
 
@@ -379,7 +379,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 ![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_emp.png)
 
-### 7.4_Out-of-sample_predictions
+### 7_4_Out-of-sample_predictions
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
 
@@ -574,7 +574,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 ![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
-### 7.5_SFC_tables
+### 7_5_SFC_tables
 
 The fourth file, named [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R), allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
 
@@ -835,7 +835,7 @@ TFM_Matrix %>%
 
 ![tfm_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/tfm_emp.png)
 
-### 7.6_Sankey_diagram
+### 7_6_Sankey_diagram
 
 The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks. A few additional packages are required here.
 
@@ -908,7 +908,7 @@ sankeyNetwork(Links = links, Nodes = nodes,
 
 ![sankey_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_emp.png)
 
-### 7.7_Experiments
+### 7_7_Experiments
 
 Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario). Firstly, we rename the values of selected varaibles under the baseline scenario (deterministic out-of-sample simulations).
 
