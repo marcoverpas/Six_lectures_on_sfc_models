@@ -336,7 +336,7 @@ legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c
 
 ```
 
-![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
+![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
 
 A consistency check, based on the redundant equation, can be conducted too (we refer to the [complete code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R)). After that, in-sample predictions can be adjusted to the observed series using prediction errors, that is, by exogenising the endogenous variables of the model. 
 
@@ -408,11 +408,13 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 ```
 
-![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
+![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_emp.png)
 
 ### 3) Out-of-sample predictions
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
+
+The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations. Afterward, we can simulate the model out of sample using either the function DYNAMIC (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function FORECAST (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
 
 ```R
 #A) OUT-OF-SAMPLE PREDICTION (DETERMINISTIC)
@@ -430,14 +432,6 @@ exogenizeList <- list(
   
 )
 
-# Define add-factor list (defining exogenous adjustments: policy + available predictions)
-constantAdjList <- list(
-  
-  cons = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A'),  #Shock to consumption 
-  t    = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A')  #Shock to taxes
-  
-)
-
 # Simulate model
 PC_model <- SIMULATE(PC_model
                     ,simType='DYNAMIC' #try also: 'FORECAST'
@@ -445,7 +439,7 @@ PC_model <- SIMULATE(PC_model
                     ,simConvergence=0.00001
                     ,simIterLimit=1000
                     ,Exogenize=exogenizeList
-                    ,ConstantAdjustment=constantAdjList
+                    #,ConstantAdjustment=constantAdjList
                     ,quietly=TRUE)
 
 #PLOTS FOR VISUAL INSPECTION
@@ -483,28 +477,14 @@ lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
 legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
        col = c("darkorchid4","deepskyblue4"), box.lty=0)
 
-################################################################################
 
-#CONSISTENCY CHECK
+```
+![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
-#Create consistency statement 
-aerror=0
-error=0
-for (i in 1:30){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
-aerror = error/30
-if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
-  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
-  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+The simulations above are deterministic in nature. However, Bimets also allows conducting stochastic simulations using the STOCHSIMULATE function. This enables the analysis of forecast errors in structural econometric models arising from random disturbances, coefficient estimation errors, etc. More precisely, the model is solved for different values of specified stochastic disturbances, the structure of which is defined by users, specifying probability distributions and time ranges. Mean and standard deviation for each simulated endogenous variable are stored in the output model object.
 
-#Plot redundant equation
-layout(matrix(c(1), 1, 1, byrow = TRUE))
-plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
-     main=expression("Consistency check (baseline scenario, o.o.s., det.): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
-     xlab = 'Time',ylim = range(-1,1))
+```R
 
-
-################################################################################
 
 #B) OUT-OF-SAMPLE PREDICTION (STOCHASTIC)
 
@@ -531,15 +511,22 @@ myStochStructure <- list(
 PC_model <- STOCHSIMULATE(PC_model
                          ,simType='FORECAST'
                          ,TSRANGE=c(2021,1,2028,1)
-                         
                          ,StochStructure=myStochStructure
                          ,StochSeed=123
-                         
                          ,simConvergence=0.00001
                          ,simIterLimit=1000
                          ,Exogenize=exogenizeList
                          ,ConstantAdjustment=constantAdjList
                          ,quietly=TRUE)
+
+
+```
+
+It is important to stress that two types of shocks for the stochastic structure of the model can be selected. NORM stands for "normal distribution." In this case, parameters must contain the mean and the standard deviation of the normal distribution. UNIF stands for "uniform distribution." The related parameters must contain the lower and upper bounds of the uniform distribution.
+
+Having specified that, we can now re-plot the charts.
+
+```R
 
 #PLOTS FOR VISUAL INSPECTION 
 
@@ -632,12 +619,14 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 ![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
-
-
-
 ### 4) SFC tables
 
 The fourth file, named [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R), allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
+
+Both the "knitr" and "kableExtra" packages are required. However, we highly recommend loading the latter after the tables have been created.
+
+We start with the balance-sheet matrix.
+
 
 ```R
 #Create BS and TFM tables using observed time series
@@ -743,8 +732,11 @@ kable(Tot_BS)
 BS_Matrix<-cbind(H_BS,F_BS,CB_BS,G_BS,Tot_BS)
 kable(BS_Matrix) #Unload kableExtra to use this
 
-################################################################################
-################################################################################
+```
+
+We can now create the transactions-flow matrix.
+
+```R
 
 #Create row names for TFM
 rownames<-c( "Consumption",
