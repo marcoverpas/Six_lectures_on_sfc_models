@@ -292,11 +292,11 @@ PC_model <- SIMULATE(PC_model
                      ,Exogenize=exogenizeList
                      ,quietly=TRUE)
 
-```R
+```
 
 We can now plot the simulated series against the observed series.
 
-```
+```R
 
 #PLOTS FOR VISUAL INSPECTION 
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
@@ -334,32 +334,13 @@ legend("bottom",c("Observed","Simulated (unadjusted)"),  bty = "n", cex=1, lty=c
        col = c("darkorchid4","red1"), box.lty=0)
 
 
-```R
-
-A consistency check, based on the redundant equation, is conducted too. 
-
-
 ```
-################################################################################
 
-#CONSISTENCY CHECK
+![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
-#Create consistency statement 
-aerror=0
-error=0
-for (i in 1:23){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
-aerror = error/23
-if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
-  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
-  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+A consistency check, based on the redundant equation, can be conducted too (we refer to the [complete code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R)). After that, in-sample predictions can be adjusted to the observed series using prediction errors, that is, by exogenising the endogenous variables of the model. 
 
-#Plot redundant equation
-layout(matrix(c(1), 1, 1, byrow = TRUE))
-plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
-     main=expression("Consistency check (baseline scenario, no adj.): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
-     xlab = 'Time',ylim = range(-1,1))
-
+```R
 ################################################################################
 
 #B) INSAMPLE PREDICTION (ADJUSTMENT)
@@ -382,6 +363,13 @@ PC_model <- SIMULATE(PC_model
                     ,simIterLimit=100
                     ,Exogenize=exogenizeList
                     ,quietly=TRUE)
+
+
+```
+
+Simulated series now perfectly match observed ones over the considered period.
+
+```R
 
 #PLOTS FOR VISUAL INSPECTION 
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
@@ -419,6 +407,8 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","green4"), box.lty=0)
 
 ```
+
+![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
 ### 3) Out-of-sample predictions
 
@@ -640,7 +630,9 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 ```
 
-![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
+![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
+
+
 
 
 ### 4) SFC tables
