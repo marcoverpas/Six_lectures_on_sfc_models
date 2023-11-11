@@ -272,7 +272,7 @@ kable(TFM_Matrix) #Unload kableExtra to use this
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 3. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
+caption1 <- paste("Table 1. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
 caption2 <- paste("Table 2. Transactions-flow matrix of Model EMP for Italy in ",yr+1994, "(thous. eur, curr. p.)")
 
 #Create html table for BS
