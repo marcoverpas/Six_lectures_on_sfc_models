@@ -345,7 +345,7 @@ Simulated series now perfectly match observed ones over the considered period.
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
 # GDP
-plot(PC_model$simulation$y,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+plot(PC_model$simulation$y,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
      ylim=range(min(PC_model$simulation$y*0.95),max(PC_model$simulation$y*1.05)))
 lines(PC_modelData$y,col="darkorchid4",lty=3,lwd=3)
@@ -353,7 +353,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","green4"), box.lty=0)
 
 # Consumption
-plot(PC_model$simulation$cons,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+plot(PC_model$simulation$cons,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
      ylim=range(min(PC_model$simulation$cons*0.95),max(PC_model$simulation$cons*1.05)))
 lines(PC_modelData$cons,col="darkorchid4",lty=3,lwd=3)
@@ -361,7 +361,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","green4"), box.lty=0)
 
 # Tax revenue
-plot(PC_model$simulation$t,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+plot(PC_model$simulation$t,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
      ylim=range(min(PC_model$simulation$t*0.95),max(PC_model$simulation$t*1.05)))
 lines(PC_modelData$t,col="darkorchid4",lty=3,lwd=3)
@@ -369,7 +369,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","green4"), box.lty=0)
 
 # Bills held by households
-plot(PC_model$simulation$b_h,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+plot(PC_model$simulation$b_h,col="green4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1998,2021),
      ylim=range(min(PC_model$simulation$b_h*0.95),max(PC_model$simulation$b_h*1.05)))
 lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
@@ -413,7 +413,7 @@ PC_model <- SIMULATE(PC_model
 layout(matrix(c(1:4), 2, 2, byrow = TRUE))
 
 # GDP
-plot(PC_model$simulation$y,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+plot(PC_model$simulation$y,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$y*0.85),max(PC_model$simulation$y*1.05)))
 lines(PC_modelData$y,col="darkorchid4",lty=3,lwd=3)
@@ -421,7 +421,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","deepskyblue4"), box.lty=0)
 
 # Consumption
-plot(PC_model$simulation$cons,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+plot(PC_model$simulation$cons,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$cons*0.85),max(PC_model$simulation$cons*1.05)))
 lines(PC_modelData$cons,col="darkorchid4",lty=3,lwd=3)
@@ -429,7 +429,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","deepskyblue4"), box.lty=0)
 
 # Tax revenue
-plot(PC_model$simulation$t,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+plot(PC_model$simulation$t,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$t*0.85),max(PC_model$simulation$t*1.05)))
 lines(PC_modelData$t,col="darkorchid4",lty=3,lwd=3)
@@ -437,7 +437,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
        col = c("darkorchid4","deepskyblue4"), box.lty=0)
 
 # Bills held by househeolds
-plot(PC_model$simulation$b_h,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+plot(PC_model$simulation$b_h,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$b_h*0.85),max(PC_model$simulation$b_h*1.05)))
 lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
@@ -497,7 +497,7 @@ mycol2 <- rgb(255,0,0, max = 255, alpha = 30)
 
 # GDP
 plot(PC_model$stochastic_simulation$y$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
-     main="a) Italy GDP (thous. eur, curr. p.)",
+     main="a) Italy GDP (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_modelData$y*0.95),max(PC_model$stochastic_simulation$y$mean*1.05)))
 lines(PC_model$stochastic_simulation$y$mean+2*PC_model$stochastic_simulation$y$sd,col=2,lty=1,lwd=2)
@@ -516,7 +516,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 # Consumption
 plot(PC_model$stochastic_simulation$cons$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
-     main="b) Italy consumption (thous. eur, curr. p.)",
+     main="b) Italy consumption (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_modelData$cons*0.95),max(PC_model$stochastic_simulation$cons$mean*1.05)))
 lines(PC_model$stochastic_simulation$cons$mean+2*PC_model$stochastic_simulation$cons$sd,col=2,lty=1,lwd=2)
@@ -535,7 +535,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 # Tax revenue
 plot(PC_model$stochastic_simulation$t$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
-     main="c) Italy tax revenue (thous. eur, curr. p.)",
+     main="c) Italy tax revenue (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_modelData$t*0.95),max(PC_model$stochastic_simulation$t$mean*1.05)))
 lines(PC_model$stochastic_simulation$t$mean+2*PC_model$stochastic_simulation$t$sd,col=2,lty=1,lwd=2)
@@ -554,7 +554,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 # Bills held by households
 plot(PC_model$stochastic_simulation$b_h$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
-     main="d) Italy bills holdings (thous. eur, curr. p.)",
+     main="d) Italy bills holdings (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_modelData$b_h*0.95),max(PC_model$stochastic_simulation$b_h$mean*1.1)))
 lines(PC_model$stochastic_simulation$b_h$mean+2*PC_model$stochastic_simulation$b_h$sd,col=2,lty=1,lwd=2)
@@ -679,7 +679,7 @@ The commands above allow visualising the BS matrix in the console. However, an H
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 1. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
+caption1 <- paste("Table 1. Balance sheet of Model EMP for Italy in ", yr+1994, "(curr. p.)")
 
 #Create html table for BS
 BS_Matrix %>%
@@ -821,7 +821,7 @@ Once again, a LaTeX version of the table can be generated using "kableExtra".
 library(kableExtra)
 
 #Create captions
-caption2 <- paste("Table 2. Transactions-flow matrix of Model EMP for Italy in ",yr+1994, "(thous. eur, curr. p.)")
+caption2 <- paste("Table 2. Transactions-flow matrix of Model EMP for Italy in ",yr+1994, "(curr. p.)")
 
 #Create html table for TFM
 TFM_Matrix %>%
@@ -964,7 +964,7 @@ mycol1 <- rgb(0,255,0, max = 255, alpha = 80)
 mycol2 <- rgb(255,0,0, max = 255, alpha = 30)
 
 # GDP
-plot(PC_model$simulation$y,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+plot(PC_model$simulation$y,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="a) Italy GDP (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$y*0.85),max(y_0)))
 lines(y_0,col="deepskyblue4",lty=2,lwd=2)
@@ -974,7 +974,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
        col = c("deepskyblue4","red1"), box.lty=0)
 
 # Consumption
-plot(PC_model$simulation$cons,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+plot(PC_model$simulation$cons,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="b) Italy consumption (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$cons*0.85),max(cons_0)))
 lines(cons_0,col="deepskyblue4",lty=2,lwd=2)
@@ -984,7 +984,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
        col = c("deepskyblue4","red1"), box.lty=0)
 
 # Tax revenue
-plot(PC_model$simulation$t,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+plot(PC_model$simulation$t,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="c) Italy tax revenue (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$t*0.85),max(t_0)))
 lines(t_0,col="deepskyblue4",lty=2,lwd=2)
@@ -994,7 +994,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
        col = c("deepskyblue4","red1"), box.lty=0)
 
 # Bills held by households
-plot(PC_model$simulation$b_h,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+plot(PC_model$simulation$b_h,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="d) Italy bills holdings (curr. p.)",
      ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
      ylim=range(min(PC_model$simulation$b_h*0.85),max(b_h_0)))
 lines(b_h_0,col="deepskyblue4",lty=2,lwd=2)
