@@ -103,7 +103,9 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
-### 1) [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R) allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
+### 1) Model and data
+
+The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
 
 ```R
 #STEP 1: PREPARE THE WORK-SPACE
@@ -248,7 +250,9 @@ PC_model=ESTIMATE(PC_model
 
 ```
 
-### 2) [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R) performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
+### 2) In-sample predictions
+
+The second file, named [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R), performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
 
 ```R
 #A) INSAMPLE PREDICTION (NO ADJUSTMENT)
@@ -380,19 +384,725 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 ```
 
-### 3) [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R) performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
-
-### 4) [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R) allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
-
-### 5) [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R) generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
-
-### 6) [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R) imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
-
-[in progress]
-
 ![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
 
+### 3) Out-of-sample predictions
 
+The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
+
+```R
+#A) OUT-OF-SAMPLE PREDICTION (DETERMINISTIC)
+
+# Extend exogenous and conditionally-evaluated variables up to 2028
+PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
+
+# Define exogenisation list
+exogenizeList <- list(
+  
+  r = TRUE,                     #Interest rate (whole period)
+  t = c(1998,1,2021,1),         #Taxes
+  cons = c(1998,1,2021,1),      #Consumption
+  b_h = c(1998,1,2021,1)        #Bills held by households
+  
+)
+
+# Define add-factor list (defining exogenous adjustments: policy + available predictions)
+constantAdjList <- list(
+  
+  cons = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A'),  #Shock to consumption 
+  t    = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A')  #Shock to taxes
+  
+)
+
+# Simulate model
+PC_model <- SIMULATE(PC_model
+                    ,simType='DYNAMIC' #try also: 'FORECAST'
+                    ,TSRANGE=c(1998,1,2028,1)
+                    ,simConvergence=0.00001
+                    ,simIterLimit=1000
+                    ,Exogenize=exogenizeList
+                    ,ConstantAdjustment=constantAdjList
+                    ,quietly=TRUE)
+
+#PLOTS FOR VISUAL INSPECTION
+layout(matrix(c(1:4), 2, 2, byrow = TRUE))
+
+# GDP
+plot(PC_model$simulation$y,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$y*0.85),max(PC_model$simulation$y*1.05)))
+lines(PC_modelData$y,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","deepskyblue4"), box.lty=0)
+
+# Consumption
+plot(PC_model$simulation$cons,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$cons*0.85),max(PC_model$simulation$cons*1.05)))
+lines(PC_modelData$cons,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","deepskyblue4"), box.lty=0)
+
+# Tax revenue
+plot(PC_model$simulation$t,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$t*0.85),max(PC_model$simulation$t*1.05)))
+lines(PC_modelData$t,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","deepskyblue4"), box.lty=0)
+
+# Bills held by househeolds
+plot(PC_model$simulation$b_h,col="deepskyblue4",lty=1,lwd=1,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$b_h*0.85),max(PC_model$simulation$b_h*1.05)))
+lines(PC_modelData$b_h,col="darkorchid4",lty=3,lwd=3)
+legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3,1), lwd=c(3,1),
+       col = c("darkorchid4","deepskyblue4"), box.lty=0)
+
+################################################################################
+
+#CONSISTENCY CHECK
+
+#Create consistency statement 
+aerror=0
+error=0
+for (i in 1:30){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
+aerror = error/30
+if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
+  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
+  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+
+#Plot redundant equation
+layout(matrix(c(1), 1, 1, byrow = TRUE))
+plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
+     main=expression("Consistency check (baseline scenario, o.o.s., det.): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
+     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     xlab = 'Time',ylim = range(-1,1))
+
+
+################################################################################
+
+#B) OUT-OF-SAMPLE PREDICTION (STOCHASTIC)
+
+#Define stochastic structure (disturbances)
+myStochStructure <- list(
+  
+  #Consumption: normally-distributed shocks
+  cons=list(
+    TSRANGE=c(2022,1,2028,1),
+    TYPE='NORM', #UNIF
+    PARS=c(0,PC_model$behaviorals$cons$statistics$StandardErrorRegression)
+  ),
+  
+  #Taxes: normally-distributed shocks
+  t=list(
+    TSRANGE=c(2022,1,2028,1),
+    TYPE='NORM', #UNIF
+    PARS=c(0,PC_model$behaviorals$t$statistics$StandardErrorRegression)
+  )
+  
+)
+
+# Simulate model again
+PC_model <- STOCHSIMULATE(PC_model
+                         ,simType='FORECAST'
+                         ,TSRANGE=c(2021,1,2028,1)
+                         
+                         ,StochStructure=myStochStructure
+                         ,StochSeed=123
+                         
+                         ,simConvergence=0.00001
+                         ,simIterLimit=1000
+                         ,Exogenize=exogenizeList
+                         ,ConstantAdjustment=constantAdjList
+                         ,quietly=TRUE)
+
+#PLOTS FOR VISUAL INSPECTION 
+
+#Set layout
+layout(matrix(c(1:4), 2, 2, byrow = TRUE))
+
+#Create custom colours
+mycol1 <- rgb(0,255,0, max = 255, alpha = 80)
+mycol2 <- rgb(255,0,0, max = 255, alpha = 30)
+
+#Create and dsplay the charts
+
+# GDP
+plot(PC_model$stochastic_simulation$y$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
+     main="a) Italy GDP (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_modelData$y*0.95),max(PC_model$stochastic_simulation$y$mean*1.05)))
+lines(PC_model$stochastic_simulation$y$mean+2*PC_model$stochastic_simulation$y$sd,col=2,lty=1,lwd=2)
+lines(PC_model$stochastic_simulation$y$mean-2*PC_model$stochastic_simulation$y$sd,col=2,lty=1,lwd=2)
+lines(PC_modelData$y,col="deepskyblue4",lty=1,lwd=2)
+x_values <- seq(2021, 2028)
+y_upper <- PC_model$stochastic_simulation$y$mean + 2 * PC_model$stochastic_simulation$y$sd
+y_lower <- PC_model$stochastic_simulation$y$mean - 2 * PC_model$stochastic_simulation$y$sd
+polygon(
+  c(x_values, rev(x_values)),
+  c(y_upper, rev(y_lower)),
+  col = mycol2,
+  border = NA )
+legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1,
+       lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
+
+# Consumption
+plot(PC_model$stochastic_simulation$cons$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
+     main="b) Italy consumption (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_modelData$cons*0.95),max(PC_model$stochastic_simulation$cons$mean*1.05)))
+lines(PC_model$stochastic_simulation$cons$mean+2*PC_model$stochastic_simulation$cons$sd,col=2,lty=1,lwd=2)
+lines(PC_model$stochastic_simulation$cons$mean-2*PC_model$stochastic_simulation$cons$sd,col=2,lty=1,lwd=2)
+lines(PC_modelData$cons,col="deepskyblue4",lty=1,lwd=2)
+x_values <- seq(2021, 2028)
+y_upper <- PC_model$stochastic_simulation$cons$mean + 2 * PC_model$stochastic_simulation$cons$sd
+y_lower <- PC_model$stochastic_simulation$cons$mean - 2 * PC_model$stochastic_simulation$cons$sd
+polygon(
+  c(x_values, rev(x_values)),
+  c(y_upper, rev(y_lower)),
+  col = mycol2,
+  border = NA )
+legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1,
+       lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
+
+# Tax revenue
+plot(PC_model$stochastic_simulation$t$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
+     main="c) Italy tax revenue (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_modelData$t*0.95),max(PC_model$stochastic_simulation$t$mean*1.05)))
+lines(PC_model$stochastic_simulation$t$mean+2*PC_model$stochastic_simulation$t$sd,col=2,lty=1,lwd=2)
+lines(PC_model$stochastic_simulation$t$mean-2*PC_model$stochastic_simulation$t$sd,col=2,lty=1,lwd=2)
+lines(PC_modelData$t,col="deepskyblue4",lty=1,lwd=2)
+x_values <- seq(2021, 2028)
+y_upper <- PC_model$stochastic_simulation$t$mean + 2 * PC_model$stochastic_simulation$t$sd
+y_lower <- PC_model$stochastic_simulation$t$mean - 2 * PC_model$stochastic_simulation$t$sd
+polygon(
+  c(x_values, rev(x_values)),
+  c(y_upper, rev(y_lower)),
+  col = mycol2,
+  border = NA )
+legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1,
+       lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
+
+# Bills held by households
+plot(PC_model$stochastic_simulation$b_h$mean,col="deepskyblue4",lty=2,lwd=2,font.main=1,cex.main=1,
+     main="d) Italy bills holdings (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_modelData$b_h*0.95),max(PC_model$stochastic_simulation$b_h$mean*1.1)))
+lines(PC_model$stochastic_simulation$b_h$mean+2*PC_model$stochastic_simulation$b_h$sd,col=2,lty=1,lwd=2)
+lines(PC_model$stochastic_simulation$b_h$mean-2*PC_model$stochastic_simulation$b_h$sd,col=2,lty=1,lwd=2)
+lines(PC_modelData$b_h,col="deepskyblue4",lty=1,lwd=2)
+x_values <- seq(2021, 2028)
+y_upper <- PC_model$stochastic_simulation$b_h$mean + 2 * PC_model$stochastic_simulation$b_h$sd
+y_lower <- PC_model$stochastic_simulation$b_h$mean - 2 * PC_model$stochastic_simulation$b_h$sd
+polygon(
+  c(x_values, rev(x_values)),
+  c(y_upper, rev(y_lower)),
+  col = mycol2,
+  border = NA )
+legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1,
+       lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
+
+```
+
+### 4) SFC tables
+
+The fourth file, named [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R), allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
+
+```R
+#Create BS and TFM tables using observed time series
+
+#Upload libraries
+library(knitr)
+
+#Choose a year - NOTE: 27 = 2021
+yr=27
+
+#Choose a scenario (note: 1 = baseline)
+#scen=1
+
+################################################################################
+################################################################################
+
+#Create row names for BS matrix
+rownames<-c( "Cash (money)",
+             "Bills",
+             "Wealth",
+             "Column total")
+
+################################################################################
+
+#Create households aggregates
+H <-c( round(PC_modelData$h_h[yr], digits = 2),                                                                    
+       round(PC_modelData$b_h[yr], digits = 2),                                                                    
+       round(-PC_modelData$v[yr], digits = 2),                                                                    
+       round(-PC_modelData$v[yr]+PC_modelData$h_h[yr]+PC_modelData$b_h[yr], digits = 2)
+)                                                                    
+
+#Create table of results
+H_BS<-as.data.frame(H,row.names=rownames)
+
+#Print firms column
+kable(H_BS)
+
+################################################################################
+
+#Create firms aggregates
+P <-c( "",                                                                    
+       "",                                                                    
+       "",                                                                    
+       0
+)                                                                    
+
+#Create table of results
+F_BS<-as.data.frame(P,row.names=rownames)
+
+#Print firms column
+kable(F_BS)
+
+################################################################################
+
+#Create government aggregates
+G   <-c( "",                                                                    
+         round(-PC_modelData$b_s[yr], digits = 2),                                                                    
+         round(PC_modelData$b_s[yr], digits = 2),                                                                    
+         "0"
+)                                                                    
+
+#Create table of results
+G_BS<-as.data.frame(G,row.names=rownames)
+
+#Print firms column
+kable(G_BS)
+
+################################################################################
+
+#Create CB aggregates
+CB  <-c( round(-PC_modelData$h_s[yr], digits = 2),                                                                    
+         round(PC_modelData$b_cb[yr], digits = 2),                                                                    
+         "0",
+         round(-PC_modelData$h_s[yr]+PC_modelData$b_cb[yr], digits = 2)
+)                                                                    
+
+#Create table of results
+CB_BS<-as.data.frame(CB,row.names=rownames)
+
+#Print firms column
+kable(CB_BS)
+
+################################################################################
+
+#Create "row total" column
+Tot  <-c( round(PC_modelData$h_h[yr]-PC_modelData$h_s[yr], digits = 2),                                                                    
+          round(PC_modelData$b_h[yr]+PC_modelData$b_cb[yr]-PC_modelData$b_s[yr], digits = 2),                                                                    
+          round(-PC_modelData$v[yr]+PC_modelData$b_s[yr], digits = 2),
+          round(PC_modelData$h_h[yr]-PC_modelData$h_s[yr]+
+                  PC_modelData$b_h[yr]+PC_modelData$b_cb[yr]-PC_modelData$b_s[yr]+
+                -PC_modelData$v[yr]+PC_modelData$b_s[yr], digits = 2)
+)                                                                    
+
+#Create table of results
+Tot_BS<-as.data.frame(Tot,row.names=rownames)
+
+#Print firms column
+kable(Tot_BS)
+
+################################################################################
+
+#Create BS matrix
+BS_Matrix<-cbind(H_BS,F_BS,CB_BS,G_BS,Tot_BS)
+kable(BS_Matrix) #Unload kableExtra to use this
+
+################################################################################
+################################################################################
+
+#Create row names for TFM
+rownames<-c( "Consumption",
+             "Government expenditure",
+             "GDP (income)",
+             "Interest payments",
+             "CB profit",
+             "Taxes",
+             "Change in cash",
+             "Change in bills",
+             "Column total")
+
+################################################################################
+
+#Create households aggregates
+H <-c( round(-PC_modelData$cons[yr], digits = 2),
+       "",
+       round(PC_modelData$y[yr], digits = 2),                                                                    
+       round(PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1], digits = 2),
+       "",
+       round(-PC_modelData$t[yr], digits = 2),
+       round(-PC_modelData$h_h[yr]+PC_modelData$h_h[yr-1], digits = 2),
+       round(-PC_modelData$b_h[yr]+PC_modelData$b_h[yr-1], digits = 2),
+       round(-PC_modelData$cons[yr]+PC_modelData$y[yr]+PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1]-PC_modelData$t[yr]+
+              -PC_modelData$h_h[yr]+PC_modelData$h_h[yr-1]-PC_modelData$b_h[yr]+PC_modelData$b_h[yr-1], digits = 2)
+)                                                                    
+
+#Create table of results
+H_TFM<-as.data.frame(H,row.names=rownames)
+
+#Print firms column
+kable(H_TFM)
+
+################################################################################
+
+#Create firms aggregates
+P <-c( round(PC_modelData$cons[yr], digits = 2),
+       round(PC_modelData$g[yr], digits = 2),
+       round(-PC_modelData$y[yr], digits = 2),                                                                    
+       "",
+       "",
+       "",
+       "",
+       "",
+       round(PC_modelData$cons[yr]+PC_modelData$g[yr]-PC_modelData$y[yr], digits = 2)
+)                                                                    
+
+#Create table of results
+F_TFM<-as.data.frame(P,row.names=rownames)
+
+#Print firms column
+kable(F_TFM)
+
+################################################################################
+
+#Create government aggregates
+G   <-c( "",
+         round(-PC_modelData$g[yr], digits = 2),
+         "",                                                                    
+         round(-PC_modelData$r[yr-1]*PC_modelData$b_s[yr-1], digits = 2),
+         round(PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1], digits = 2),
+         round(PC_modelData$t[yr], digits = 2),
+         "",
+         round(PC_modelData$b_s[yr]-PC_modelData$b_s[yr-1], digits = 2),
+         round(-PC_modelData$g[yr]+
+               -PC_modelData$r[yr-1]*PC_modelData$b_s[yr-1]+
+                PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]+
+                PC_modelData$t[yr]+
+                 PC_modelData$b_s[yr]-PC_modelData$b_s[yr-1], digits = 2)
+)                                                                    
+
+#Create table of results
+G_TFM<-as.data.frame(G,row.names=rownames)
+
+#Print firms column
+kable(G_TFM)
+
+################################################################################
+
+#Create CB aggregates
+CB   <-c( "",
+         "",
+         "",                                                                    
+         round(PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1], digits = 2),
+         round(-PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1], digits = 2),
+         "",
+         round(PC_modelData$h_s[yr]-PC_modelData$h_s[yr-1], digits = 2),
+         round(-PC_modelData$b_cb[yr]+PC_modelData$b_cb[yr-1], digits = 2),
+         round(PC_modelData$h_s[yr]-PC_modelData$h_s[yr-1]-PC_modelData$b_cb[yr]+PC_modelData$b_cb[yr-1], digits = 2)
+)                                                                    
+
+#Create table of results
+CB_TFM<-as.data.frame(CB,row.names=rownames)
+
+#Print firms column
+kable(CB_TFM)
+
+################################################################################
+
+#Create "row total" column
+Tot   <-c(round(PC_modelData$cons[yr]-PC_modelData$cons[yr], digits = 2),
+          round(PC_modelData$g[yr]-PC_modelData$g[yr], digits = 2),
+          round(PC_modelData$y[yr]-PC_modelData$y[yr], digits = 2),                                                                    
+          round(PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1]+PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]-PC_modelData$r[yr-1]*PC_modelData$b_s[yr-1], digits = 2),
+          round(PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]-PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1], digits = 2),
+          round(-PC_modelData$t[yr]+PC_modelData$t[yr], digits = 2),
+          round(-PC_modelData$h_h[yr]+PC_modelData$h_h[yr-1]+PC_modelData$h_s[yr]-PC_modelData$h_s[yr-1], digits = 2),
+          round(-PC_modelData$b_h[yr]+PC_modelData$b_h[yr-1]-PC_modelData$b_cb[yr]+PC_modelData$b_cb[yr-1]+PC_modelData$b_s[yr]-PC_modelData$b_s[yr-1], digits = 2),
+          round(PC_modelData$cons[yr]-PC_modelData$cons[yr]+
+                  PC_modelData$g[yr]-PC_modelData$g[yr]+
+                  PC_modelData$y[yr]-PC_modelData$y[yr]+
+                  PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1]+PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]-PC_modelData$r[yr-1]*PC_modelData$b_s[yr-1]+
+                  PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]-PC_modelData$r[yr-1]*PC_modelData$b_cb[yr-1]+
+                  -PC_modelData$t[yr]+PC_modelData$t[yr]+
+                  -PC_modelData$h_h[yr]+PC_modelData$h_h[yr-1]+PC_modelData$h_s[yr]-PC_modelData$h_s[yr-1]+
+                  -PC_modelData$b_h[yr]+PC_modelData$b_h[yr-1]-PC_modelData$b_cb[yr]+PC_modelData$b_cb[yr-1]+PC_modelData$b_s[yr]-PC_modelData$b_s[yr-1], digits = 2)
+)                                                                    
+
+#Create table of results
+Tot_TFM<-as.data.frame(Tot,row.names=rownames)
+
+#Print firms column
+kable(Tot_TFM)
+
+################################################################################
+
+#Create TFM matrix
+TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
+kable(TFM_Matrix) #Unload kableExtra to use this
+
+################################################################################
+################################################################################
+
+#Create html and latex tables
+
+#Upload libraries
+library(kableExtra)
+
+#Create captions
+caption1 <- paste("Table 3. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
+caption2 <- paste("Table 2. Transactions-flow matrix of Model EMP for Italy in ",yr+1994, "(thous. eur, curr. p.)")
+
+#Create html table for BS
+BS_Matrix %>%
+  kbl(caption=caption1,
+      format= "html",
+      #format= "latex",
+      col.names = c("Households","Firms","Central bank","Government","Row total"),
+      align="r") %>%
+  kable_classic(full_width = F, html_font = "helvetica")
+
+#Create html table for TFM
+TFM_Matrix %>%
+  kbl(caption=caption2,
+      format= "html",
+      #format= "latex",
+      col.names = c("Households","Firms","Central bank","Government","Row total"),
+      align="r") %>%
+  kable_classic(full_width = F, html_font = "helvetica")
+
+```
+
+### 5) Sankey diagram
+
+The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
+
+```R
+#Sankey diagram of money transactions-flow and nominal changes in stocks
+
+#Upload libraries for Sankey diagram
+library(networkD3)
+library(htmlwidgets)
+library(htmltools)
+
+#Create nodes: source, target and flows
+nodes = data.frame("name" = 
+                     c("Firms outflow", # Node 0
+                       "Households outflow", # Node 1
+                       "Government outflow", # Node 2
+                       
+                       "Firms inflow", # Node 3
+                       "Households inflow", # Node 4
+                       "Government inflow", # Node 5
+                       
+                       "Wages", # Node 6
+                       "Consumption", # Node 7
+                       "Taxes", # Node 8
+                       "Government spending", # Node 9
+                       "Money (change)", # Node 10
+                       
+                       "Interest payments", # Node 11
+                       "Bills (change)", # Node 12                       
+                       "CB outflow", # Node 13                    
+                       "CB inflow" # Node 14                    
+                       
+                     )) 
+
+#Select a year - NOTE: 27 = 2021
+yr=27
+
+#Create the flows
+links = as.data.frame(matrix(c(
+  0, 6, PC_modelData$cons[yr]+PC_modelData$g[yr],  
+  1, 7, PC_modelData$cons[yr] ,
+  1, 8, PC_modelData$t[yr],
+  1, 10, PC_modelData$h_h[yr]-PC_modelData$h_h[yr-1],
+  2, 9, PC_modelData$g[yr],
+  6, 4, PC_modelData$cons[yr]+PC_modelData$g[yr],
+  7, 3, PC_modelData$cons[yr],
+  8, 5, PC_modelData$t[yr],
+  9, 3, PC_modelData$g[yr],
+  2, 11, PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1],
+  11, 4, PC_modelData$r[yr-1]*PC_modelData$b_h[yr-1],
+  10, 14, PC_modelData$h_s[yr]-PC_modelData$h_s[yr-1],
+  12, 5, PC_modelData$b_s[yr]-PC_modelData$b_s[yr-1],
+  1, 12, PC_modelData$b_h[yr]-PC_modelData$b_h[yr-1],
+  13, 12, PC_modelData$b_cb[yr]-PC_modelData$b_cb[yr-1]
+  
+), 
+
+#Note: each row represents a link. The first number represents the node being
+#connected from. The second number represents the node connected to. The third
+#number is the value of the node.  
+
+
+byrow = TRUE, ncol = 3))
+names(links) = c("source", "target", "value")
+my_color <- 'd3.scaleOrdinal() .domain([]) .range(["blue","green","yellow","red","purple","khaki","peru","violet","cyan","pink","orange","beige","white"])'
+
+#Create and plot the network
+sankeyNetwork(Links = links, Nodes = nodes,
+              Source = "source", Target = "target",
+              Value = "value", NodeID = "name", colourScale=my_color,
+              fontSize= 25, nodeWidth = 30)
+
+```
+
+### 6) Experiments
+
+Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
+
+```R
+#A) CREATE BASELINE SCENARIO
+
+# Extend exogenous and conditionally-evaluated variables up to 2028
+PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
+
+# Define exogenisation list
+exogenizeList <- list(
+  
+  r = TRUE,                     #Interest rate (whole period)
+  t = c(1998,1,2021,1),         #Taxes
+  cons = c(1998,1,2021,1),      #Consumption
+  b_h = c(1998,1,2021,1)        #Bills held by households
+  
+)
+
+# Define add-factor list (defining exogenous adjustments: policy + available predictions)
+constantAdjList <- list(
+  
+  cons = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A'),  #Shock to consumption 
+  t    = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A')  #Shock to taxes
+  
+)
+
+# Simulate model
+PC_model <- SIMULATE(PC_model
+                     ,simType='DYNAMIC' #try also: 'FORECAST'
+                     ,TSRANGE=c(1998,1,2028,1)
+                     ,simConvergence=0.00001
+                     ,simIterLimit=1000
+                     ,Exogenize=exogenizeList
+                     ,ConstantAdjustment=constantAdjList
+                     ,quietly=TRUE)
+
+#Attribute values to selected variables
+y_0=PC_model$simulation$y
+cons_0=PC_model$simulation$cons
+t_0=PC_model$simulation$t
+b_h_0=PC_model$simulation$b_h
+
+################################################################################
+#B) CREATE ALTERNATIVE SCENARIO
+
+# Extend exogenous and conditionally-evaluated variables up to 2028
+PC_model$modelData <- within(PC_model$modelData,{ g = TSEXTEND(g,  UPTO=c(2028,1)) })
+
+# Define exogenisation list
+exogenizeList <- list(
+  
+  r = TRUE,                     #Interest rate (whole period)
+  t = c(1998,1,2021,1),         #Taxes
+  cons = c(1998,1,2021,1),      #Consumption
+  b_h = c(1998,1,2021,1)        #Bills held by households
+  
+)
+
+# Define add-factor list (defining exogenous adjustments: policy + available predictions)
+constantAdjList <- list(
+  
+  cons = TIMESERIES(0,0,0,0,0,0,0,0,START=c(2021,1), FREQ='A'),  #Shock to consumption 
+  t    = TIMESERIES(30000,30000,30000,30000,30000,30000,30000,30000,START=c(2021,1), FREQ='A')  #Shock to taxes
+  
+)
+
+# Simulate model
+PC_model <- SIMULATE(PC_model
+                     ,simType='DYNAMIC' #try also: 'FORECAST'
+                     ,TSRANGE=c(1998,1,2028,1)
+                     ,simConvergence=0.00001
+                     ,simIterLimit=1000
+                     ,Exogenize=exogenizeList
+                     ,ConstantAdjustment=constantAdjList
+                     ,quietly=TRUE)
+
+################################################################################
+
+#CONSISTENCY CHECK
+
+#Create consistency statement 
+aerror=0
+error=0
+for (i in 1:23){error = error + (PC_model$simulation$h_s[i]-PC_model$simulation$h_h[i])^2}
+aerror = error/23
+if ( aerror<0.01 ){cat(" *********************************** \n Good news! The model is watertight! \n", "Average error =", aerror, "< 0.01 \n", "Cumulative error =", error, "\n ***********************************")} else{
+  if ( aerror<1 && aerror<1 ){cat(" *********************************** \n Minor issues with model consistency \n", "Average error =", aerror, "> 0.01 \n", "Cumulative error =", error, "\n ***********************************")}
+  else{cat(" ******************************************* \n Warning: the model is not fully consistent! \n", "Average error =", aerror, "> 1 \n", "Cumulative error =", error, "\n *******************************************")} }      
+
+#Plot redundant equation
+layout(matrix(c(1), 1, 1, byrow = TRUE))
+plot(PC_model$simulation$h_s-PC_model$simulation$h_h, type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
+     main=expression("Consistency check (alternative scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
+     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     xlab = 'Time',ylim = range(-1,1))
+
+################################################################################
+
+#PLOTS FOR VISUAL INSPECTION 
+
+#Set layout
+layout(matrix(c(1:4), 2, 2, byrow = TRUE))
+
+#Create custom colours
+mycol1 <- rgb(0,255,0, max = 255, alpha = 80)
+mycol2 <- rgb(255,0,0, max = 255, alpha = 30)
+
+# GDP
+plot(PC_model$simulation$y,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="a) Italy GDP (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$y*0.85),max(y_0)))
+lines(y_0,col="deepskyblue4",lty=2,lwd=2)
+lines(PC_modelData$y,col="deepskyblue4",lty=1,lwd=2)
+abline(v=2021,col=mycol1)
+legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1, lty=c(1,1), lwd=c(2,2),
+       col = c("deepskyblue4","red1"), box.lty=0)
+
+# Consumption
+plot(PC_model$simulation$cons,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="b) Italy consumption (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$cons*0.85),max(cons_0)))
+lines(cons_0,col="deepskyblue4",lty=2,lwd=2)
+lines(PC_modelData$cons,col="deepskyblue4",lty=1,lwd=2)
+abline(v=2021,col=mycol1)
+legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1, lty=c(1,1), lwd=c(2,2),
+       col = c("deepskyblue4","red1"), box.lty=0)
+
+# Tax revenue
+plot(PC_model$simulation$t,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="c) Italy tax revenue (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$t*0.85),max(t_0)))
+lines(t_0,col="deepskyblue4",lty=2,lwd=2)
+lines(PC_modelData$t,col="deepskyblue4",lty=1,lwd=2)
+abline(v=2021,col=mycol1)
+legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1, lty=c(1,1), lwd=c(2,2),
+       col = c("deepskyblue4","red1"), box.lty=0)
+
+# Bills held by households
+plot(PC_model$simulation$b_h,col="red1",lty=1,lwd=2,font.main=1,cex.main=1,main="d) Italy bills holdings (thous. eur, curr. p.)",
+     ylab = 'Million Euro',xlab = '', cex.axis=1,cex.lab=1,xlim=range(1995,2028),
+     ylim=range(min(PC_model$simulation$b_h*0.85),max(b_h_0)))
+lines(b_h_0,col="deepskyblue4",lty=2,lwd=2)
+lines(PC_modelData$b_h,col="deepskyblue4",lty=1,lwd=2)
+abline(v=2021,col=mycol1)
+legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1, lty=c(1,1), lwd=c(2,2),
+       col = c("deepskyblue4","red1"), box.lty=0)
+
+```
 
 ## Useful_links
 
