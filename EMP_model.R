@@ -58,10 +58,7 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 
 #B) DEFINE MODEL EQUATIONS
 
-
 S_model.txt="MODEL
-
-COMMENT> FIRMS SECTOR ----------------------------------------------------------
 
 COMMENT> GDP - eq. 4.1
 IDENTITY> y
@@ -114,7 +111,6 @@ BEHAVIORAL> r
 TSRANGE 1998 1 2021 1
 EQ> r = par0 + par1*TSLAG(r,1)
 COEFF> par0 par1
-
 
 END"
 
