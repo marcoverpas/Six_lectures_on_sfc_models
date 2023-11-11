@@ -11,7 +11,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 - [5 Model IO-PC](#5_Model_IO-PC)
 - [6 Model ECO-PC](#6_Model_ECO-PC)
 - [7 Model EMP](#7_Model_EMP)
-    - [7.1 Introduction](#7.1-Introduction)
+    - [7.1 Introduction](#7_1_Introduction)
     - [7.2 Model and data](#7.2_Model_and_data)
     - [7.3 In-sample predictions](#7.3_In-sample_predictions)
     - [7.4 Out-of-sample predictions](#7.4_Out-of-sample_predictions)
@@ -98,7 +98,7 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 ## 7_Model_EMP
 
-### 7.1-Introduction
+### 7_1_Introduction
 
 Empirical SFC Models are SFC models whose coefficients are calibrated or estimated based on observed data. They are usually developed for studying national economies. There are two branches of Empirical SFC models:
 
