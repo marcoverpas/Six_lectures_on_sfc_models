@@ -105,7 +105,7 @@ Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021
 
 ### 1) Model and data
 
-The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. 
+The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. As usual, the first step is to prepare the workspace:
 
 ```R
 #STEP 1: PREPARE THE WORK-SPACE
@@ -119,7 +119,11 @@ if(!is.null(dev.list())) dev.off()
 #Clear console
 cat("\014")
 
-################################################################################
+```
+
+The next step is to upload data from a folder. This code take the observed series from a DropBox folder. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit PC simplified structure. 
+
+```R
 
 #STEP 2: UPLOAD LIBRARIES AND DATA
 
@@ -135,7 +139,11 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 
 #Source: (our elaboration on) Eurostat data on Italy, December 2021
 
-##############################################################################
+```
+
+We can now define the system of equations.
+
+```R
 
 #B) DEFINE MODEL EQUATIONS
 
@@ -384,8 +392,6 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 ```
 
-![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
-
 ### 3) Out-of-sample predictions
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
@@ -605,6 +611,9 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
        lty=c(1,2,1), lwd=c(2,2,2), col = c("deepskyblue4","deepskyblue4",2), box.lty=0)
 
 ```
+
+![fig_1_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_emp.png)
+
 
 ### 4) SFC tables
 
