@@ -1018,7 +1018,9 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 - [Antoine Godin](http://www.antoinegodin.eu/)
 
-- [Karsten Kohler](https://karstenkohler.com/) 
+- [Karsten Kohler](https://karstenkohler.com/)
+
+- [Andrea Luciani](https://github.com/andrea-luciani)
 
 - [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
 
