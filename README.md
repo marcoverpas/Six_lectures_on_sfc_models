@@ -141,7 +141,7 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 #Data_PC <- read.csv("C:/.../PC_data.csv")
 ```
 
-We can now define the system of identities and behavioural equations as a txt file. Bimets' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
+We can now define the system of identities and behavioural equations as a txt file. `Bimets`' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
 
 ```R
 S_model.txt="MODEL
