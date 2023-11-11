@@ -488,7 +488,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 
 ```
-![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
+![fig_3_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_3_emp.png)
 
 The simulations above are deterministic in nature. However, Bimets also allows conducting stochastic simulations using the STOCHSIMULATE function. This enables the analysis of forecast errors in structural econometric models arising from random disturbances, coefficient estimation errors, etc. More precisely, the model is solved for different values of specified stochastic disturbances, the structure of which is defined by users, specifying probability distributions and time ranges. Mean and standard deviation for each simulated endogenous variable are stored in the output model object.
 
@@ -743,7 +743,34 @@ kable(BS_Matrix) #Unload kableExtra to use this
 
 ```
 
-We can now create the transactions-flow matrix.
+The commands above allow visualising the BS matrix in the console. However, an HTML version and a LaTeX version of the table can be generated too by adding the following commands.
+
+
+```R
+
+#Create html and latex versions of BS matrix
+
+#Upload libraries
+library(kableExtra)
+
+#Create captions
+caption1 <- paste("Table 3. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
+
+#Create html table for BS
+BS_Matrix %>%
+  kbl(caption=caption1,
+      format= "html",
+      #format= "latex",
+      col.names = c("Households","Firms","Central bank","Government","Row total"),
+      align="r") %>%
+  kable_classic(full_width = F, html_font = "helvetica")
+
+```
+
+![bs_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/bs_emp.png)
+
+
+We can now move to the transactions-flow matrix.
 
 ```R
 
@@ -877,7 +904,6 @@ TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
 kable(TFM_Matrix) #Unload kableExtra to use this
 
 ################################################################################
-################################################################################
 
 #Create html and latex tables
 
@@ -885,17 +911,7 @@ kable(TFM_Matrix) #Unload kableExtra to use this
 library(kableExtra)
 
 #Create captions
-caption1 <- paste("Table 3. Balance sheet of Model EMP for Italy in ", yr+1994, "(thous. eur, curr. p.)")
 caption2 <- paste("Table 2. Transactions-flow matrix of Model EMP for Italy in ",yr+1994, "(thous. eur, curr. p.)")
-
-#Create html table for BS
-BS_Matrix %>%
-  kbl(caption=caption1,
-      format= "html",
-      #format= "latex",
-      col.names = c("Households","Firms","Central bank","Government","Row total"),
-      align="r") %>%
-  kable_classic(full_width = F, html_font = "helvetica")
 
 #Create html table for TFM
 TFM_Matrix %>%
