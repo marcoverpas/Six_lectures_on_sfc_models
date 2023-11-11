@@ -4,17 +4,16 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 
 ## Table of Contents
 
-- [Introduction](#Introduction)
-- [Model PC](#Model_PC)
-- [Model BMW](#Model_BMW)
-- [Model REG](#Model_REG)
-- [Model IO-PC](#Model_IO-PC)
-- [Model ECO-PC](#Model_ECO-PC)
-- [Model EMP](#Model_EMP)
-  - [1) Model and data](##Model_and_data) 
-- [Useful links](#Useful_links)
+- [1 Introduction](#1_Introduction)
+- [2 Model PC](#2_Model_PC)
+- [3 Model BMW](#3_Model_BMW)
+- [4 Model REG](#4_Model_REG)
+- [5 Model IO-PC](#5_Model_IO-PC)
+- [6 Model ECO-PC](#6_Model_ECO-PC)
+- [7 Model EMP](#7_Model_EMP)
+- [8 Useful links](#8_Useful_links)
 
-## Introduction
+## 1_Introduction
 
 In the laste three decades, macroeconomic modelling has been dominated by Dynamic Stochastic General Equilibrium (DSGE) models. However, dissatisfaction with these models has been growing since the mid-2000s. Four primary weaknesses have been identified in DSGE models: unrealistic assumptions, a limited range of considerations, poor data fit, and logical inconsistencies and empirical non sequitur in aggregate production functions.
 
@@ -43,7 +42,7 @@ c) Estimation: econometric methods, including Ordinary Least Squares (OLS) and c
 Unlike DSGE models, which often rely on a unified platform like Dynare, SFC modeling lacks a universally adopted program. The pioneering codes used in Godley and Lavoie's work were developed by [Gennaro Zezza](https://gennaro.zezza.it/software/eviews/gl2006.php) using EViews and Excel. However, the landscape has evolved over time. [R](https://www.r-project.org/) ([RStudio](https://posit.co/blog/rstudio-new-open-source-ide-for-r/)) has become the predominant programming environment for SFC modeling, owing to its flexibility and extensive capabilities. Dedicated R packages such as [SFCR](https://joaomacalos.github.io/sfcr/index.html) and [Godley](https://github.com/gamrot/godley/) provide specialized tools for SFC modeling. Additionally, [Bimets](https://cran.r-project.org/web/packages/bimets/index.html) offers a platform for empirical SFC model development. Alternative programming languages, including Matlab (with or without Dynare), Mathematica, Python, and Julia, find applications in SFC modeling, particularly for creating agent-based SFC models. [Minsky](https://www.kickstarter.com/projects/2123355930/minsky-reforming-economics-with-visual-monetary-mo), a software package developed by Steve Keen, stands out as a tool for visually modeling macroeconomic system dynamics.
 
 
-## Model_PC
+## 2_Model_PC
 
 This is one of the simplest SFC toy models. It is developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". PC stands for portfolio choice, because households can hold their wealth in terms of cash and/or government bills.
 Key assumptions are as follows:
@@ -74,23 +73,25 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 ![fig_sankey_pc](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_pc.png)
 
-## Model_BMW
+## 3_Model_BMW
 
 [in progress]
 
-## Model_REG
+## 4_Model_REG
 
 [in progress]
 
-## Model_IO-PC
+## 5_Model_IO-PC
 
 [in progress]
 
-## Model_ECO-PC
+## 6_Model_ECO-PC
 
 [in progress]
 
-## Model_EMP
+## 7_Model_EMP
+
+### 7.1 Introduction
 
 Empirical SFC Models are SFC models whose coefficients are calibrated or estimated based on observed data. They are usually developed for studying national economies. There are two branches of Empirical SFC models:
 
@@ -104,7 +105,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://cran.r-project.org/web/packages/bimets/index.html)). The model code is organised into five different files:
 
-### 1) Model_and_data
+### 7.2 Model_and_data
 
 The first file, named [EMP_model.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model.R), allows creating the system of difference equations, uploading the observed series, and estimating model coefficients. As usual, the first step is to prepare the workspace:
 
@@ -272,7 +273,7 @@ PC_model=ESTIMATE(PC_model
 
 When the CHOWTEST argument is set to TRUE, the model conducts a structural stability analysis to identify breaks. 
 
-### 2) In-sample predictions
+### 7.3 In-sample predictions
 
 The second file, named [EMP_model_insample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_insample.R), performs in-sample predictions to check EMP's fit on actual data and enables the user to adjust predicted series to observed ones.
 
@@ -411,7 +412,7 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 ![fig_2_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_emp.png)
 
-### 3) Out-of-sample predictions
+### 7.4 Out-of-sample predictions
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
 
@@ -620,7 +621,7 @@ legend("bottom",c("Observed","Simulated mean","Mean +/- 2sd"),  bty = "n", cex=1
 
 ![fig_4_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_4_emp.png)
 
-### 4) SFC tables
+### 7.5 SFC tables
 
 The fourth file, named [EMP_model_tables.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_tables.R), allows creating the balance sheet and the transactions-flow matrix of the economy, using either observed series or predicted ones.
 
@@ -900,7 +901,7 @@ TFM_Matrix %>%
 
 ```
 
-### 5) Sankey diagram
+### 7.6 Sankey diagram
 
 The fifth file, named [EMP_model_sankey.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_sankey.R), generates the Sankey diagram of cross-sector transactions and changes in financial stocks.
 
@@ -975,7 +976,7 @@ sankeyNetwork(Links = links, Nodes = nodes,
 
 ```
 
-### 6) Experiments
+### 7.7 Experiments
 
 Tha last file, named [EMP_model_experim.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_experim.R), imposes exogenous shocks to selected model variables to create alternative scenarios (to be compared with the baseline scenario).
 
@@ -1126,7 +1127,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ```
 
-## Useful_links
+## 8_Useful_links
 
 - [Alessandro Bramucci](https://www.alessandrobramucci.com/project/interactive_macro/) 
 
