@@ -56,7 +56,7 @@ Summing up, while there are many online resources today for those interested in 
 
 ### 2_1_Model_PC
 
-This is one of the simplest SFC toy models. It is developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **PC** stands for "portfolio choice", because households can hold their wealth in terms of cash and/or government bills.
+This is one of the simplest SFC toy models. It is developed in chapter 4 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **PC** stands for "portfolio choice", because households can hold their wealth in terms of cash and/or government bills.
 
 Key assumptions are as follows:
 
@@ -90,7 +90,7 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 ### 2_2_Model_BMW
 
-This is the simplest model explicitly including commercial banks. It is developed in chapter 7 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **BMW** stands for "bank-money world", because there is only one kind of financial assets: bank deposits held by households. Firms’ investment in fixed capital is (partially) funded by bank loans.
+This is the simplest model explicitly including commercial banks. It is developed in chapter 7 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **BMW** stands for "bank-money world", because there is only one kind of financial assets: bank deposits held by households. Firms’ investment in fixed capital is (partially) funded by bank loans.
 
 Key assumptions are as follows:
 
@@ -108,13 +108,45 @@ Key assumptions are as follows:
 
 - No State, no outside money (cash)
 
-The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R)). The Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R).
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R). Lastly, the code for the Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R).
 
 <!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7) -->
 
 ### 2_3_Model_REG
 
-[in progress]
+Open-economy or multi-area SFC models adopt a general equilibrium approach, accounting for the interaction of two economies engaged in the trade of goods. The entire system, representing the global economy, is closed, meticulously tracking all flows and stocks. Godley and Lavoie (2007) introduce and explore four distinct models:
+
+- Model REG: a toy model that examines two regions within the same country
+
+- Model OPEN: a toy model involving two separate countries
+
+- Model OPENFIX: an advanced model encompassing two countries under a fixed exchange rate regime
+
+- Model OPENFLEX: an advanced model dealing with two countries under a floating exchange rate regime
+
+- In this section, we will present and discuss Model REG
+
+Model REG is developed in chapter 6 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **REG** stands for regional,  as the model considers two regions of the same country. Looking at its economic and financial structure, it is the very same of Model PC. The difference is that the economy is disaggregated into two regions, the *North* and the *South*. 
+
+Key assumptions are as follows:
+
+- Firms act as intermediaries for imported goods
+
+- Four agents: households, “firms”, government, central bank
+
+- Two financial assets: government bills and outside money (cash)
+
+- No investment (accumulation) and no inventories
+
+- Fixed prices and zero net profits
+
+- No banks, no inside money (bank deposits)
+
+- No ecosystem
+
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R). A code that automatically generates 2-region SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_tables.R). Lastly, the code for the Sankey diagram replicating the 2-region transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R).
+
+<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/cb8b8843-210f-4fae-b7eb-9fc492c03c4c) -->
 
 ## 3_Introducing_input-output_interdependencies
 
