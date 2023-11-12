@@ -366,7 +366,7 @@ The main code for developing Model IO-PC and running some experiments can be fou
 
 ![fig_1_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_iopc.png)
 
-Variables displayed in figures 1 to 3 follow the same pattern as Model PC variables. However, Model IO-PC also allows tracking cross-industry demands for inputs and the impact of final demands on total outputs (figures 4 and 5). A more detailed visualization is presented below, in figures 7 and 8: 
+Variables displayed in figures 1 to 3 follow the same pattern as Model PC variables. However, Model IO-PC also allows tracking cross-industry demands for inputs (figures 4 and 5). A more detailed visualisation, highlighting the impact of final and intermediate demands on total outputs, is presented below in Figures 7 and 8:: 
 
 ![fig_2_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_iopc.png)
 
