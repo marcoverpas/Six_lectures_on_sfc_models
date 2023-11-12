@@ -6,26 +6,6 @@
 # Version: 31 October 2023
 
 ################################################################################
-# Copyright (c) 2023 Marco Veronese Passarella
-#
-# Permission is hereby granted, free of charge, to any person obtaining a 
-# copy of this software and associated documentation files (the "Software"),
-# to deal in the Software without restriction, including without limitation
-# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-# and/or sell copies of the Software, and to permit persons to whom the 
-# Software is furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in 
-# all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-# IN THE SOFTWARE.
-################################################################################
 
 #STEP 1: PREPARE THE WORK-SPACE
 
@@ -228,7 +208,7 @@ layout(matrix(c(1,2,3,4,5,6,7,8,9), 3, 3, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     cex.axis=1.5,cex.lab=1.5,ylab = 'Â£',
      xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
@@ -242,7 +222,7 @@ par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 #Figure 1
 plot(y_n[2,28:80],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 1  Evolution of GDP in the N and S Region following \n an increase in the import propensity of the S Region",
-     ylab = '£',xlab = 'Time',ylim=range(102,111))
+     ylab = 'Â£',xlab = 'Time',ylim=range(102,111))
 lines(y_s[2,28:80],type="l",lwd=3,lty=2,col=3)
 abline(h=106.485,col="gray50")
 legend("right",c("North Region GDP","South Region GDP"),
@@ -251,7 +231,7 @@ legend("right",c("North Region GDP","South Region GDP"),
 #Figure 2
 plot(v_s[2,28:80]-v_s[2,27:79],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 2  Evolution of balances in the S Region following \n an increase in import propensity of the S region",
-     ylab = '£',xlab = 'Time',ylim=range(-1.2,0.2))
+     ylab = 'Â£',xlab = 'Time',ylim=range(-1.2,0.2))
 lines(t_s[2,28:80]-(g_s[2,28:80]+r[2,28:80]*b_h_s[2,27:79]),type="l",lwd=3,lty=2,col=3)
 lines(x_s[2,28:80]-im_s[2,28:80],type="l",lwd=3,lty=3,col=4)
 abline(h=0,col="gray50")
@@ -261,7 +241,7 @@ legend("right",c("Change in households wealth - S Region","Government balance wi
 #Figure 3
 plot(y_n[3,28:80],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 3  Evolution of GDP in the N and S Region following \n an increase in govt. expenditure of the S Region",
-     ylab = '£',xlab = 'Time',ylim=range(102,125))
+     ylab = 'Â£',xlab = 'Time',ylim=range(102,125))
 lines(y_s[3,28:80],type="l",lwd=3,lty=2,col=3)
 abline(h=106.485,col="gray50")
 legend("right",c("North Region GDP","South Region GDP"),
@@ -270,7 +250,7 @@ legend("right",c("North Region GDP","South Region GDP"),
 #Figure 4
 plot(v_s[3,28:80]-v_s[3,27:79],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 4  Evolution of balances in the S Region following \n an increase in govt. expenditure of the S Region",
-     ylab = '£',xlab = 'Time',ylim=range(-4,3))
+     ylab = 'Â£',xlab = 'Time',ylim=range(-4,3))
 lines(t_s[3,28:80]-(g_s[3,28:80]+r[3,28:80]*b_h_s[3,27:79]),type="l",lwd=3,lty=2,col=3)
 lines(x_s[3,28:80]-im_s[3,28:80],type="l",lwd=3,lty=3,col=4)
 abline(h=0,col="gray50")
@@ -280,7 +260,7 @@ legend("topright",c("Change in households wealth - S Region","Government balance
 #Figure 5
 plot(y_n[4,28:80],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 5  Evolution of GDP in the N and S Region following \n an increase in the saving propensity of the S Region",
-     ylab = '£',xlab = 'Time',ylim=range(92,109))
+     ylab = 'Â£',xlab = 'Time',ylim=range(92,109))
 lines(y_s[4,28:80],type="l",lwd=3,lty=2,col=3)
 abline(h=106.485,col="gray50")
 legend("right",c("North Region GDP","South Region GDP"),
@@ -289,7 +269,7 @@ legend("right",c("North Region GDP","South Region GDP"),
 #Figure 6
 plot(v_s[4,28:80]-v_s[4,27:79],type="l",col=2,lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 6  Evolution of balances in the S Region following \n an increase in the saving propensity of the S Region",
-     ylab = '£',xlab = 'Time',ylim=range(-3.2,4.4))
+     ylab = 'Â£',xlab = 'Time',ylim=range(-3.2,4.4))
 lines(t_s[4,28:80]-(g_s[4,28:80]+r[4,28:80]*b_h_s[4,27:79]),type="l",lwd=3,lty=2,col=3)
 lines(x_s[4,28:80]-im_s[4,28:80],type="l",lwd=3,lty=3,col=4)
 abline(h=0,col="gray50")
