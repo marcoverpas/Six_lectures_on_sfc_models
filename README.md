@@ -96,11 +96,22 @@ Cash held by households (identity) [6]:
 $$H_h = V_h - B_h  $$
 
 Bills held by households (behavioural) [7]:
-$$ \frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
+$$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
 
+Supply of bills (identity) [8]:
+$$B_s = B_{s,-1} + G - T + r_{-1} \cdot ( B_{s,-1} - B_{cb,-1} )  $$
 
+Supply of cash (identity) [9]:
+$$H_s = H_{s,-1} + \Delta B_{cb} $$
 
+Bills held by central bank (identity) [10]:
+$$B_{cb} = B_s - B_h $$
 
+Interest rate (behavioural) [11]:
+$$r = \bar{r} $$
+
+Redundant equation:
+$$H_s = H_h $$
 
 Note: in the R code, model variables have been modelled as matrices, where rows represent different scenarios and columns denote distinct periods. Parameters and exogenous variables are typically represented as scalars. However, variables susceptible to shocks are treated as matrices (as they change over time). Equilibrium solutions for the system of simultaneous equations have been derived without relying on any dedicated package, but rather through a sufficiently high number of iterations. Lastly, the redundant equation is used to double-check model consistency over time in the baseline scenario. 
 
