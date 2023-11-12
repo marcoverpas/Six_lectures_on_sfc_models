@@ -412,7 +412,7 @@ $$C = p_c \cdot c $$
 Nominal government spending (identity) `20`:
 $$G = p_g \cdot g $$
 
-The main code for developing Model IO-PC and running some experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model.R).
+While `12` to `20` are additional equations, equations `1.A` and `5.A` replace equations `1` and `5` of Model PC, respectively. The main code for developing Model IO-PC and running some experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model.R).
 
 ![fig_1_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_iopc.png)
 
