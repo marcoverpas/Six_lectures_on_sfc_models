@@ -77,25 +77,25 @@ Key assumptions are as follows:
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
 
-National income (identity)[1]: 
+National income (identity) [1]: 
 $$Y = C + G $$
 
-Disposable income (identity)[2]:
+Disposable income (identity) [2]:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
 
-Tax revenue (behavioural)[3]:
+Tax revenue (behavioural) [3]:
 $$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} ) $$
 
-Household wealth (identity)[4]:
+Household wealth (identity) [4]:
 $$V_h = V_{h,-1} + YD - C  $$
 
-Consumption (hehavioural)[5]:
+Consumption (hehavioural) [5]:
 $$C = \alpha_1 \cdot YD + \alpha_2 \cdot V_{-1}  $$
 
-Cash held by households (identity)[6]:
+Cash held by households (identity) [6]:
 $$H_h = V_h - B_h  $$
 
-Bills held by households (behavioural)[7]:
+Bills held by households (behavioural) [7]:
 $$ \frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
 
 
