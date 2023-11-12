@@ -4,17 +4,17 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 
 Lectures' slides are available here:
 
-- Lecture A: [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf)
+- **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf)
 
-- Lecture B: A Toy Model with State Money and Bills
+- **Lecture B:** A Toy Model with State Money and Bills
 
-- Lecture C: A Toy Model with Bank Money and Fixed Capital
+- **Lecture C:** A Toy Model with Bank Money and Fixed Capital
 
-- Lecture D: Multi-Country SFC Models
+- **Lecture D:** Multi-Country SFC Models
 
-- Lecture E: Ecological and Input-Output SFC Models
+- **Lecture E:** Ecological and Input-Output SFC Models
 
-- Lecture F: Empirical SFC Models (using Bimets)
+- **Lecture F:** Empirical SFC Models (using Bimets)
 
 A more general description of lectures' contents is provided below.
 
