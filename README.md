@@ -373,11 +373,11 @@ Based on these assumptions, a few additional equations are required to transform
 
 $$**p** = **\bar{p}** $$
 
-- Vector defining real consumption composition (behavioural) `13`:
+- Vector defining composition of real consumption (behavioural) `13`:
 
 $$**\beta_c** = **\bar{\beta_c}**  $$  
 
-- Vector defining real government expenditure composition (behavioural) `14`:
+- Vector defining composition of real government expenditure (behavioural) `14`:
 
 $$**\beta_g** = **\bar{\beta_g}** $$  
 
@@ -385,7 +385,7 @@ $$**\beta_g** = **\bar{\beta_g}** $$
 
 $$p_c = **p^T** \cdot **\beta_c** $$  
 
-- Average price for government (identity) `16`:
+- Average price for the government (identity) `16`:
 
 $$p_g = **p^T** \cdot **\beta_g** $$  
 
