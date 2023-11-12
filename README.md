@@ -252,15 +252,17 @@ The main code for developing Model IO-PC and running some experiments can be fou
 
 ![fig_1_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_iopc.png)
 
+Variables displayed in quadrants (a), (b), (c), and (d) follow the same pattern as Model PC variables. However, Model IO-PC also allows tracking cross-industry demands for inputs and the impact of final demands on total outputs 
+
 ![fig_2_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_iopc.png)
 
-A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model_tables.R). This code allows for the generation of not only the BS and the TFM but also the input-output table of the economy.
+A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model_tables.R). This code allows for the generation of not only the BS and the TFM but also the input-output table of the economy. A more detailed visualisation is presented below:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/io_table_iopc.png" alt="Table IO-PC">
 </p>
 
-The code for the Sankey diagram replicating the transactions-flow matrix is provided [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R). Cross-industry intedependencies can also be visualised in the same way.
+The code for the Sankey diagram replicating the transactions-flow matrix is provided [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R). The same code also allows visualising cross-industry intedependencies, that is, the IO table of the economy.
 
 ![fig_sankey_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_IOPC.png)
 
