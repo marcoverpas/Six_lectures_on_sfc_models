@@ -146,7 +146,7 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 #Data_PC <- read.csv("C:/.../PC_data.csv")
 ```
 
-We can now define the system of identities and behavioural equations as a txt file. `Bimets`' syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
+We can now define the system of identities and behavioural equations as a txt file. `Bimets` syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
 
 ```R
 S_model.txt="MODEL
@@ -696,7 +696,9 @@ BS_Matrix %>%
   kable_classic(full_width = F, html_font = "helvetica")
 ```
 
-![bs_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/bs_emp.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/bs_emp.png" alt="BS Table">
+</p>
 
 We can now move to the transactions-flow matrix.
 
@@ -838,7 +840,9 @@ TFM_Matrix %>%
   kable_classic(full_width = F, html_font = "helvetica")
 ```
 
-![tfm_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/tfm_emp.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/tfm_emp.png" alt="TFM Table">
+</p>
 
 ### 5_6_Sankey_diagram
 
