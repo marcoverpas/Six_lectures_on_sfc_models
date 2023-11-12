@@ -866,7 +866,9 @@ legend("bottom",c("Observed","Simulated (adjusted)"),  bty = "n", cex=1, lty=c(3
 
 The third file, named [EMP_model_outofsample.R](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/EMP_model_outofsample.R), performs out-of-sample predictions, of both deterministic and stochastic nature, which can be used as the baseline scenario. 
 
-The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations. Afterward, we can simulate the model out of sample using either the function `DYNAMIC` (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function `FORECAST` (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
+The first step is to extend exogenous variables up to the end of the forecasting period, which, in this exercise, is 2028. Similar to what we did for adjusted in-sample predictions, the second step is to create an "exogenization list", encompassing all the endogenous variables of the model. These variables are adjusted up to 2021 and then set free to follow the dynamics implied by the model equations.
+
+Afterward, we can simulate the model out of sample using either the function `DYNAMIC` (employing simulated values for the lagged endogenous variables in the solutions of subsequent periods) or the function `FORECAST` (similar to the previous one, but setting the starting values of endogenous variables in a period equal to the simulated values of the previous period).
 
 ```R
 # Extend exogenous and conditionally-evaluated variables up to 2028
