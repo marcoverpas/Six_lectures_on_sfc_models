@@ -1013,11 +1013,18 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ## 6_Useful_links_and_resources
 
+| Author(s) | Description | Address |
+|:---------:|:---------:|:---------:|
+| Alessandro Bramucci | **Interactive Macro** - Website collecting a series of simulators programmed in R and Shiny of some famous macroeconomic textbook models. | [Link](https://www.alessandrobramucci.com/project/interactive_macro/)    |
+| Alessandro Caiani | **JMAB** - Simulation tool designed (with Antoine Godin) for AB-SFC macroeconomic modeling.    | [Link](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit)    |
+| Yannis Dafermos and Maria Nikolaidi | **An ecological macro model** - Presentation of DEFINE (Dynamic Ecosystem-FINance-Economy) model, which is an ecological stock-flow consistent model that analyses the interactions between the ecosystem, the financial system and the macroeconomy (developed with Maria Nikolaidi and Giorgos Galanis. | [Link](https://yannisdafermos.com/an-ecological-macro-model/)    |
+
+
 - [Alessandro Bramucci](https://www.alessandrobramucci.com/project/interactive_macro/) 
 
 - [Alessandro Caiani](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit) 
 
-- [Yannis Dafermos and Maria Nikolaidi](https://yannisdafermos.com/sfc-modelling/) 
+- [Yannis Dafermos and Maria Nikolaidi](https://yannisdafermos.com/an-ecological-macro-model/) 
 
 - [Michal Gamrot](https://github.com/gamrot/godley/) 
 
