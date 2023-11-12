@@ -56,7 +56,8 @@ Summing up, while there are many online resources today for those interested in 
 
 ### 2_1_Model_PC
 
-This is one of the simplest SFC toy models. It is developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". PC stands for portfolio choice, because households can hold their wealth in terms of cash and/or government bills.
+This is one of the simplest SFC toy models. It is developed in chapter 4 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **PC** stands for "portfolio choice", because households can hold their wealth in terms of cash and/or government bills.
+
 Key assumptions are as follows:
 
 - Closed economy
@@ -89,7 +90,25 @@ The code also allows for creating the Sankey diagram of transactions and changes
 
 ### 2_2_Model_BMW
 
-[in progress]
+This is the simplest model explicitly including commercial banks. It is developed in chapter 7 of Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **BMW** stands for "bank-money world", because there is only one kind of financial assets: bank deposits held by households. Firms’ investment in fixed capital is (partially) funded by bank loans.
+
+Key assumptions are as follows:
+
+- Closed economy and no ecosystem
+
+- Three agents: households, firms, banks
+
+- Assets and liabilities include: loans, deposits, tangible (or fixed) capital
+
+- Investment funded by loans and internal funds
+
+- Target capital to output ratio
+
+- Fixed prices and zero net profits
+
+- No State, no outside money (cash)
+
+![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7)
 
 ### 2_3_Model_REG
 
