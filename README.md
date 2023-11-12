@@ -1020,10 +1020,10 @@ As mentioned, the community of SFC modelers lacks a portal that consolidates the
 | Alessandro Bramucci | **Interactive Macro** - Website collecting a series of simulators programmed in R and Shiny of some famous macroeconomic textbook models. | [Link](https://www.alessandrobramucci.com/project/interactive_macro/)    |
 | Alessandro Caiani | **JMAB** - Simulation tool designed (with Antoine Godin) for AB-SFC macroeconomic modeling.    | [Link](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit)    |
 | Yannis Dafermos | **An ecological macro model** - Presentation of DEFINE, which is an ecological stock-flow consistent model that analyses the interactions between the ecosystem, the financial system and the macroeconomy (developed with Maria Nikolaidi and Giorgos Galanis). | [Link](https://yannisdafermos.com/an-ecological-macro-model/)    |
-| Michal Gamrot | **Godley** - R package for simulating SFC (stock-flow consistent) models. | [Link](https://github.com/gamrot/godley/) |
+| Michal Gamrot | **Godley package** - R package for simulating SFC (stock-flow consistent) models. | [Link](https://github.com/gamrot/godley/) |
 | Antoine Godin | **SFC codes** - R and Python codes collected from seminars and lectures.  | [Link](https://github.com/antoinegodin)) |
 | Andrea Luciani | **Bimets package** - R package developed with the aim to ease time series analysis and to build up a framework that facilitates the definition, estimation, and simulation of simultaneous equation models. | [Link](https://github.com/andrea-luciani/bimets) |
-| Joao Macalos | **SFCR** - R package providing an intuitive and tidy way to estimate stock-flow consistent models. | [Link](https://joaomacalos.github.io/sfcr/index.html) |
+| Joao Macalos | **SFCR package** - R package providing an intuitive and tidy way to estimate stock-flow consistent models. | [Link](https://joaomacalos.github.io/sfcr/index.html) |
 | Jo Michell | **SFC codes** - R and Python codes collected from seminars and lectures. | [Link](https://github.com/jomichell) |
 | Franz Prante and Karsten Kohler | **DIY Macroeconomic Model Simulation** - Platform providing an open source code repository and online script for macroeconomic model simulation. | [Link](https://macrosimulation.org/) |
 | Marco Veronese Passarella (marxianomics) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://www.marcopassarella.it/en/teaching-2/) |
