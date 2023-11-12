@@ -16,7 +16,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
     - [5.2 Model and data](#5_2_Model_and_data)
     - [5.3 In-sample predictions](#5_3_In-sample_predictions)
     - [5.4 Out-of-sample predictions](#5_4_Out-of-sample_predictions)
-    - [5.5 In-sample predictions](#5_5_SFC_tables)
+    - [5.5 SFC tables](#5_5_SFC_tables)
     - [5.6 Sankey diagram](#5_6_Sankey_diagram)
     - [5.7 Experiments](57_7_Experiments)
 - [6 Useful links](#6_Useful_links)
