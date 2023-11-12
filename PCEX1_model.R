@@ -6,26 +6,6 @@
 # Version: 2 October 2023
 
 ################################################################################
-# Copyright (c) 2023 Marco Veronese Passarella
-#
-# Permission is hereby granted, free of charge, to any person obtaining a 
-# copy of this software and associated documentation files (the "Software"),
-# to deal in the Software without restriction, including without limitation
-# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-# and/or sell copies of the Software, and to permit persons to whom the 
-# Software is furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in 
-# all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-# IN THE SOFTWARE.
-################################################################################
 
 #STEP 1: PREPARE THE WORK-SPACE
 
@@ -178,7 +158,7 @@ layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     cex.axis=1.5,cex.lab=1.5,ylab = 'Â£',
      xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
@@ -192,7 +172,7 @@ par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 #Figure 4 - Note: figure 4.5 in the text
 plot(y[2,48:88],type="l", col=2, lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 4  Rise and fall of national income (GDP) following an increase in \n the propensity to consume out of expected disposable income",
-     ylab = '£',xlab = 'Time',ylim = range(104,124),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(104,124),cex.axis=1.5,cex.lab=1.5)
 abline(h=y[2,48],col="green",lty=2)
 abline(h=y[2,nPeriods],col="blue",lty=2)
 legend("right",c("National income","Old steady state","New steady state"),  bty = "n",
@@ -200,7 +180,7 @@ legend("right",c("National income","Old steady state","New steady state"),  bty 
 
 #Figure 5 - Note: figure 4.6 in the text
 plot(v[2,48:88],type="l", col=2, lwd=3, lty=1, font.main=1,cex.main=1.5, main="Figure 5  Evolution of C, expected YD and V following \n an increase in the propensity to consume",
-     ylab = '£',xlab = 'Time',ylim = range(60,100),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(60,100),cex.axis=1.5,cex.lab=1.5)
 lines(yd_e[2,48:88],type="l", col=4, lwd=3, lty=2)
 lines(cons[2,48:88],type="l", col=3, lwd=3, lty=3)
 abline(h=v[2,48],col="gray50",lty=1)
