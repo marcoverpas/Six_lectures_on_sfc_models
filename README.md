@@ -206,21 +206,27 @@ In comparison to Model PC, additional assumptions include:
 Based on these assumptions, the following additional equations are required to transform Model PC into Model IO-PC:
 
 The vector of unit prices is set exogenously (behavioural) [12]:
+
 $$**p** = **\bar{p}** $$
 
 Real consumption composition is set exogenously (behavioural) [13]:
+
 $$**\beta_c** = **\bar{\beta_c}**  $$  
 
 Real government expenditure composition is set exogenously (behavioural) [14]:
+
 $$**\beta_g** = **\bar{\beta_g}** $$  
 
 Average consumer price (identity) [15]:
+
 $$p_c = **p^T** \cdot **\beta_c** $$  
 
 Average price for government (identity) [16]:
+
 $$p_g = **p^T** \cdot **\beta_g** $$  
 
 Vector of final demands in real terms (identity) [17]:
+
 $$d = **\beta_c** \cdot c + **\beta_g** \cdot g $$  
 
 Vector of real gross outputs (identity) [18]:
