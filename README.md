@@ -206,39 +206,39 @@ In comparison to Model PC, additional assumptions include:
 Based on these assumptions, the following additional equations are required to transform Model PC into Model IO-PC:
 
 The vector of unit prices is set exogenously (behavioural) [12]:
-$$ **p** = **\bar{p}** $$
+$$**p** = **\bar{p}** $$
 
 Real consumption composition is set exogenously (behavioural) [13]:
-$$ **\beta_c** = **\bar{\beta_c}**  $$  
+$$**\beta_c** = **\bar{\beta_c}**  $$  
 
 Real government expenditure composition is set exogenously (behavioural) [14]:
-$$ **\beta_g** = **\bar{\beta_g}** $$  
+$$**\beta_g** = **\bar{\beta_g}** $$  
 
 Average consumer price (identity) [15]:
-$$ p_c = **p^T** \cdot **\beta_c** $$  
+$$p_c = **p^T** \cdot **\beta_c** $$  
 
 Average price for government (identity) [16]:
-$$ p_g = **p^T** \cdot **\beta_g** $$  
+$$p_g = **p^T** \cdot **\beta_g** $$  
 
 Vector of final demands in real terms (identity) [17]:
-$$ d = **\beta_c** \cdot c + **\beta_g** \cdot g $$  
+$$d = **\beta_c** \cdot c + **\beta_g** \cdot g $$  
 
 Vector of real gross outputs (identity) [18]:
-$$ x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
+$$x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
                                                                         a_{21} & a_{22}
                                                                         \end{array}\right) $$  
 
 Modified equation for national income (identity) [1.B]:
-$$ Y = **p^T** \cdot **d** $$
+$$Y = **p^T** \cdot **d** $$
 
 Real consumption (behavioural) [19]:
-$$ c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
+$$c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
 
 Nominal consumption (identity) [5.B]:
-$$ C = p_c \cdot c $$
+$$C = p_c \cdot c $$
 
 Nominal government spending (identity) [20]:
-$$ G = p_g \cdot g $$
+$$G = p_g \cdot g $$
 
 
 [in progress]
