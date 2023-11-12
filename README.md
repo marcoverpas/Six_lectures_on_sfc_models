@@ -592,7 +592,7 @@ The next step is to upload data from a folder. This code takes the observed seri
 |2020|1317041|293530|343580|488941|429156|1660621|334162.2757|642972|1336649.103|185433|185433|612091.0923|426658.0923|612091.0923|0.022529526|185433|
 |2021|1429333|357215|352718|582192|540198|1782051|358332.6809|692915|1433330.724|200683|200683|616088.8159|415405.8159|616088.8159|0.023582902|200683|
 
-where * means that the series has been recalculated or reclassified to fit Model PC identities.
+where * means that the series has been recalculated or reclassified to be coherent with Model PC aggregation level and/or fit model identities.
 
 Once the data have been downloaded and re-organised, we can load them into the main code, along with the necessary `R` libraries.
 
