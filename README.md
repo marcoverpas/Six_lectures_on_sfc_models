@@ -108,7 +108,7 @@ Key assumptions are as follows:
 
 - No State, no outside money (cash)
 
-![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7)
+<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7) -->
 
 ### 2_3_Model_REG
 
