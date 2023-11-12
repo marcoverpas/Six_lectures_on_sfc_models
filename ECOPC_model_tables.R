@@ -192,8 +192,8 @@ kable(PSFM_Matrix) #Unload kableExtra to use this
 library(kableExtra)
 
 #Create captions
-caption3 <- paste("Table 3. Physical flow matrix of Model ECO-PC in period", yr, "under baseline (matter = Gt, energy = EJ)")
-caption4 <- paste("Table 4. Physical stock-flow matrix matrix of Model ECO-PC in period ",yr, "under baseline (matter = Gt, energy = EJ)")
+caption3 <- paste("Table 4. Physical flow matrix of Model ECO-PC in period", yr, "under baseline (matter = Gt, energy = EJ)")
+caption4 <- paste("Table 5. Physical stock-flow matrix matrix of Model ECO-PC in period ",yr, "under baseline (matter = Gt, energy = EJ)")
 
 #Create html table for PFM
 PFM_Matrix %>%
