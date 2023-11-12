@@ -1013,26 +1013,14 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ## 6_Useful_links_and_resources
 
-| Author(s) | Description | Address |
-|:---------:|:---------:|:---------:|
+| Author | Description | Address |
+|:---------|:---------|:---------:|
 | Alessandro Bramucci | **Interactive Macro** - Website collecting a series of simulators programmed in R and Shiny of some famous macroeconomic textbook models. | [Link](https://www.alessandrobramucci.com/project/interactive_macro/)    |
 | Alessandro Caiani | **JMAB** - Simulation tool designed (with Antoine Godin) for AB-SFC macroeconomic modeling.    | [Link](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit)    |
 | Yannis Dafermos and Maria Nikolaidi | **An ecological macro model** - Presentation of DEFINE (Dynamic Ecosystem-FINance-Economy) model, which is an ecological stock-flow consistent model that analyses the interactions between the ecosystem, the financial system and the macroeconomy (developed with Maria Nikolaidi and Giorgos Galanis. | [Link](https://yannisdafermos.com/an-ecological-macro-model/)    |
-
-
-- [Alessandro Bramucci](https://www.alessandrobramucci.com/project/interactive_macro/) 
-
-- [Alessandro Caiani](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit) 
-
-- [Yannis Dafermos and Maria Nikolaidi](https://yannisdafermos.com/an-ecological-macro-model/) 
-
-- [Michal Gamrot](https://github.com/gamrot/godley/) 
-
-- [Antoine Godin](http://www.antoinegodin.eu/)
-
-- [Karsten Kohler](https://karstenkohler.com/)
-
-- [Andrea Luciani](https://github.com/andrea-luciani)
+| Michal Gamrot | **Godley** - R package for simulating SFC (stock-flow consistent) models. | [Link](https://github.com/gamrot/godley/) |
+| Antoine Godin | **SFC codes** - Material collected from seminars and lectures.  | [link]([http://www.antoinegodin.eu/](https://github.com/antoinegodin)) |
+| Andrea Luciani | **Bimets package** - R package developed with the aim to ease time series analysis and to build up a framework that facilitates the definition, estimation, and simulation of simultaneous equation models. | [Link](https://github.com/andrea-luciani/bimets) |
 
 - [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
 
