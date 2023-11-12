@@ -215,9 +215,11 @@ layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '?',
+     cex.axis=1.5,cex.lab=1.5,ylab = '£',
      xlab = 'Time',ylim = range(-1,1))
 ```
+
+![fig_sankey_pc](https://raw.githubusercontent.com/marcoverpas/figures/main/consistency_check.png)
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)). The expectation-augmented version, named PCEX1, is available ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R)).
 
