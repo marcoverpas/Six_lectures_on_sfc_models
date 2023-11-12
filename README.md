@@ -1025,7 +1025,7 @@ As mentioned, the community of SFC modelers lacks a portal that consolidates the
 | Alessandro Caiani | **JMAB** - Simulation tool designed (with Antoine Godin) for AB-SFC macroeconomic modeling.    | [Link](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit)    |
 | Yannis Dafermos | **DEFINE** - Ecological stock-flow consistent model that analyses the interactions between the ecosystem, the financial system and the macroeconomy (developed with Maria Nikolaidi and Giorgos Galanis). | [Link](https://yannisdafermos.com/an-ecological-macro-model/)    |
 | Michal Gamrot | **Godley package** - R package for simulating SFC (stock-flow consistent) models. | [Link](https://github.com/gamrot/godley/) |
-| Antoine Godin | **SFC codes** - R and Python codes collected from seminars and lectures.  | [Link](https://github.com/antoinegodin)) |
+| Antoine Godin | **SFC codes** - R and Python codes collected from seminars and lectures.  | [Link](https://github.com/antoinegodin) |
 | Andrea Luciani | **Bimets package** - R package developed with the aim to ease time series analysis and to build up a framework that facilitates the definition, estimation, and simulation of simultaneous equation models. | [Link](https://github.com/andrea-luciani/bimets) |
 | Joao Macalos | **SFCR package** - R package providing an intuitive and tidy way to estimate stock-flow consistent models. | [Link](https://joaomacalos.github.io/sfcr/index.html) |
 | Jo Michell | **SFC codes** - R and Python codes collected from seminars and lectures. | [Link](https://github.com/jomichell) |
