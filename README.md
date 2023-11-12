@@ -317,13 +317,13 @@ The main code for reproducing the experiments can be found [here](https://github
 
 Open-economy or multi-area SFC models adopt a general equilibrium approach, accounting for the interaction of two economies engaged in the trade of goods. The entire system, representing the global economy, is closed, meticulously tracking all flows and stocks. Godley and Lavoie (2007) introduce and explore four distinct models:
 
-- Model REG: a toy model that examines two regions within the same country
+- Model [REG](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R): a toy model that examines two regions within the same country
 
-- Model OPEN: a toy model involving two separate countries
+- Model [OPEN](https://github.com/marcoverpas/SFC-models-R/blob/master/OPEN.R): a toy model involving two separate countries
 
-- Model OPENFIX: an advanced model encompassing two countries under a fixed exchange rate regime
+- Model [OPENFIX](https://github.com/marcoverpas/SFC-models-R/blob/master/OPENFIX.R): an advanced model encompassing two countries under a fixed exchange rate regime
 
-- Model OPENFLEX: an advanced model dealing with two countries under a floating exchange rate regime
+- Model [OPENFLEX](https://github.com/marcoverpas/SFC-models-R/blob/master/OPENFLEX.R): an advanced model dealing with two countries under a floating exchange rate regime
 
 - In this section, we will present and discuss Model REG
 
