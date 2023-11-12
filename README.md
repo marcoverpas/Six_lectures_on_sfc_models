@@ -115,6 +115,13 @@ $$H_s = H_h $$
 Note: in the R code, model variables have been modelled as matrices, where rows represent different scenarios and columns denote distinct periods.
 
 ```R
+#Number of periods
+nPeriods = 90
+
+#Number of scenarios
+nScenarios=3 
+
+#Define variables
 b_cb=matrix(data=21.62,nrow=nScenarios,ncol=nPeriods) #Government bills held by central bank
 b_h=matrix(data=64.87,nrow=nScenarios,ncol=nPeriods) #Government bills held by households
 b_s=matrix(data=21.62+64.87,nrow=nScenarios,ncol=nPeriods) #Government bills supplied by government
@@ -132,6 +139,7 @@ yd=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Disposable income of households
 Parameters and exogenous variables are typically represented as scalars. However, variables susceptible to shocks are treated as matrices (as they change over time).
 
 ```R
+#Define coefficients
 alpha1=matrix(data=0.6,nrow=nScenarios,ncol=nPeriods) #Propensity to consume out of income (as matrix)
 alpha2=0.4 #Propensity to consume out of wealth
 lambda0 = 0.635 #Autonomous share of bills
