@@ -327,9 +327,7 @@ Open-economy or multi-area SFC models adopt a general equilibrium approach, acco
 
 - Model [OPENFLEX](https://github.com/marcoverpas/SFC-models-R/blob/master/OPENFLEX.R): an advanced model dealing with two countries under a floating exchange rate regime
 
-- In this section, we will present and discuss Model REG
-
-Model REG is developed in chapter 6 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **REG** stands for "regional",  as the model considers two regions of the same country. Looking at its economic and financial structure, it is the very same of Model PC. The difference is that the economy is disaggregated into two regions, the *North* and the *South*. 
+In this section, we will present and discuss Model REG, which is developed in chapter 6 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **REG** stands for "regional",  as the model considers two regions of the same country. Looking at its economic and financial structure, it is the very same of Model PC. The difference is that the economy is disaggregated into two regions, the *North* and the *South*. 
 
 Key assumptions are as follows:
 
