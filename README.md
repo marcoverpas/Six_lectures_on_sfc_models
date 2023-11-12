@@ -1013,23 +1013,17 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ## 6_Useful_links_and_resources
 
-| Author | Description | Address |
+| Authors | Description | Link |
 |:---------|:---------|:---------:|
 | Alessandro Bramucci | **Interactive Macro** - Website collecting a series of simulators programmed in R and Shiny of some famous macroeconomic textbook models. | [Link](https://www.alessandrobramucci.com/project/interactive_macro/)    |
 | Alessandro Caiani | **JMAB** - Simulation tool designed (with Antoine Godin) for AB-SFC macroeconomic modeling.    | [Link](https://sites.google.com/view/alessandro-caiani/java-macro-ab-simulation-toolkit)    |
 | Yannis Dafermos and Maria Nikolaidi | **An ecological macro model** - Presentation of DEFINE (Dynamic Ecosystem-FINance-Economy) model, which is an ecological stock-flow consistent model that analyses the interactions between the ecosystem, the financial system and the macroeconomy (developed with Maria Nikolaidi and Giorgos Galanis. | [Link](https://yannisdafermos.com/an-ecological-macro-model/)    |
 | Michal Gamrot | **Godley** - R package for simulating SFC (stock-flow consistent) models. | [Link](https://github.com/gamrot/godley/) |
-| Antoine Godin | **SFC codes** - Material collected from seminars and lectures.  | [link]([http://www.antoinegodin.eu/](https://github.com/antoinegodin)) |
+| Antoine Godin | **SFC codes** - R and Python codes collected from seminars and lectures.  | [Link](https://github.com/antoinegodin)) |
 | Andrea Luciani | **Bimets package** - R package developed with the aim to ease time series analysis and to build up a framework that facilitates the definition, estimation, and simulation of simultaneous equation models. | [Link](https://github.com/andrea-luciani/bimets) |
-
-- [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
-
-- [Jo Michell](https://github.com/jomichell)
-
-- [Franz Prante and Karsten Kohler](https://macrosimulation.org/) 
-
-- [Marco Veronese Passarella (website)](https://www.marcopassarella.it/en/teaching-2/) 
-
-- [Marco Veronese Passarella (GitHub)](https://github.com/marcoverpas) 
-
-- [Gennaro Zezza](https://gennaro.zezza.it/?page_id=10&lang=en)
+| Joao Macalos | **SFCR** - R package providing an intuitive and tidy way to estimate stock-flow consistent models. | [Link](https://joaomacalos.github.io/sfcr/index.html) |
+| Jo Michell | **SFC codes** - R and Python codes collected from seminars and lectures. | [Link](https://github.com/jomichell) |
+| Franz Prante and Karsten Kohler | **DIY Macroeconomic Model Simulation** - Platform providing an open source code repository and online script for macroeconomic model simulation. | [Link](https://macrosimulation.org/) |
+| Marco Veronese Passarella (marxianomics) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://www.marcopassarella.it/en/teaching-2/) |
+| Marco Veronese Passarella (GitHub) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://github.com/marcoverpas) |
+| Gennaro Zezza | **SFC codes** - Original EViews (and Excel) codes replicating experiments in Godley and Lavoie, "Monetary Economics". | [Link](https://gennaro.zezza.it/?page_id=10&lang=en) |
