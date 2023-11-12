@@ -239,7 +239,7 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)). The expectation-augmented version, named PCEX1, is available ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R)).
 
-Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few additional lines of code are enough to generate these tables automatically:
+Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few [additional lines]([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)) of code are enough to generate these tables automatically. Tables are displayed in the Console (bootm-left quadrant in `RStudio`):
 
 ```R
 |             |      H|P  |CB     |G      | Tot|
@@ -263,7 +263,7 @@ Crucial identities of the model are derived using the balance-sheet matrix and t
 
 ```
 
-These tables can be conveniently turned into HTML (and LaTeX) format ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R) is the code). 
+Besides, these tables can be conveniently turned into HTML (and LaTeX) format (we refer again to the auxiliary code for the tables [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/tables_pc.png" alt="Tables PC">
