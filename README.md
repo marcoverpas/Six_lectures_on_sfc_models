@@ -1299,7 +1299,7 @@ TFM_Matrix<-cbind(H_TFM,F_TFM,CB_TFM,G_TFM,Tot_TFM)
 kable(TFM_Matrix) #Unload kableExtra to use this
 ```
 
-Once again, a LaTeX version of the table can be generated using `kableExtra`.
+Once again, a htlm version (or a LaTeX version) of the table can be generated using `kableExtra`.
 
 ```R
 #Upload libraries
