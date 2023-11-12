@@ -541,7 +541,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 - Type II or theory-to-data models: these models are developed based on a theoretical SFC model, and then data are collected and adequately reclassified to estimate the coefficients of the model.
 
-[Bimets](https://github.com/andrea-luciani) is a software framework for R designed for time series analysis and econometric modeling. It allows creating and manipulating time series, specifying simultaneous equation models, performing model estimation, structural stability analysis, deterministic and stochastic simulation, forecasting, and performing optimal control. It can be conveniently used to develop, estimate, and simulate empirical SFC models, especially Type II models.
+[Bimets](https://github.com/andrea-luciani) is a software framework for `R` designed for time series analysis and econometric modeling. It allows creating and manipulating time series, specifying simultaneous equation models, performing model estimation, structural stability analysis, deterministic and stochastic simulation, forecasting, and performing optimal control. It can be conveniently used to develop, estimate, and simulate empirical SFC models, especially Type II models.
 
 Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://github.com/andrea-luciani)). The model code is organised into five different files
 
@@ -560,7 +560,7 @@ if(!is.null(dev.list())) dev.off()
 cat("\014")
 ```
 
-The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure.
+The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.xlsx is the original Excel file).
 
 |Year|CONS   |INV   |GOV   |X     |IM    |Y      |TAX        |WB    |YD         |Hh    |Hs    |Bs         |Bh         |NVh        |Rb         |Bcb   |Bcb   |
 |----|-------|------|------|------|------|-------|-----------|------|-----------|------|------|-----------|-----------|-----------|-----------|------|------|
@@ -592,7 +592,7 @@ The next step is to upload data from a folder. This code takes the observed seri
 |2020|1317041|293530|343580|488941|429156|1660621|334162.2757|642972|1336649.103|185433|185433|612091.0923|426658.0923|612091.0923|0.022529526|185433|185433|
 |2021|1429333|357215|352718|582192|540198|1782051|358332.6809|692915|1433330.724|200683|200683|616088.8159|415405.8159|616088.8159|0.023582902|200683|200683|
 
-Once the data have been downloaded and reclassified, we can load them into the main code, along with the necessary R libraries.
+Once the data have been downloaded and reclassified, we can load them into the main code, along with the necessary `R` libraries.
 
 ```R
 #Upload libraries
