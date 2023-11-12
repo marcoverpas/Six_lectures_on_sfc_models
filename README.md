@@ -2,6 +2,21 @@
 
 This repository includes the codes used in the 6 lectures on SFC models delivered in November-December 2023 at the [Central University of Finance and Economics](https://www.cufe.edu.cn/), Beijing, China. Specifically, it contains the `R` files that replicate [PC](#Model_PC), [PC-EX1](#Model_PC), [BMW](#Model_PC), and [REG](#Model_REG) (toy) models from Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)", including additional features. An empirically-calibrated version (named [EMP](#Model_EMP)), an input-output version (named [IO-PC](#Model_IO-PC)), and an ecosystem-augmented version (named [ECO-PC](#Model_ECO-PC)) of Model PC are provided too. 
 
+Lecture slides are available here:
+
+- Lecture A: [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf)
+
+- Lecture B: A Toy Model with State Money and Bills
+
+- Lecture C: A Toy Model with Bank Money and Fixed Capital
+
+- Lecture D: Multi-Country SFC Models
+
+- Lecture E: Ecological and Input-Output SFC Models
+
+- Lecture F: Empirical SFC Models (using Bimets)
+
+
 ## Table of Contents
 
 - [1 Introduction](#1_Introduction)
