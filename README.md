@@ -399,14 +399,14 @@ $$x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} &
                                                                         a_{21} & a_{22}
                                                                         \end{array}\right) $$  
 
-Modified equation for national income (identity) `1.B`:
+Modified equation for national income (identity) `1.A`:
 
 $$Y = **p^T** \cdot **d** $$
 
 Real consumption (behavioural) `19`:
 $$c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
 
-Nominal consumption (identity) `5.B`:
+Nominal consumption (identity) `5.A`:
 $$C = p_c \cdot c $$
 
 Nominal government spending (identity) `20`:
