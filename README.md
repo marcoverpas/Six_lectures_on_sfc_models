@@ -1013,6 +1013,8 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ## 6_Useful_links_and_resources
 
+As mentioned, the community of SFC modelers lacks a portal that consolidates the abundant yet scattered material. Here is a tentative list of useful resources. Please feel free to contact me (at info@marcopassarella.it) to suggest other interesting resources. 
+
 | Authors | Description | Link |
 |:---------|:---------|:---------:|
 | Alessandro Bramucci | **Interactive Macro** - Website collecting a series of simulators programmed in R and Shiny of some famous macroeconomic textbook models. | [Link](https://www.alessandrobramucci.com/project/interactive_macro/)    |
