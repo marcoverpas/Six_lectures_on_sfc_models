@@ -134,7 +134,7 @@ for (j in 1:nScenarios){
       
       #STEP 4.B: ADD ALTERNATIVE SCENARIOS  
       
-      #Shock 1: higher interest rate
+      #Shock 1: propensity to consume depending on climate change
       if (i>=10 && j==2){a1[j,i]=5}
       
       #STEP 4.C: DEFINE THE SYSTEM OF EQUATIONS        
