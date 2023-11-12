@@ -178,10 +178,17 @@ $$ p_g = **p^T** \cdot **\beta_g**~~ (16)  $$
 
 $$ d = **\beta_c** \cdot c + **\beta_g** \cdot g ~~ (17)  $$  
 
-$$ x = **A** \cdot **x** + **d** ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
+$$ x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
                                                                         a_{21} & a_{22}
                                                                         \end{array}\right) ~~ (18)  $$  
 
+$$ Y = **p^T** \cdot **d** ~~ (1.B) $$
+
+$$ c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} ~~ (19) $$
+                                                                        
+$$ C = p_c \cdot c ~~ (5.B) $$
+
+$$ G = p_g \cdot g ~~ (1.B) $$
 
 
 [in progress]
