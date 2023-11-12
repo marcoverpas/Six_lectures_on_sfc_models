@@ -560,7 +560,7 @@ if(!is.null(dev.list())) dev.off()
 cat("\014")
 ```
 
-The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.xlsx is the original Excel file).
+The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.xlsx is the original Excel file)).
 
 |Year|CONS   |INV   |GOV   |X     |IM    |Y      |TAX        |WB    |YD         |Hh    |Hs    |Bs         |Bh         |NVh        |Rb         |Bcb   |Bcb   |
 |----|-------|------|------|------|------|-------|-----------|------|-----------|------|------|-----------|-----------|-----------|-----------|------|------|
