@@ -168,7 +168,7 @@ Based on these assumptions, the following additional equations are required to t
 
 $$(1) ~~ **p** = **\bar{p}** $$
 
-$$(2) ~~ **b_c** = **\bar{b_c}** $$  
+$$(2) ~~ **\beta_c** = **\bar{\beta_c}** $$  
 
 [in progress]
 
