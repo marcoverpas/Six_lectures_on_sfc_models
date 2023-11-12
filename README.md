@@ -79,7 +79,10 @@ The main code for reproducing the experiments can be found [here](https://github
 
 Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few additional lines of code are enough to generate these tables automatically, both in HTML and LaTeX format (go to the [code](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
 
-![fig_tables_pc](https://raw.githubusercontent.com/marcoverpas/figures/main/tables_pc.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/")
+" alt="tables_pc.png">
+</p>
 
 The code also allows for creating the Sankey diagram of transactions and changes in stocks ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_sankey.R)).
 
