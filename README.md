@@ -560,7 +560,7 @@ if(!is.null(dev.list())) dev.off()
 cat("\014")
 ```
 
-The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv).
+The next step is to upload data from a folder. This code takes the observed series from a Dropbox folder, containing Eurostat data for Italy over the period 1995-2021. Alternatively, one can download the data from [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_data.csv). Note that the observed series have been adequately reclassified to fit the PC simplified structure.
 
 |Year|CONS   |INV   |GOV   |X     |IM    |Y      |TAX        |WB    |YD         |Hh    |Hs    |Bs         |Bh         |NVh        |Rb         |Bcb   |Bcb   |
 |----|-------|------|------|------|------|-------|-----------|------|-----------|------|------|-----------|-----------|-----------|-----------|------|------|
@@ -592,7 +592,7 @@ The next step is to upload data from a folder. This code takes the observed seri
 |2020|1317041|293530|343580|488941|429156|1660621|334162.2757|642972|1336649.103|185433|185433|612091.0923|426658.0923|612091.0923|0.022529526|185433|185433|
 |2021|1429333|357215|352718|582192|540198|1782051|358332.6809|692915|1433330.724|200683|200683|616088.8159|415405.8159|616088.8159|0.023582902|200683|200683|
 
-Note that the observed series have been adequately reclassified to fit the PC simplified structure.
+Once the data have been downloaded and reclassified, we can load them into the main code, along with the necessary R libraries.
 
 ```R
 #Upload libraries
@@ -606,7 +606,7 @@ Data_PC <- read.csv("https://www.dropbox.com/scl/fi/ei74ev9i5yx91qwu9xz5f/PC_dat
 #Data_PC <- read.csv("C:/.../PC_data.csv")
 ```
 
-We can now define the system of identities and behavioural equations as a txt file. `Bimets` syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
+We can now define the system of identities and behavioural equations as a ".txt" file. `Bimets` syntax is quite intuitive. The reference manual can be found [here](https://cran.r-project.org/web/packages/bimets/bimets.pdf). 
 
 ```R
 S_model.txt="MODEL
@@ -1474,6 +1474,8 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 ```
 
 ![fig_5_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_5_emp.png)
+
+A more advanced SFC model code for Italy is available [here](https://github.com/marcoverpas/Italy-SFC-Model) (see Canelli et al. 2021, 2022). 
 
 ## 6_Useful_links_and_resources
 
