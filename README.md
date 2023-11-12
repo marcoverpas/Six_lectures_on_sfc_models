@@ -19,7 +19,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
     - [5.5 SFC tables](#5_5_SFC_tables)
     - [5.6 Sankey diagram](#5_6_Sankey_diagram)
     - [5.7 Experiments](57_7_Experiments)
-- [6 Useful links](#6_Useful_links)
+- [6 Useful links and resources](#6_Useful_links_and_resources)
 
 ## 1_Introduction
 
@@ -1007,7 +1007,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 ![fig_5_emp](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_5_emp.png)
 
-## 6_Useful_links
+## 6_Useful_links_and_resources
 
 - [Alessandro Bramucci](https://www.alessandrobramucci.com/project/interactive_macro/) 
 
@@ -1025,7 +1025,7 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 - [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
 
-- [Jo Michell] (https://github.com/jomichell)
+- [Jo Michell](https://github.com/jomichell)
 
 - [Franz Prante and Karsten Kohler](https://macrosimulation.org/) 
 
