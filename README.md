@@ -1022,6 +1022,8 @@ legend("bottom",c("Baseline","Shock (increase in taxation)"),  bty = "n", cex=1,
 
 - [Joao Macalos](https://joaomacalos.github.io/sfcr/index.html)
 
+- [Jo Michell] (https://github.com/jomichell)
+
 - [Franz Prante and Karsten Kohler](https://macrosimulation.org/) 
 
 - [Marco Veronese Passarella (website)](https://www.marcopassarella.it/en/teaching-2/) 
