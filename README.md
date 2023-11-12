@@ -77,10 +77,10 @@ Key assumptions are as follows:
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
 
-National income (identity) [1]: 
+National income (identity) `1`: 
 $$Y = C + G $$
 
-Disposable income (identity) [2]:
+Disposable income (identity) `2`:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
 
 Tax revenue (behavioural) [3]:
@@ -273,7 +273,7 @@ Although the origins of ecological macroeconomics can be traced back to the ince
 
 This gap was bridged in the late 2010s (Dafermos, Nikolaidi, and Galanis, 2016, 2018; Jackson and Victor, 2015). The primary characteristic of ecological SFC models is their integration of monetary variables (following Godley and Lavoie, 2008) with physical variables (in line with Georgescu-Roegen, 1971) in a consistent manner. Several ECO-SFC models have been developed since then.
 
-Here we consider a simple extension of Model IO-PC, named Model ECO, where **ECO** stands for "ecological". Additional assumptions are as follows:
+Here we consider a simple extension of Model IO-PC, named Model ECO-PC, where **ECO** stands for "ecological". Additional assumptions are as follows:
 
 - there are 2 types of reserves: matter and energy
 
