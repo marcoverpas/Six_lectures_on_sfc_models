@@ -311,7 +311,7 @@ Key assumptions are as follows:
 
 - No State, no outside money (cash)
 
-The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R). Lastly, the code for the Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R).
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R). Lastly, the code for the Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R). The codes for a more advanced simulation of an SFC model, incorporating both state and bank money, are available [here](https://github.com/marcoverpas/STRECO_2021).
 
 ### 2_3_Model_REG
 
@@ -345,7 +345,7 @@ Key assumptions are as follows:
 
 - No ecosystem
 
-The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R). A code that automatically generates 2-region SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_tables.R). Lastly, the code for the Sankey diagram replicating the 2-region transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R).
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R). A code that automatically generates 2-region SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_tables.R). Lastly, the code for the Sankey diagram replicating the 2-region transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R). The codes for more advanced open-economy SFC models can be found [here](https://github.com/marcoverpas/SFC-models-R).
 
 ## 3_Introducing_input-output_interdependencies
 
