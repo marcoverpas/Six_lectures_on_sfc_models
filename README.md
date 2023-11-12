@@ -166,9 +166,7 @@ In comparison to Model PC, additional assumptions include:
 
 Based on these assumptions, the following additional equations are required to transform Model PC into Model IO-PC:
 
-\begin{equation}
-**p** = **\bar{p}**
-\end{equation}
+$$ **p** = **\bar{p}** $$
 
 $$ **b_c** = **\bar{b_c}** $$  
 
