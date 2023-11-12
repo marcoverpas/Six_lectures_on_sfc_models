@@ -1458,4 +1458,4 @@ As mentioned, the community of SFC modelers lacks a portal that consolidates the
 | Franz Prante and Karsten Kohler | **DIY Macroeconomic Model Simulation** - Platform providing an open source code repository and online script for macroeconomic model simulation. | [Link](https://macrosimulation.org/) |
 | Marco Veronese Passarella (marxianomics) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://www.marcopassarella.it/en/teaching-2/) |
 | Marco Veronese Passarella (GitHub) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://github.com/marcoverpas) |
-| Gennaro Zezza | **SFC codes** - Original EViews (and Excel) codes replicating experiments in Godley and Lavoie, "Monetary Economics". | [Link](https://gennaro.zezza.it/?page_id=10&lang=en) |
+| Gennaro Zezza | **sfc.models.net** - Original EViews (and Excel) codes replicating experiments in Godley and Lavoie, "Monetary Economics". | [Link](https://gennaro.zezza.it/?page_id=10&lang=en) |
