@@ -236,6 +236,7 @@ $$x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} &
                                                                         \end{array}\right) $$  
 
 Modified equation for national income (identity) [1.B]:
+
 $$Y = **p^T** \cdot **d** $$
 
 Real consumption (behavioural) [19]:
