@@ -291,11 +291,9 @@ Here we consider a simple extension of Model IO-PC, named Model ECO-PC, where **
 
 - Both waste and emissions are produced only by the firm sector
 
-Behavioural equations draw inspiration from the works of Dafermos, Nikolaidi, and Galanis (2016, 2018). The main model code is accessible [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/ECOPC_model.R). The block providing the additional equations for the ecosystem is the one between line 228 and line 305:
+Behavioural equations draw inspiration from the works of Dafermos, Nikolaidi, and Galanis (2016, 2018). The main model code is accessible [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/ECOPC_model.R). The blocks providing the additional equations for the ecosystem are those included between line 228 and line 305. Firstly, extraction of matter and waste are modelled:
 
 ```R
-#Extraction of matter and waste
-
 #Production of material goods 
 x_mat[j,i] = t(mu_mat[,]) %*% x[j,i,]
         
@@ -314,62 +312,67 @@ dc[j,i,] = dc[j,i-1,] + beta_c[j,i,]*cons[j,i] - zeta_dc[,] * dc[j,i-1,]
 #Socioeconomic stock
 kh[j,i] = kh[j,i-1] + x_mat[j,i] - dis[j,i]       
         
- #Wasted socio-economic stock
- wa[j,i] = mat[j,i] - (kh[j,i]-kh[j,i-1])                                                                     
-    
- #Use of energy, emissions and temperature
-        
- #Energy required for production
- en[j,i] = t(eps_en[,]) %*% x[j,i,]                                          
-        
- #Renewable energy at the end of the period
- ren[j,i] = t(eps_en[,]) %*% (eta_en[,]*x[j,i,])                         
-        
- #Non-renewable energy
- nen[j,i] = en[j,i] - ren[j,i]                                                
-        
- #C02 emissions
- emis[j,i] = beta_e*nen[j,i]   
-        
- #Cumulative emissions
- co2_cum[j,i] = co2_cum[j,i-1] + emis[j,i]
-       
- #Atmospheric temperature 
- temp[j,i] = (1/(1-fnc))*tcre*(co2_cum[j,i])
-       
- #Resources and reserves  
-        
- #Stock of material reserves
- k_m[j,i] = k_m[j,i-1] + conv_m[j,i] - mat[j,i]                      
-        
- #Material resources converted to reserves 
- conv_m[j,i] = sigma_m*res_m[j,i]                                    
-        
- #Stock of material resources
- res_m[j,i] = res_m[j,i-1] - conv_m[j,i]                            
-        
- #Carbon mass of non-renewable energy 
- cen[j,i] = emis[j,i]/car                                            
-        
- #Mass of oxygen 
- o2[j,i] = emis[j,i] - cen[j,i]                                      
-        
- #Stock of energy reserves
- k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - en[j,i]                       
-        
- #Energy resources converted to reserves 
- conv_e[j,i] = sigma_e*res_e[j,i]                                    
-        
- #Stock of energy resources
- res_e[j,i] = res_e[j,i-1] - conv_e[j,i]                             
-  
- #Climate related damages / changes
-        
- #Endogenous propensity to consume out of income
- alpha1[j,i] = a0[j,i] - a1[j,i] * (temp[j,i] - temp[j,i-1])   
+#Wasted socio-economic stock
+wa[j,i] = mat[j,i] - (kh[j,i]-kh[j,i-1])                                                                     
+
 ```
 
-The assumption is made that the propensity to consume out of income is (negatively) influenced by climate change.  
+Secondly, energy use and CO2 emissions are considered.
+
+```R
+#Energy required for production
+en[j,i] = t(eps_en[,]) %*% x[j,i,]                                          
+        
+#Renewable energy at the end of the period
+ren[j,i] = t(eps_en[,]) %*% (eta_en[,]*x[j,i,])                         
+        
+#Non-renewable energy
+nen[j,i] = en[j,i] - ren[j,i]                                                
+        
+#C02 emissions
+emis[j,i] = beta_e*nen[j,i]   
+        
+#Cumulative emissions
+co2_cum[j,i] = co2_cum[j,i-1] + emis[j,i]
+       
+#Atmospheric temperature 
+temp[j,i] = (1/(1-fnc))*tcre*(co2_cum[j,i])
+
+```
+Thirdly, the dynamics of reserves is modelled.
+
+```R
+#Stock of material reserves
+k_m[j,i] = k_m[j,i-1] + conv_m[j,i] - mat[j,i]                      
+        
+#Material resources converted to reserves 
+ conv_m[j,i] = sigma_m*res_m[j,i]                                    
+        
+#Stock of material resources
+res_m[j,i] = res_m[j,i-1] - conv_m[j,i]                            
+        
+#Carbon mass of non-renewable energy 
+cen[j,i] = emis[j,i]/car                                            
+        
+#Mass of oxygen 
+o2[j,i] = emis[j,i] - cen[j,i]                                      
+        
+#Stock of energy reserves
+k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - en[j,i]                       
+        
+#Energy resources converted to reserves 
+conv_e[j,i] = sigma_e*res_e[j,i]                                    
+        
+#Stock of energy resources
+res_e[j,i] = res_e[j,i-1] - conv_e[j,i]                             
+  
+```
+Lastly, feedback effects and damages can be introduced. Here the assumption is made that the propensity to consume out of income is (negatively) influenced by climate change.  
+
+```R
+#Endogenous propensity to consume out of income
+alpha1[j,i] = a0[j,i] - a1[j,i] * (temp[j,i] - temp[j,i-1])   
+```
 
 ![fig_1_ecopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_ecopc.png)
 
