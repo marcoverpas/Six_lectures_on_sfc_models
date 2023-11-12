@@ -178,7 +178,9 @@ $$ p_g = **p^T** \cdot **\beta_g**~~ (16)  $$
 
 $$ d = **\beta_c** \cdot c + **\beta_g** \cdot g ~~ (17)  $$  
 
-$$ x = **A** \cdot **x** + **d** ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right) ~~ (18)  $$  
+$$ x = **A** \cdot **x** + **d** ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
+                                                                        a_{21} & a_{22}
+                                                                        \end{array}\right) ~~ (18)  $$  
 
 
 
