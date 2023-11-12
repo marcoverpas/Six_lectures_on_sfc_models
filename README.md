@@ -1,6 +1,6 @@
 # Six lectures on SFC models
 
-This repository includes the codes used in the 6 lectures on SFC models delivered in November-December 2023 at the [Central University of Finance and Economics](https://www.cufe.edu.cn/), Beijing, China. Specifically, it contains the R files that replicate [PC](#Model_PC), [PC-EX1](#Model_PC), [BMW](#Model_PC), and [REG](#Model_REG) (toy) models from Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)", including additional features. An empirically-calibrated version (named [EMP](#Model_EMP)), an input-output version (named [IO-PC](#Model_IO-PC)), and an ecosystem-augmented version (named [ECO-PC](#Model_ECO-PC)) of Model PC are provided too. 
+This repository includes the codes used in the 6 lectures on SFC models delivered in November-December 2023 at the [Central University of Finance and Economics](https://www.cufe.edu.cn/), Beijing, China. Specifically, it contains the `R` files that replicate [PC](#Model_PC), [PC-EX1](#Model_PC), [BMW](#Model_PC), and [REG](#Model_REG) (toy) models from Godley and Lavoie, "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)", including additional features. An empirically-calibrated version (named [EMP](#Model_EMP)), an input-output version (named [IO-PC](#Model_IO-PC)), and an ecosystem-augmented version (named [ECO-PC](#Model_ECO-PC)) of Model PC are provided too. 
 
 ## Table of Contents
 
@@ -543,7 +543,7 @@ Empirical SFC Models are SFC models whose coefficients are calibrated or estimat
 
 [Bimets](https://github.com/andrea-luciani) is a software framework for `R` designed for time series analysis and econometric modeling. It allows creating and manipulating time series, specifying simultaneous equation models, performing model estimation, structural stability analysis, deterministic and stochastic simulation, forecasting, and performing optimal control. It can be conveniently used to develop, estimate, and simulate empirical SFC models, especially Type II models.
 
-Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated R package ([Bimets](https://github.com/andrea-luciani)). The model code is organised into five different files
+Model EMP has been developed by reclassifying Eurostat data for Italy (1995-2021) to align with Model PC equations. In contrast to previous models, EMP has been coded using a dedicated `R` package ([Bimets](https://github.com/andrea-luciani)). The model code is organised into five different files
 
 ### 5_2_Model_and_data
 
