@@ -92,40 +92,40 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-National income (identity) `1`: 
+- National income (identity) `1`: 
 $$Y = C + G $$
 
-Disposable income (identity) `2`:
+- Disposable income (identity) `2`:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
 
-Tax revenue (behavioural) `3`:
+- Tax revenue (behavioural) `3`:
 $$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} ) $$
 
-Household wealth (identity) `4`:
+- Household wealth (identity) `4`:
 $$V_h = V_{h,-1} + YD - C  $$
 
-Consumption (hehavioural) `5`:
+- Consumption (hehavioural) `5`:
 $$C = \alpha_1 \cdot YD + \alpha_2 \cdot V_{-1}  $$
 
-Cash held by households (identity) `6`:
+- Cash held by households (identity) `6`:
 $$H_h = V_h - B_h  $$
 
-Bills held by households (behavioural) `7`:
+- Bills held by households (behavioural) `7`:
 $$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
 
-Supply of bills (identity) `8`:
+- Supply of bills (identity) `8`:
 $$B_s = B_{s,-1} + G - T + r_{-1} \cdot ( B_{s,-1} - B_{cb,-1} )  $$
 
-Supply of cash (identity) `9`:
+- Supply of cash (identity) `9`:
 $$H_s = H_{s,-1} + \Delta B_{cb} $$
 
-Bills held by central bank (identity) `10`:
+- Bills held by central bank (identity) `10`:
 $$B_{cb} = B_s - B_h $$
 
-Interest rate (behavioural) `11`:
+- Interest rate (behavioural) `11`:
 $$r = \bar{r} $$
 
-Redundant equation:
+- Redundant equation:
 $$H_s = H_h $$
 
 Note: in the R code, model variables have been modelled as matrices, where rows represent different scenarios and columns denote distinct periods.
@@ -369,47 +369,47 @@ In comparison to Model PC, additional assumptions include:
 
 Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC.
 
-The vector of unit prices is set exogenously (behavioural) `12`:
+- The vector of unit prices is set exogenously (behavioural) `12`:
 
 $$**p** = **\bar{p}** $$
 
-Real consumption composition is set exogenously (behavioural) `13`:
+- Real consumption composition is set exogenously (behavioural) `13`:
 
 $$**\beta_c** = **\bar{\beta_c}**  $$  
 
-Real government expenditure composition is set exogenously (behavioural) `14`:
+- Real government expenditure composition is set exogenously (behavioural) `14`:
 
 $$**\beta_g** = **\bar{\beta_g}** $$  
 
-Average consumer price (identity) `15`:
+- Average consumer price (identity) `15`:
 
 $$p_c = **p^T** \cdot **\beta_c** $$  
 
-Average price for government (identity) `16`:
+- Average price for government (identity) `16`:
 
 $$p_g = **p^T** \cdot **\beta_g** $$  
 
-Vector of final demands in real terms (identity) `17`:
+- Vector of final demands in real terms (identity) `17`:
 
 $$d = **\beta_c** \cdot c + **\beta_g** \cdot g $$  
 
-Vector of real gross outputs (identity) `18`:
+- Vector of real gross outputs (identity) `18`:
 
 $$x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
                                                                         a_{21} & a_{22}
                                                                         \end{array}\right) $$  
 
-Modified equation for national income (identity) `1.A`:
+- Modified equation for national income (identity) `1.A`:
 
 $$Y = **p^T** \cdot **d** $$
 
-Real consumption (behavioural) `19`:
+- Real consumption (behavioural) `19`:
 $$c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
 
-Nominal consumption (identity) `5.A`:
+- Nominal consumption (identity) `5.A`:
 $$C = p_c \cdot c $$
 
-Nominal government spending (identity) `20`:
+- Nominal government spending (identity) `20`:
 $$G = p_g \cdot g $$
 
 While `12` to `20` are additional equations, equations `1.A` and `5.A` replace equations `1` and `5` of Model PC, respectively. The main code for developing Model IO-PC and running some experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model.R).
