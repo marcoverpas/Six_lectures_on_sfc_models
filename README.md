@@ -203,7 +203,7 @@ In comparison to Model PC, additional assumptions include:
 
 - The composition of both consumption and government spending is exogenously defined
 
-Based on these assumptions, the following additional equations are required to transform Model PC into Model IO-PC:
+Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC.
 
 The vector of unit prices is set exogenously (behavioural) [12]:
 
@@ -248,11 +248,22 @@ $$C = p_c \cdot c $$
 Nominal government spending (identity) [20]:
 $$G = p_g \cdot g $$
 
+The main code for developing Model IO-PC and running some experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model.R).
 
-[in progress]
+![fig_1_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_iopc.png)
 
+![fig_2_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_iopc.png)
 
-<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/fbad4cb4-6e0c-439f-93cd-e93bdd02cfa4) -->
+A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model_tables.R). This code allows for the generation of not only the BS and the TFM but also the input-output table of the economy.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/io_table_iopc.png" alt="Table IO-PC">
+</p>
+
+The code for the Sankey diagram replicating the transactions-flow matrix is provided [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R). Cross-industry intedependencies can also be visualised in the same way.
+
+![fig_sankey_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_IOPC.png)
+
 
 ## 4_Introducing_the_Ecosystem
 
