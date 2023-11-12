@@ -110,8 +110,6 @@ Key assumptions are as follows:
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R). Lastly, the code for the Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R).
 
-<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7) -->
-
 ### 2_3_Model_REG
 
 Open-economy or multi-area SFC models adopt a general equilibrium approach, accounting for the interaction of two economies engaged in the trade of goods. The entire system, representing the global economy, is closed, meticulously tracking all flows and stocks. Godley and Lavoie (2007) introduce and explore four distinct models:
@@ -126,7 +124,7 @@ Open-economy or multi-area SFC models adopt a general equilibrium approach, acco
 
 - In this section, we will present and discuss Model REG
 
-Model REG is developed in chapter 6 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **REG** stands for regional,  as the model considers two regions of the same country. Looking at its economic and financial structure, it is the very same of Model PC. The difference is that the economy is disaggregated into two regions, the *North* and the *South*. 
+Model REG is developed in chapter 6 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **REG** stands for "regional",  as the model considers two regions of the same country. Looking at its economic and financial structure, it is the very same of Model PC. The difference is that the economy is disaggregated into two regions, the *North* and the *South*. 
 
 Key assumptions are as follows:
 
@@ -146,11 +144,34 @@ Key assumptions are as follows:
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R). A code that automatically generates 2-region SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_tables.R). Lastly, the code for the Sankey diagram replicating the 2-region transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R).
 
-<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/cb8b8843-210f-4fae-b7eb-9fc492c03c4c) -->
-
 ## 3_Introducing_input-output_interdependencies
 
+There are currently only a few prototype input-output SFC models, despite recent progress (Berg, Hartley, and Richters, 2015; Jackson and Jackson, 2021, 2023; Valdecantos, 2023). Integrating IO and SFC techniques poses challenges, but it is crucial for analysing both technical progress (Veronese Passarella, 2023) and the interaction of the ecosystem with the economy (Hardt and O’Neill, 2017).
+
+Model IO-PC is an input-output extension of Model PC, where **IO** stands for "input-output structure."
+
+In comparison to Model PC, additional assumptions include:
+
+- Two industries are considered (within the firms sector)
+
+- Only circulating capital is used
+
+- Technical coefficients are fixed
+
+- Each industry uses only one technique to produce one product
+
+- Prices are fixed
+
+- The composition of both consumption and government spending is exogenously defined
+
+Based on these assumptions, the following additional equations are required to transform Model PC into Model IO-PC:
+
+- $**p** = **\bar{p}**$
+
 [in progress]
+
+
+<!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/fbad4cb4-6e0c-439f-93cd-e93bdd02cfa4) -->
 
 ## 4_Introducing_the_Ecosystem
 
