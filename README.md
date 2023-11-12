@@ -256,7 +256,7 @@ Variables displayed in figures 1 to 3 follow the same pattern as Model PC variab
 
 ![fig_2_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_iopc.png)
 
-A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model_tables.R). This code allows for the generation of not only the BS and the TFM but also the input-output table of the economy. A more detailed visualisation is presented below:
+A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/IOPC_model_tables.R). This code allows for the generation of not only the BS and the TFM but also the input-output table of the economy. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/io_table_iopc.png" alt="Table IO-PC">
