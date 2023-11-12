@@ -3,26 +3,6 @@
 # Version: 10 November 2023
 
 ################################################################################
-# Copyright (c) 2023 Marco Veronese Passarella
-#
-# Permission is hereby granted, free of charge, to any person obtaining a 
-# copy of this software and associated documentation files (the "Software"),
-# to deal in the Software without restriction, including without limitation
-# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-# and/or sell copies of the Software, and to permit persons to whom the 
-# Software is furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in 
-# all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-# IN THE SOFTWARE.
-################################################################################
 
 #STEP 1: PREPARE THE WORK-SPACE
 
@@ -350,7 +330,7 @@ layout(matrix(c(1,2,3,4,5,6), 3, 2, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     cex.axis=1.5,cex.lab=1.5,ylab = 'Â£',
      xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
@@ -364,7 +344,7 @@ par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 #Figure 1
 plot(y[2,2:nPeriods],type="l", col=2, lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 1  National income (GDP) following climate-change \n induced reduction in propensity to consume",
-     ylab = '£',xlab = 'Time',ylim = range(95,110),cex.axis=1.5,cex.lab=1.5)
+     ylab = 'Â£',xlab = 'Time',ylim = range(95,110),cex.axis=1.5,cex.lab=1.5)
 abline(h=y[2,2],col="green",lty=2,lwd=2)
 abline(h=y[2,60],col="blue",lty=2,lwd=2)
 legend("bottomright",c("National income","Old steady state","New steady state"),  bty = "n",
