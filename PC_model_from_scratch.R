@@ -6,26 +6,6 @@
 # Version: 30 May 2019; revised: 7 November 2023
 
 ################################################################################
-# Copyright (c) 2023 Marco Veronese Passarella
-#
-# Permission is hereby granted, free of charge, to any person obtaining a 
-# copy of this software and associated documentation files (the "Software"),
-# to deal in the Software without restriction, including without limitation
-# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-# and/or sell copies of the Software, and to permit persons to whom the 
-# Software is furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in 
-# all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-# IN THE SOFTWARE.
-################################################################################
 
 #STEP 1: PREPARE THE WORK-SPACE
 
@@ -166,7 +146,7 @@ layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
 par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.main=1,cex.main=1.5,
      main=expression("Consistency check (baseline scenario): " * italic(H[phantom("")]["s"]) - italic(H[phantom("")]["h"])),
-     cex.axis=1.5,cex.lab=1.5,ylab = '£',
+     cex.axis=1.5,cex.lab=1.5,ylab = 'Â£',
      xlab = 'Time',ylim = range(-1,1))
 
 ################################################################################
@@ -180,7 +160,7 @@ par(mar = c(5.1+1, 4.1+1, 4.1+1, 2.1+1))
 #Figure 1
 plot(y[1,2:45],type="l",col="1",lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 1  Evolution of national income \n following initial governemnt spending",
-     ylab = '£',xlab = 'Time',ylim=range(30,120))
+     ylab = 'Â£',xlab = 'Time',ylim=range(30,120))
 lines(y_star[1,2:45],type="l",lwd=3,lty=2,col="3")
 legend("bottomright",c("National income","Steady-state value"),  bty = "n",
        cex = 1.5, lty=c(1,2), lwd=c(3,3), col = c(1,3), box.lwd=0)
@@ -188,7 +168,7 @@ legend("bottomright",c("National income","Steady-state value"),  bty = "n",
 #Figure 2
 plot(y[2,100:140],type="l",col="2",lwd=3,lty=1,font.main=1,cex.main=1.5,cex.axis=1.5,cex.lab=1.5,
      main="Figure 2  Evolution of national income \n following increase in interest rate",
-     ylab = '£',xlab = 'Time',ylim=range(min(y[3,100:150]),max(y[3,100:150])))
+     ylab = 'Â£',xlab = 'Time',ylim=range(min(y[3,100:150]),max(y[3,100:150])))
 lines(y[3,100:140],type="l",lwd=3,lty=3,col="4")
 abline(h=106.49,col="1",lwd=3) 
 legend("bottomright",c("Exogenous propensity to consume","Endogenous propensity to consume","Baseline value"),  bty = "n",
