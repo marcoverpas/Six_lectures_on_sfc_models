@@ -108,6 +108,8 @@ Key assumptions are as follows:
 
 - No State, no outside money (cash)
 
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R)). The Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R).
+
 <!-- ![image](https://github.com/marcoverpas/Six_lectures_on_sfc_models/assets/49635602/5a874931-7fb3-4fad-b70a-baaab32807f7) -->
 
 ### 2_3_Model_REG
