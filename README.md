@@ -76,11 +76,15 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-$$ National ~ income ~ (inentity): ~~ Y = C + G ~~ (1) $$
 
-$$ Disposable ~ income ~ (identity): ~~ YD = Y - T + r_{-1} \cdot B_{h,-1} ~~ (2) $$
+National income (identity): 
+$$Y = C + G ~~ (1) $$
 
-$$ Tax ~ revenue ~ (behavioural): ~~ T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} )  ~~ (3) $$
+Disposable income (identity):
+$$YD = Y - T + r_{-1} \cdot B_{h,-1} ~~ (2) $$
+
+Tax revenue (behavioural):
+$$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} )  ~~ (3) $$
 
 
 
