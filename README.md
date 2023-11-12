@@ -269,7 +269,32 @@ The code for the Sankey diagram replicating the transactions-flow matrix is prov
 
 ## 4_Introducing_the_Ecosystem
 
+Although the origins of ecological macroeconomics can be traced back to the inception of economics itself, early SFC models for economic research did not incorporate the ecosystem.
+
+This gap was bridged in the late 2010s (Dafermos, Nikolaidi, and Galanis, 2016, 2018; Jackson and Victor, 2015). The primary characteristic of ecological SFC models is their integration of monetary variables (following Godley and Lavoie, 2008) with physical variables (in line with Georgescu-Roegen, 1971) in a consistent manner. Several ECO-SFC models have been developed since then.
+
+Here we consider a simple extension of Model IO-PC, named Model ECO, where **ECO** stands for "ecological". Additional assumptions are as follows:
+
+- there are 2 types of reserves: matter and energy
+
+- there are 2 types of energy: renewable and non-renewable
+
+- Resources are converted into reserves at a certain rate
+
+- Industrial CO2 emissions are associated with the use of non-renewable energy
+
+- Atmospheric temperature is a growing function of CO2 emissions
+
+- Both goods from industry 1 and industry 2 can be durable or non-durable
+
+- A share of durable goods (hence socio-economic stock) is discarded in every period
+
+- Both waste and emissions are produced only by the firm sector
+
+
 [in progress]
+
+
 
 ## 5_Making_it_empirical
 
