@@ -5,7 +5,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 ## Table of Contents
 
 - [1 Introduction](#1_Introduction)
-- [2 Toy Models from Monetary Economics](#Toy_Models_from Monetary_Economics)
+- [2 Toy Models from Monetary Economics](#Toy_Models_from_Monetary_Economics)
     - [2.1 Model PC](#2_1_Model_PC)
     - [2.2 Model BMW](#2_2_Model_BMW)
     - [2.3 Model REG](#2_3_Model_REG)
