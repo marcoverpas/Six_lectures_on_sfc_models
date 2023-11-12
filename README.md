@@ -227,7 +227,7 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
      xlab = 'Time',ylim = range(-1,1))
 ```
 
-![fig_sankey_pc](https://raw.githubusercontent.com/marcoverpas/figures/main/consistency_check.png)
+![fig_consistency](https://raw.githubusercontent.com/marcoverpas/figures/main/consistency_check.png)
 
 ```R
  *********************************** 
@@ -271,7 +271,9 @@ Besides, these tables can be conveniently turned into HTML (and LaTeX) format (w
 
 The code also allows for creating the Sankey diagram of transactions and changes in stocks ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_sankey.R)).
 
-![fig_sankey_pc](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_pc.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_pc.png" alt="Sankey PC">
+</p>
 
 ### 2_2_Model_BMW
 
