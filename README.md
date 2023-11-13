@@ -1499,7 +1499,7 @@ A more advanced SFC model code for Italy is available [here](https://github.com/
 
 ## 6_Useful_links_and_resources
 
-As mentioned, the community of SFC modelers lacks a portal that consolidates the abundant yet scattered material. Here is a tentative list of useful resources. Please feel free to contact me (at info@marcopassarella.it) to suggest other interesting resources. 
+As mentioned, the community of SFC modelers lacks a portal that consolidates the abundant yet scattered material. Here is a tentative list of useful resources. Please feel free to contact me (at info@marcopassarella.it) to suggest other authors, packages, and respositories. 
 
 | Authors | Description | Link |
 |:---------|:---------|:---------:|
