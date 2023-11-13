@@ -554,9 +554,9 @@ Notice that model identities for the ecosystem are derived from a physical flow 
 
 Empirical SFC Models are SFC models whose coefficients are calibrated or estimated based on observed data. They are usually developed for studying national economies. There are two branches of Empirical SFC models:
 
-- Type I or data-to-theory models: these models are tailored to the country-specific sectoral balance sheets and flow of funds statistics of the economy under investigation (please refer to [Zezza 2019](https://www.levyinstitute.org/pubs/wp_919.pdf)).
+- Type I or *data-to-theory* models: these models are tailored to the country-specific sectoral balance sheets and flow of funds statistics of the economy under investigation (please refer to [Zezza 2019](https://www.levyinstitute.org/pubs/wp_919.pdf)).
 
-- Type II or theory-to-data models: these models are developed based on a theoretical SFC model, and then data are collected and adequately reclassified to estimate the coefficients of the model (e.g., [Canelli et al. 2022](https://github.com/marcoverpas/Italy-SFC-Model)).
+- Type II or *theory-to-data* models: these models are developed based on a theoretical SFC model, and then data are collected and adequately reclassified to estimate the coefficients of the model (e.g., [Canelli et al. 2022](https://github.com/marcoverpas/Italy-SFC-Model)).
 
 For the sake of simplicity, the second approach is chosen here. In general, the choice of the specific approach depends on the research question one aims to address. Type I models are the best option for economies characterised by a country-specific institutional structure. In contrast, type II models allow for the reduction of the model size, thereby making findings clearer (although arguably less accurate). 
 
