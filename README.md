@@ -296,7 +296,7 @@ The expectations-augmented version of Model PC, named PCEX1, is available ([here
 
 ### 2_2_Model_BMW
 
-This is the simplest model explicitly including commercial banks. It is developed in chapter 7 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **BMW** stands for "bank-money world", because there is only one kind of financial assets: bank deposits held by households. Firms’ investment in fixed capital is (partially) funded by bank loans.
+This is the simplest model explicitly including commercial banks. It is developed in chapter 7 of Godley and Lavoie (2007), "[Monetary Economics. An Integrated Approach to Credit, Money, Income, Production and Wealth](https://link.springer.com/book/10.1007/978-1-137-08599-3)". **BMW** stands for "bank-money world", because there is only one kind of financial assets: bank deposits held by households. Firms’ investment in fixed capital is funded by bank loans and amortisation funds.
 
 Key assumptions are as follows:
 
@@ -417,7 +417,7 @@ While `12` to `20` are additional equations, equations `1.A` and `5.A` replace e
 
 ![fig_1_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_iopc.png)
 
-Variables displayed in figures 1 to 3 follow the same pattern as Model PC variables. However, Model IO-PC also allows tracking cross-industry demands for inputs (figures 4 and 5). A more detailed visualisation, highlighting the impact of final and intermediate demands on total outputs, is presented below in Figures 7 and 8:: 
+Variables displayed in figures 1 to 3 follow the same pattern as Model PC variables. However, Model IO-PC also allows tracking cross-industry demands for inputs (figures 4 and 5). A more detailed visualisation, highlighting the impact of final and intermediate demands on total outputs, is presented below in Figures 7 and 8:
 
 ![fig_2_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_iopc.png)
 
