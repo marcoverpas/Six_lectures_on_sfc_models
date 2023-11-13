@@ -259,7 +259,6 @@ Crucial identities of the model are derived using the balance-sheet matrix and t
 
 Tables are displayed in the Console (bottom-left quadrant in `RStudio`):
 
-```R
 |             |      H|P  |CB     |G      | Tot|
 |:------------|:------:|:--:|:------:|:------:|:---:|
 |Cash (money) |  21.62 |    |-21.62  |        |    0|
@@ -278,8 +277,6 @@ Tables are displayed in the Console (bottom-left quadrant in `RStudio`):
 |Change in cash         |0        |         |0        |      |   0|
 |Change in bills        |0        |         |0        |0     |   0|
 |Column total           |0        |0        |0        |0     |   0|
-
-```
 
 Besides, these tables can be conveniently turned into HTML (and LaTeX) format (we refer again to the auxiliary code for the tables [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
 
