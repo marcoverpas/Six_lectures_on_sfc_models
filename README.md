@@ -259,24 +259,26 @@ Crucial identities of the model are derived using the balance-sheet matrix and t
 
 Tables are displayed in the Console (bottom-left quadrant in `RStudio`):
 
+```R
 |             |      H|P  |CB     |G      | Tot|
-|:------------|:------:|:--:|:------:|:------:|:---:|
-|Cash (money) |  21.62 |    |-21.62  |        |    0|
-|Bills        |  64.86 |    |21.62   |-86.49  |    0|
-|Wealth       | -86.49 |    |0       |86.49   |    0|
-|Column total |   0.00 |0   |0       |0       |    0|
+|:------------|------:|:--|:------|:------|---:|
+|Cash (money) |  21.62|   |-21.62 |       |   0|
+|Bills        |  64.86|   |21.62  |-86.49 |   0|
+|Wealth       | -86.49|   |0      |86.49  |   0|
+|Column total |   0.00|0  |0      |0      |   0|
 
 |                       |H      |P       |CB    |G     | Tot|
-|:----------------------|:-------:|:-------:|:-------:|:-----:|---:|
-|Consumption            |-86.49   |86.49    |         |      |   0|
-|Government expenditure |         |20       |         |-20   |   0|
-|GDP (income)           |106.49   |-106.49  |         |      |   0|
-|Interest payments      |1.62     |         |0.54     |-2.16 |   0|
-|CB profit              |         |         |-0.54    |0.54  |   0|
-|Taxes                  |-21.62   |         |         |21.62 |   0|
-|Change in cash         |0        |         |0        |      |   0|
-|Change in bills        |0        |         |0        |0     |   0|
-|Column total           |0        |0        |0        |0     |   0|
+|:----------------------|:------|:-------|:-----|:-----|---:|
+|Consumption            |-86.49 |86.49   |      |      |   0|
+|Government expenditure |       |20      |      |-20   |   0|
+|GDP (income)           |106.49 |-106.49 |      |      |   0|
+|Interest payments      |1.62   |        |0.54  |-2.16 |   0|
+|CB profit              |       |        |-0.54 |0.54  |   0|
+|Taxes                  |-21.62 |        |      |21.62 |   0|
+|Change in cash         |0      |        |0     |      |   0|
+|Change in bills        |0      |        |0     |0     |   0|
+|Column total           |0      |0       |0     |0     |   0|
+```
 
 Besides, these tables can be conveniently turned into HTML (and LaTeX) format (we refer again to the auxiliary code for the tables [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
 
