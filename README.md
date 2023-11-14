@@ -76,19 +76,19 @@ This is one of the simplest SFC toy models. It is developed in chapter 4 of Godl
 
 Key assumptions are as follows:
 
-- Closed economy
+1. Closed economy
 
-- Four agents: households, “firms”, government, central bank
+1. Four agents: households, “firms”, government, central bank
 
-- Two financial assets: government bills and outside money (cash)
+1. Two financial assets: government bills and outside money (cash)
 
-- No investment (accumulation) and no inventories
+1. No investment (accumulation) and no inventories
 
-- Fixed prices and zero net profits
+1. Fixed prices and zero net profits
 
-- No banks, no inside money (bank deposits)
+1. No banks, no inside money (bank deposits)
 
-- No ecosystem
+1. No ecosystem
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
@@ -300,19 +300,19 @@ This is the simplest model explicitly including commercial banks. It is develope
 
 Key assumptions are as follows:
 
-- Closed economy and no ecosystem
+1. Closed economy and no ecosystem
 
-- Three agents: households, firms, banks
+1. Three agents: households, firms, banks
 
-- Assets and liabilities include: loans, deposits, tangible (or fixed) capital
+1. Assets and liabilities include: loans, deposits, tangible (or fixed) capital
 
-- Investment funded by loans and internal funds
+1. Investment funded by loans and internal funds
 
-- Target capital to output ratio
+1. Target capital to output ratio
 
-- Fixed prices and zero net profits
+1. Fixed prices and zero net profits
 
-- No State, no outside money (cash)
+1. No State, no outside money (cash)
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model.R). A code that automatically generates SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_tables.R). The code for the Sankey diagram replicating the transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/BMW_model_sankey.R). Lastly, the codes for a more advanced simulation of an SFC model, incorporating both state and bank money, are available [here](https://github.com/marcoverpas/STRECO_2021).
 
@@ -332,19 +332,19 @@ In this section, we will present and discuss Model REG, which is developed in ch
 
 Key assumptions are as follows:
 
-- Firms act as intermediaries for imported goods
+1. Firms act as intermediaries for imported goods
 
-- Four agents: households, “firms”, government, central bank
+1. Four agents: households, “firms”, government, central bank
 
-- Two financial assets: government bills and outside money (cash)
+1. Two financial assets: government bills and outside money (cash)
 
-- No investment (accumulation) and no inventories
+1. No investment (accumulation) and no inventories
 
-- Fixed prices and zero net profits
+1. Fixed prices and zero net profits
 
-- No banks, no inside money (bank deposits)
+1. No banks, no inside money (bank deposits)
 
-- No ecosystem
+1. No ecosystem
 
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model.R). A code that automatically generates 2-region SFC tables can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_tables.R). Lastly, the code for the Sankey diagram replicating the 2-region transactions-flow matrix is [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/REG_model_sankey.R). The codes for more advanced open-economy SFC models can be found [here](https://github.com/marcoverpas/SFC-models-R).
 
@@ -356,17 +356,17 @@ Model IO-PC is an input-output extension of Model PC, where **IO** stands for "i
 
 In comparison to Model PC, additional assumptions include:
 
-- Two industries are considered (within the firms sector)
+1. Two industries are considered (within the firms sector)
 
-- Only circulating capital is used
+1. Only circulating capital is used
 
-- Technical coefficients are fixed
+1. Technical coefficients are fixed
 
-- Each industry uses only one technique to produce one product
+1. Each industry uses only one technique to produce one product
 
-- Prices are fixed
+1. Prices are fixed
 
-- The composition of both consumption and government spending is exogenously defined
+1. The composition of both consumption and government spending is exogenously defined
 
 Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC.
 
@@ -440,21 +440,21 @@ This gap was bridged in the late 2010s (Dafermos, Nikolaidi, and Galanis, 2016, 
 
 Here we consider a simple extension of Model IO-PC, named Model ECO-PC, where **ECO** stands for "ecological". Additional assumptions are as follows:
 
-- there are 2 types of reserves: matter and energy
+1. there are 2 types of reserves: matter and energy
 
-- there are 2 types of energy: renewable and non-renewable
+1. there are 2 types of energy: renewable and non-renewable
 
-- Resources are converted into reserves at a certain rate
+1. Resources are converted into reserves at a certain rate
 
-- Industrial CO2 emissions are associated with the use of non-renewable energy
+1. Industrial CO2 emissions are associated with the use of non-renewable energy
 
-- Atmospheric temperature is a growing function of CO2 emissions
+1. Atmospheric temperature is a growing function of CO2 emissions
 
-- Both goods from industry 1 and industry 2 can be durable or non-durable
+1. Both goods from industry 1 and industry 2 can be durable or non-durable
 
-- A share of durable goods (hence socio-economic stock) is discarded in every period
+1. A share of durable goods (hence socio-economic stock) is discarded in every period
 
-- Both waste and emissions are produced only by the firm sector
+1. Both waste and emissions are produced only by the firm sector
 
 Behavioural equations draw inspiration from the works of Dafermos, Nikolaidi, and Galanis (2016, 2018). The main model code is accessible [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/ECOPC_model.R). The blocks providing the additional equations for the ecosystem are those included between line 228 and line 305. Firstly, extraction of matter and waste are modelled:
 
