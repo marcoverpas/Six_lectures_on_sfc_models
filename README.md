@@ -377,23 +377,23 @@ $$**\text{p}** = **\bar{\text{p}}** $$
 
 - Vector defining composition of real consumption (behavioural) `13`:
 
-$$**\text{\beta_c}** = **\bar{\text{\beta_c}}**  $$  
+$$**\text{\beta_c}** = **\bar{\text{b_c}}**  $$  
 
 - Vector defining composition of real government expenditure (behavioural) `14`:
 
-$$**\text{\beta_g}** = **\bar{\text{\beta_g}}** $$  
+$$**\text{\beta_g}** = **\bar{\text{b_g}}** $$  
 
 - Average consumer price (identity) `15`:
 
-$$p_c = **\text{p^T}** \cdot **\text{\beta_c}** $$  
+$$p_c = **\text{p}^T** \cdot **\text{b_c}** $$  
 
 - Average price for the government (identity) `16`:
 
-$$p_g = **\text{p^T}** \cdot **\text{\beta_g}** $$  
+$$p_g = **\text{p}^T** \cdot **\text{b_g}** $$  
 
 - Vector of final demands in real terms (identity) `17`:
 
-$$**\text{d}** = **\text{\beta_c}** \cdot c + **\text{\beta_g}** \cdot g $$  
+$$**\text{d}** = **\text{b_c}** \cdot c + **\text{b_g}** \cdot g $$  
 
 - Vector of real gross outputs (identity) `18`:
 
@@ -403,7 +403,7 @@ $$**\text{x}** = **\text{A}** \cdot **\text{x}** + **\text{d}**, ~ with: **\text
 
 - Modified equation for national income (identity) `1.A`:
 
-$$Y = **\text{p^T}** \cdot **\text{d}** $$
+$$Y = **\text{p}^T** \cdot **\text{d}** $$
 
 - Real consumption function (behavioural) `19`:
 $$c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
