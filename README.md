@@ -26,7 +26,7 @@ A more general description of lectures' contents is provided below.
     - [2.2 Model BMW](#2_2_Model_BMW)
     - [2.3 Model REG](#2_3_Model_REG)
 - [3 Introducing input-output interdependencies](#3_Introducing_input-output_interdependencies)
-- [4 Introducing the ecosystem](#4_Introducing_the_Ecosystem)
+- [4 Introducing the ecosystem](#4_Introducing_the_ecosystem)
 - [5 Making it empirical](#5_Making_it_empirical)
     - [5.1 Introduction](#5_1_Introduction)
     - [5.2 Model and data](#5_2_Model_and_data)
@@ -432,7 +432,7 @@ The code for the Sankey diagram replicating the transactions-flow matrix is prov
 ![fig_sankey_iopc](https://raw.githubusercontent.com/marcoverpas/figures/main/sankey_IOPC.png)
 
 
-## 4_Introducing_the_Ecosystem
+## 4_Introducing_the_ecosystem
 
 Although the origins of ecological macroeconomics can be traced back to the inception of economics itself, early SFC models for economic research did not incorporate the ecosystem.
 
