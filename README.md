@@ -16,9 +16,7 @@ Lectures' slides are available here:
 
 - **Lecture F:** Empirical SFC Models (using Bimets)
 
-A more general description of lectures' contents is provided below the flyer.
-
-![flyer](https://raw.githubusercontent.com/marcoverpas/figures/main/flyer.png)
+A more general description of lectures' contents is provided below.
 
 ## Table of Contents
 
@@ -1520,3 +1518,6 @@ As mentioned, the community of SFC modelers lacks a portal that consolidates the
 | Marco Veronese Passarella (marxianomics) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://www.marcopassarella.it/en/teaching-2/) |
 | Marco Veronese Passarella (GitHub) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://github.com/marcoverpas) |
 | Gennaro Zezza | **sfc.models.net** - Repository containing original EViews (and Excel) codes that replicate experiments from Godley and Lavoie's "Monetary Economics", and additional (R and EViews) codes from the SFC literature. | [Link](https://gennaro.zezza.it/?page_id=10&lang=en) |
+
+![flyer](https://raw.githubusercontent.com/marcoverpas/figures/main/flyer.png)
+
