@@ -377,23 +377,23 @@ $$**\text{p}** = **\bar{\text{p}}** $$
 
 - Vector defining composition of real consumption (behavioural) `13`:
 
-$$**\text{b}_c** = **\bar{\text{b}}_c**  $$  
+$$**\text{B}_c** = **\bar{\text{B}}_c**  $$  
 
 - Vector defining composition of real government expenditure (behavioural) `14`:
 
-$$**\text{b}_g** = **\bar{\text{b}}_g** $$  
+$$**\text{B}_g** = **\bar{\text{B}}_g** $$  
 
 - Average consumer price (identity) `15`:
 
-$$p_c = **\text{p}^T** \cdot **\text{b}_c** $$  
+$$p_c = **\text{p}^T** \cdot **\text{B}_c** $$  
 
 - Average price for the government (identity) `16`:
 
-$$p_g = **\text{p}^T** \cdot **\text{b}_g** $$  
+$$p_g = **\text{p}^T** \cdot **\text{B}_g** $$  
 
 - Vector of final demands in real terms (identity) `17`:
 
-$$**\text{d}** = **\text{b}_c** \cdot c + **\text{b}_g** \cdot g $$  
+$$**\text{d}** = **\text{B}_c** \cdot c + **\text{B}_g** \cdot g $$  
 
 - Vector of real gross outputs (identity) `18`:
 
