@@ -36,6 +36,7 @@ A more general description of lectures' contents is provided below.
     - [5.6 Sankey diagram](#5_6_Sankey_diagram)
     - [5.7 Experiments](57_7_Experiments)
 - [6 Useful links and resources](#6_Useful_links_and_resources)
+- [Flyer](#6_Useful_links_and_resources)
 
 ## 1_Introduction
 
