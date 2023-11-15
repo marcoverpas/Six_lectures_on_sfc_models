@@ -34,9 +34,9 @@ A more general description of lectures' contents is provided below.
     - [5.4 Out-of-sample predictions](#5_4_Out-of-sample_predictions)
     - [5.5 SFC tables](#5_5_SFC_tables)
     - [5.6 Sankey diagram](#5_6_Sankey_diagram)
-    - [5.7 Experiments](57_7_Experiments)
+    - [5.7 Experiments](5_7_Experiments)
 - [6 Useful links and resources](#6_Useful_links_and_resources)
-- [Flyer](#6_Useful_links_and_resources)
+- [7 Lectures' flyer](#7_Lectures_flyer)
 
 ## 1_Introduction
 
@@ -1519,6 +1519,8 @@ As mentioned, the community of SFC modelers lacks a portal that consolidates the
 | Marco Veronese Passarella (marxianomics) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://www.marcopassarella.it/en/teaching-2/) |
 | Marco Veronese Passarella (GitHub) | **SFC codes** - R, Python, Matlab and EViews codes collected from papers, seminars and lectures. | [Link](https://github.com/marcoverpas) |
 | Gennaro Zezza | **sfc.models.net** - Repository containing original EViews (and Excel) codes that replicate experiments from Godley and Lavoie's "Monetary Economics", and additional (R and EViews) codes from the SFC literature. | [Link](https://gennaro.zezza.it/?page_id=10&lang=en) |
+
+## 7_Lectures_flyer
 
 ![flyer](https://raw.githubusercontent.com/marcoverpas/figures/main/flyer.png)
 
