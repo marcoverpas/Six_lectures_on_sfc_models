@@ -377,11 +377,11 @@ $$**\text{p}** = **\bar{\text{p}}** $$
 
 - Vector defining composition of real consumption (behavioural) `13`:
 
-$$**\text{\beta_c}** = **\bar{\text{b_c}}**  $$  
+$$**\text{b_c}** = **\bar{\text{b_c}}**  $$  
 
 - Vector defining composition of real government expenditure (behavioural) `14`:
 
-$$**\text{\beta_g}** = **\bar{\text{b_g}}** $$  
+$$**\text{b_g}** = **\bar{\text{b_g}}** $$  
 
 - Average consumer price (identity) `15`:
 
