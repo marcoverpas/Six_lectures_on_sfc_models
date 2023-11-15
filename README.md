@@ -373,37 +373,37 @@ Based on these assumptions, a few additional equations are required to transform
 
 - Vector of exogenously-set unit prices (behavioural) `12`:
 
-$$**\text{p}** = **\bar{p}** $$
+$$**\text{p}** = **\bar{\text{p}}** $$
 
 - Vector defining composition of real consumption (behavioural) `13`:
 
-$$**\beta_c** = **\bar{\beta_c}**  $$  
+$$**\text{\beta_c}** = **\bar{\text{\beta_c}}**  $$  
 
 - Vector defining composition of real government expenditure (behavioural) `14`:
 
-$$**\beta_g** = **\bar{\beta_g}** $$  
+$$**\text{\beta_g}** = **\bar{\text{\beta_g}}** $$  
 
 - Average consumer price (identity) `15`:
 
-$$p_c = **p^T** \cdot **\beta_c** $$  
+$$p_c = **\text{p^T}** \cdot **\text{\beta_c}** $$  
 
 - Average price for the government (identity) `16`:
 
-$$p_g = **p^T** \cdot **\beta_g** $$  
+$$p_g = **\text{p^T}** \cdot **\text{\beta_g}** $$  
 
 - Vector of final demands in real terms (identity) `17`:
 
-$$d = **\beta_c** \cdot c + **\beta_g** \cdot g $$  
+$$**\text{d}** = **\text{\beta_c}** \cdot c + **\text{\beta_g}** \cdot g $$  
 
 - Vector of real gross outputs (identity) `18`:
 
-$$x = **A** \cdot **x** + **d**, ~ with: **A**= \left(\begin{array}{cc} a_{11} & a_{12} \\
+$$**\text{x}** = **\text{A}** \cdot **\text{x}** + **\text{d}**, ~ with: **\text{A}**= \left(\begin{array}{cc} a_{11} & a_{12} \\
                                                                         a_{21} & a_{22}
                                                                         \end{array}\right) $$  
 
 - Modified equation for national income (identity) `1.A`:
 
-$$Y = **p^T** \cdot **d** $$
+$$Y = **\text{p^T}** \cdot **\text{d}** $$
 
 - Real consumption function (behavioural) `19`:
 $$c = \alpha_1 \cdot \left( \frac{YD}{p_c} - \pi \cdot \frac{V_{-1}}{p_c} \right) + \alpha_2 \cdot \frac{V_{-1}}{p_{c,-1}} $$
