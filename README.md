@@ -373,7 +373,7 @@ Based on these assumptions, a few additional equations are required to transform
 
 - Vector of exogenously-set unit prices (behavioural) `12`:
 
-$$\**p** = **\bar{p}** $$
+$$**\text{p}** = **\bar{p}** $$
 
 - Vector defining composition of real consumption (behavioural) `13`:
 
