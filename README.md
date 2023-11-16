@@ -254,7 +254,7 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
  ***********************************
 ```
 
-We can calculate the (quasi) steady state solution for national income *Y* by observing that in the steady state there must be no saving and household holdings of bills are stable:  
+We can calculate the (quasi) steady state solution for national income *`Y`* by observing that in the steady state there must be no saving and household holdings of bills are stable:  
 
 $$C=YD$$ 
 
