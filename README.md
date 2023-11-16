@@ -254,7 +254,17 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
  ***********************************
 ```
 
-The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R). A version in which the economy is started from scratch is available too ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)). 
+The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R).
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_pc.png" alt="fig 1 PC">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/fig_2_pc.png" alt="fig 2 PC">
+</p>
+
+A version in which the economy is started from scratch is available too ([here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R)). 
 
 Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few [additional lines](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R) of code are enough to generate these tables automatically.
 
