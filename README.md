@@ -262,7 +262,7 @@ $$B_{h,−1}=B_h$$
 
 Using the conditions above and equations (2) and (3) in $Y$ we otain:
 
-$$Y^*= frac{G + r \cdot B_h^* \cdot (1 − \theta)}{\theta}
+$$Y^*= frac{G + r \cdot B_h^* \cdot (1 − \theta)}{\theta}$$
 
 
 
