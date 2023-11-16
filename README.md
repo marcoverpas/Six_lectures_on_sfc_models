@@ -254,6 +254,19 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
  ***********************************
 ```
 
+We can calculate the (quasi) steady state solution for national income *Y* by observing that in the steady state there must be no saving and household holdings of bills are stable:  
+
+$$C=YD$$ 
+
+$$B_{h,−1}=B_h$$
+
+Using the conditions above and equations (2) and (3) in $Y$ we otain:
+
+$$Y^*= frac{G + r \cdot B_h^* \cdot (1 − \theta)}{\theta}
+
+
+
+
 The main code for reproducing the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model.R).
 
 <p align="center">
