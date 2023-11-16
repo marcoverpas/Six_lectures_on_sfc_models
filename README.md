@@ -270,7 +270,7 @@ The main code for replicating the baseline scenario can be found [here](https://
 
 Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few [additional lines](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R) of code are enough to generate these tables automatically.
 
-Tables are displayed in the Console (bottom-left quadrant in `RStudio`):
+Tables are displayed in the Console (bottom-left quadrant in `RStudio`). For instance, we may want to verify what steady-state values are:
 
 ```R
 |             |      H|P  |CB     |G      | Tot|
@@ -293,7 +293,7 @@ Tables are displayed in the Console (bottom-left quadrant in `RStudio`):
 |Column total           |0      |0       |0     |0     |   0|
 ```
 
-Besides, these tables can be conveniently turned into HTML (and LaTeX) format (we refer again to the auxiliary code for the tables [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
+Notice that these tables can be conveniently turned into HTML (and LaTeX) format (we refer again to the auxiliary code for the tables [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R)). 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/tables_pc.png" alt="Tables PC">
