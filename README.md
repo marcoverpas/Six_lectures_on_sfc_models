@@ -557,7 +557,10 @@ Lastly, feedback effects and damages can be introduced. Here the assumption is m
 
 ```R
 #Endogenous propensity to consume out of income
-alpha1[j,i] = a0[j,i] - a1[j,i] * (temp[j,i] - temp[j,i-1])   
+alpha1[j,i] = a0[j,i] - a1[j,i] * (temp[j,i] - temp[j,i-1])
+
+Now we can use the model to perform some experiments. For instance, we may want to examine how key variables behave when the propensity to consume out of income is influenced by an industrial CO2 emissions-led increase in atmospheric temperature:
+
 ```
 
 ![fig_1_ecopc](https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_ecopc.png)
