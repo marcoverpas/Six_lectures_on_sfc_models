@@ -4,7 +4,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 
 Lectures' slides are available here:
 
-- **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf)
+- **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf) ([Appendix](https://www.marcopassarella.it/wp-content/uploads/Appendix-protected.pdf))
 
 - **Lecture B:** A Toy Model with State Money and Bills
 
