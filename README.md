@@ -4,7 +4,7 @@ This repository includes the codes used in the 6 lectures on SFC models delivere
 
 Lectures' slides are available here:
 
-- **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf) ([Appendix](https://www.marcopassarella.it/wp-content/uploads/Appendix-protected.pdf))
+- **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf) (See also: [Appendix_A](https://www.marcopassarella.it/wp-content/uploads/Appendix-protected.pdf))
 
 - **Lecture B:** A Toy Model with State Money and Bills
 
@@ -16,7 +16,7 @@ Lectures' slides are available here:
 
 - **Lecture F:** Empirical SFC Models (using Bimets)
 
-A more general description of lectures' contents is provided below.
+Some lecture slides are protected. Contact me (marco.veronesepassarella@univaq.it) to obtain the password. A more general description of lectures' contents is provided below.
 
 ## Table of Contents
 
