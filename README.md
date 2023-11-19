@@ -389,7 +389,7 @@ In comparison to Model PC, additional assumptions include:
 
 1. The composition of both consumption and government spending is exogenously defined
 
-Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC. Notice that scalars are represented using italic characters, whereas vectors and matrices are represented using non-italic characters hereafter.
+Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC. Notice that scalars are represented using *italic characters*, whereas vectors and matrices are represented using **bold non-italic characters** hereafter.
 
 - Vector of exogenously-set unit prices (behavioural) `12`:
 
