@@ -266,7 +266,7 @@ We can verify whether the model actually reaches the steady state as calculated 
   <img src="https://raw.githubusercontent.com/marcoverpas/figures/main/fig_1_pc.png" alt="fig 1 PC">
 </p>
 
-The main code for replicating the baseline scenario can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R.R).
+The main code for replicating the baseline scenario can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R).
 
 Crucial identities of the model are derived using the balance-sheet matrix and the transaction-flow matrix. These tables are also useful to double-check model consistency in each period. A few [additional lines](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_tables.R) of code are enough to generate these tables automatically.
 
