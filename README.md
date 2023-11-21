@@ -313,7 +313,7 @@ The baseline scenario is then compared with alternative scenarios, which are gen
 
 As the figure above shows, the answer depends on the way we define the consumpion function (and other behavioural equations). The code for replicating the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R). 
 
-The expectations-augmented version of Model PC, named PCEX1, is available [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R).
+The expectations-augmented version of Model PC, named PCEX1, is available [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R). Differences between the two models can be identified by using this [comparison](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/Comparison.R) file.
 
 ### 2_2_Model_BMW
 
