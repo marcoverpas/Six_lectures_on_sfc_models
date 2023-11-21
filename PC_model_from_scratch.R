@@ -77,10 +77,10 @@ for (j in 1:nScenarios){
       if (i>=2){g[j,i]=20}
       
       #Scenario 2: shock to interest rate
-      if (i>=102 && j==2){r[j,i]=0.035}
+      if (i>=102 && j==2){r_bar[j,i]=0.035}
       
       #Scenario 3: shock to interest rate with endogenous propensity to consume 
-      if (i>=102 && j==3){r[j,i]=0.035}
+      if (i>=102 && j==3){r_bar[j,i]=0.035}
       
       
       #STEP 4.C: DEFINE THE SYSTEM OF EQUATIONS            
