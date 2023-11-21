@@ -6,7 +6,7 @@ Lectures' slides are available here:
 
 - **Lecture A:** [Foundations of SFC Models for Economic Research](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-1.pdf) (See also: [Appendix_A](https://www.marcopassarella.it/wp-content/uploads/Appendix-protected.pdf))
 
-- **Lecture B:** A Toy Model with State Money and Bills
+- **Lecture B:** [A Toy Model with State Money and Bills](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-2-protected.pdf)
 
 - **Lecture C:** A Toy Model with Bank Money and Fixed Capital
 
