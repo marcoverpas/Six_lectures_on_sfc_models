@@ -337,11 +337,9 @@ As the figure above shows, the answer depends on the way we define the consumpio
 
 $$\alpha_1 = \alpha_{11} - \alpha_{12} \cdot r$$
 
-with: $\alpha_{11}=0.65, \alpha_{12}=2$. The rationale is that a higher interest rate is associated with a redistribution of income in favour of the rentiers, which lowers the average propensity to consume out of income.
+with $\alpha_{11}=0.65$ and $\alpha_{12}=2$. The rationale is that a higher interest rate is associated with a redistribution of income in favour of the rentiers, which lowers the average propensity to consume out of income.
 
-The code for replicating the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R). 
-
-The expectations-augmented version of Model PC, named PCEX1, is available [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R). Differences between the two models can be identified by using this [comparison](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/Comparison.R) file.
+The code for replicating the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R). The expectations-augmented version of Model PC, named PCEX1, is available [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R). Differences between the two models can be identified by using this [comparison](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/Comparison.R) file.
 
 ### 2_2_Model_BMW
 
