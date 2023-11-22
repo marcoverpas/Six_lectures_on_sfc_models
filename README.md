@@ -96,6 +96,8 @@ We can also quickly review Model PC equations, as we will need them when for the
 - National income (identity) `1`: 
 $$Y = C + G $$
 
+where $C$ is hosehold consumption and $G$ is government expenditure.
+
 - Disposable income (identity) `2`:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
 
