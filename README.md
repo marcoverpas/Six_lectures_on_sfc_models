@@ -339,6 +339,8 @@ $$\alpha_1 = \alpha_{11} - \alpha_{12} \cdot r$$
 
 with $\alpha_{11}=0.65$ and $\alpha_{12}=2$. The rationale is that a higher interest rate is associated with a redistribution of income in favour of the rentiers, which lowers the average propensity to consume out of income.
 
+When the propensity to consume is affected by the increase in the interest rate, national income reduces in the short run due to lower demand for consumer goods (*paradox of thrift*). However, in both scenarios, national income reaches a higher steady-state value in the long run. The reason is that lower consumption is associated with higher saving in each period, resulting in a higher stock of (target) wealth and bills held by households. This, in turn, implies higher interest payments from the government, leading to higher income.
+
 The code for replicating the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R). The expectations-augmented version of Model PC, named PCEX1, is available [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PCEX1_model.R). Differences between the two models can be identified by using this [comparison](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/Comparison.R) file.
 
 ### 2_2_Model_BMW
