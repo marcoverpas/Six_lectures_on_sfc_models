@@ -95,7 +95,7 @@ We can also quickly review Model PC equations, as we will need them when for the
 
 *National income* (identity) `1`: 
 $$Y = C + G $$
-where $C$ is hosehold consumption and $G$ is government expenditure.
+where $C$ is household consumption and $G$ is government expenditure.
 
 *Disposable income* (identity) `2`:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
@@ -116,7 +116,7 @@ where $\alpha_1$ is the propensity to consume out of income and $\alpha_2$ is th
 $$H_h = V_h - B_h  $$
 
 *Bills held by households* (behavioural) `7`:
-$$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
+$$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \cdot \frac{YD}{V_h}  $$
 where $\lambda_0$ is the autonomous share of bills held by the households, $\lambda_1$ is the elasticity to the interest rate, and $\lambda_2$ captures households' liquidity preference.
 
 *Supply of bills* (identity) `8`:
