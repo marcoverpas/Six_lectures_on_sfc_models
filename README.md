@@ -93,7 +93,7 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-National income (identity) `1`: 
+*National income* (identity) `1`: 
 $$Y = C + G $$
 where $C$ is hosehold consumption and $G$ is government expenditure.
 
@@ -112,25 +112,28 @@ $$V_h = V_{h,-1} + YD - C  $$
 $$C = \alpha_1 \cdot YD + \alpha_2 \cdot V_{-1}  $$
 where $\alpha_1$ is the propensity to consume out of income and $\alpha_2$ is the propensity to consume out of wealth.
 
-Cash held by households (identity) `6`:
+*Cash held by households* (identity) `6`:
 $$H_h = V_h - B_h  $$
 
-Bills held by households (behavioural) `7`:
+*Bills held by households* (behavioural) `7`:
 $$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
+where $\lambda_0$ is the autonomous share of bills held by the households, $\lambda_1$ is the elasticity to the interest rate, and $\lambda_2$ captures households' liquidity preference.
 
-Supply of bills (identity) `8`:
+*Supply of bills* (identity) `8`:
 $$B_s = B_{s,-1} + G - T + r_{-1} \cdot ( B_{s,-1} - B_{cb,-1} )  $$
+where $B_{cb}$ is the amount of bills held by the central bank.
 
-Supply of cash (identity) `9`:
+*Supply of cash* (identity) `9`:
 $$H_s = H_{s,-1} + \Delta B_{cb} $$
 
-Bills held by central bank (identity) `10`:
+*Bills held by central bank* (identity) `10`:
 $$B_{cb} = B_s - B_h $$
 
-Interest rate (behavioural) `11`:
+*Interest rate* (behavioural) `11`:
 $$r = \bar{r} $$
+where $\bar{r}$ is the policy rate set by the central bank.
 
-Redundant equation:
+*Redundant equation*:
 $$H_s = H_h $$
 
 The first step in developing the model in an `R` environment is to define the number of scenarios considered and the time span.
