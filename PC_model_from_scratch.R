@@ -101,7 +101,7 @@ for (j in 1:nScenarios){
       cons[j,i] = alpha1[j,i]*yd[j,i] + alpha2*v[j,i-1]
       
       #Endogenous propensity to consume out of income ***
-      if (j==3){ alpha1[j,i] = alpha11 - alpha12*r[j,i] }
+      if (j==3){ alpha1[j,i] = alpha11 - alpha12*r[j,i-1] }
       
       #Cash money - eq. 4.6
       h_h[j,i] = v[j,i] - b_h[j,i]
