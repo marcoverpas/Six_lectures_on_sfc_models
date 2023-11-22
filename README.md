@@ -93,42 +93,44 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-- National income (identity) `1`: 
+National income (identity) `1`: 
 $$Y = C + G $$
-
 where $C$ is hosehold consumption and $G$ is government expenditure.
 
-- Disposable income (identity) `2`:
+*Disposable income* (identity) `2`:
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
+where $r$ is the interest rate and $B_h$ is households' holdings of bills. The subscript $-1$ stands for lagged variable.
 
-- Tax revenue (behavioural) `3`:
+*Tax revenue* (behavioural) `3`:
 $$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} ) $$
+where $\theta$ is the average tax rate on total income before taxes.
 
-- Household wealth (identity) `4`:
+*Household wealth* (identity) `4`:
 $$V_h = V_{h,-1} + YD - C  $$
 
-- Consumption (hehavioural) `5`:
+*Consumption* (hehavioural) `5`:
 $$C = \alpha_1 \cdot YD + \alpha_2 \cdot V_{-1}  $$
+where $\alpha_1$ is the propensity to consume out of income and $\alpha_2$ is the propensity to consume out of wealth.
 
-- Cash held by households (identity) `6`:
+Cash held by households (identity) `6`:
 $$H_h = V_h - B_h  $$
 
-- Bills held by households (behavioural) `7`:
+Bills held by households (behavioural) `7`:
 $$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \frac{YD}{V_h}  $$
 
-- Supply of bills (identity) `8`:
+Supply of bills (identity) `8`:
 $$B_s = B_{s,-1} + G - T + r_{-1} \cdot ( B_{s,-1} - B_{cb,-1} )  $$
 
-- Supply of cash (identity) `9`:
+Supply of cash (identity) `9`:
 $$H_s = H_{s,-1} + \Delta B_{cb} $$
 
-- Bills held by central bank (identity) `10`:
+Bills held by central bank (identity) `10`:
 $$B_{cb} = B_s - B_h $$
 
-- Interest rate (behavioural) `11`:
+Interest rate (behavioural) `11`:
 $$r = \bar{r} $$
 
-- Redundant equation:
+Redundant equation:
 $$H_s = H_h $$
 
 The first step in developing the model in an `R` environment is to define the number of scenarios considered and the time span.
