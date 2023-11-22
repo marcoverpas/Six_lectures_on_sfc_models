@@ -129,7 +129,7 @@ $$r = \bar{r} $$
 - Redundant equation:
 $$H_s = H_h $$
 
-Note: in the R code, model variables have been modelled as matrices, where rows represent different scenarios and columns denote distinct periods.
+The first step in developing the model in an `R` environment is to define the number of scenarios considered and the time span.
 
 ```R
 #Number of periods
@@ -138,6 +138,24 @@ nPeriods = 90
 #Number of scenarios
 nScenarios=3 
 
+```
+
+The second step is to define and identity model coefficients. *Parameters and exogenous variables* are typically represented as scalars. 
+
+```R
+#Define coefficients
+alpha1=matrix(data=0.6,nrow=nScenarios,ncol=nPeriods) #Propensity to consume out of income (as matrix)
+alpha2=0.4 #Propensity to consume out of wealth
+lambda0 = 0.635 #Autonomous share of bills
+lambda1 = 5 #Elasticity of bills demand to interest rate
+lambda2 = 0.01 #Elasticity of bills demand to yd/v
+theta=0.2 #Tax rate on income
+r_bar=matrix(data=0.025,nrow=nScenarios,ncol=nPeriods) #Interest rate (as matrix)
+```
+
+In contrast, *endogenous variables* are modelled as matrices, where rows represent different scenarios and columns denote distinct periods. 
+
+```R
 #Define variables
 b_cb=matrix(data=21.62,nrow=nScenarios,ncol=nPeriods) #Government bills held by central bank
 b_h=matrix(data=64.87,nrow=nScenarios,ncol=nPeriods) #Government bills held by households
@@ -153,20 +171,15 @@ y=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Income = GDP
 yd=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Disposable income of households
 ```
 
-Parameters and exogenous variables are typically represented as scalars. However, variables susceptible to shocks are treated as matrices (as they change over time).
+Variables susceptible to *shocks* are also treated as matrices (or vectors), as they change over time.
 
 ```R
-#Define coefficients
+#Define coefficients susceptible to shocks
 alpha1=matrix(data=0.6,nrow=nScenarios,ncol=nPeriods) #Propensity to consume out of income (as matrix)
-alpha2=0.4 #Propensity to consume out of wealth
-lambda0 = 0.635 #Autonomous share of bills
-lambda1 = 5 #Elasticity of bills demand to interest rate
-lambda2 = 0.01 #Elasticity of bills demand to yd/v
-theta=0.2 #Tax rate on income
 r_bar=matrix(data=0.025,nrow=nScenarios,ncol=nPeriods) #Interest rate (as matrix)
 ```
 
-To run the model, three loops must be created:
+Once model coefficients and variables are defined, and before writing down the system of equations, three loops must be created to run the model:
 
 - The first loop defines the considered *scenarios*.
 
@@ -231,6 +244,8 @@ for (j in 1:nScenarios){
 }
 
 ```
+
+In the code block above, subscript $j$ is the scenario index, whereas subscript $i$ is the period or time index.
 
 Lastly, any complete and coherent model must contain an equation that is redundant, meaning that it is logically implied by all the others (Walras' Law). While this equation must be excluded from the model (which is the reason it is sometimes called the 'hidden equation'), it can be used to double-check its accounting coherence. More precisely, we use it to verify the consistency of the model in the baseline scenario, both numerically and graphically.
 
