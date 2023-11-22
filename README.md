@@ -335,9 +335,9 @@ The baseline scenario is then compared with alternative scenarios, which are gen
 
 As the figure above shows, the answer depends on the way we define the consumpion function (and other behavioural equations). While the red line refers to the standard model, the blue dotted line shows the evolution of national income when the propensity to consume out of income is a negative function of the interest rate:
 
-$$\alpha_1 = \alpha_{11} - \alpha_{12} \cdot r$$, with: $\alpha_{11}=0.65, \alpha_{12}=2$
+$$\alpha_1 = \alpha_{11} - \alpha_{12} \cdot r$$
 
-The rationale is that a higher interest rate is associated with a redistribution of income in favour of the rentiers, which lowers the average propensity to consume out of income.
+with: $\alpha_{11}=0.65, \alpha_{12}=2$. The rationale is that a higher interest rate is associated with a redistribution of income in favour of the rentiers, which lowers the average propensity to consume out of income.
 
 The code for replicating the experiments can be found [here](https://github.com/marcoverpas/Six_lectures_on_sfc_models/blob/main/PC_model_from_scratch.R). 
 
