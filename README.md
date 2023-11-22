@@ -166,7 +166,16 @@ theta=0.2 #Tax rate on income
 r_bar=matrix(data=0.025,nrow=nScenarios,ncol=nPeriods) #Interest rate (as matrix)
 ```
 
-Equilibrium solutions for the system of simultaneous equations have been derived without relying on any dedicated package, but rather through a sufficiently high number of iterations.
+To run the model, three loops must be created:
+
+- The first loop defines the considered scenarios.
+
+- The second loop establishes the dynamic time span of the model.
+
+- The third loop iterates the model, ensuring the system of equations converges to its simultaneous solution.
+
+The third loop is fundamental. Equilibrium solutions for the system of simultaneous equations are derived without relying on any dedicated package but rather through a sufficiently high number of iterations. Without this loop, R would execute the code equation by equation, and the solution would depend on the specific order chosen.
+
 
 ```R
 #Choose scenario
