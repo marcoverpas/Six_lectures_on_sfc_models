@@ -232,7 +232,7 @@ for (j in 1:nScenarios){
 
 ```
 
-Lastly, the redundant equation is used to double-check model consistency over time in the baseline scenario. 
+Lastly, any complete and coherent model must contain an equation that is redundant, meaning that it is logically implied by all the others (Walras' Law). While this equation must be excluded from the model (which is the reason it is sometimes called the 'hidden equation'), it can be used to double-check its accounting coherence. More precisely, we use it to verify the consistency of the model in the baseline scenario, both numerically and graphically.
 
 ```R
 #Create consistency statement 
