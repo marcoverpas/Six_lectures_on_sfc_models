@@ -157,7 +157,7 @@ for (j in 1:nScenarios){
       #Household behaviour
       
         #Demand for consumption goods - eq. 7.16 (and 7.16A)
-        if (j==5){ c_d[j,i] = alpha0[j,i] + alpha1w*wb_s[j,i] + alpha1r*rm[j,i-1]*mh[j,i-1] + alpha2*mh[j,i-1]}
+        if (j==5){ c_d[j,i] = alpha0[j,i] + alpha1w*wb_d[j,i] + alpha1r*rm[j,i-1]*mh[j,i-1] + alpha2*mh[j,i-1]}
              else{ c_d[j,i] = alpha0[j,i] + alpha1[j,i]*yd[j,i] + alpha2*mh[j,i-1]}
       
       #The investment behaviour
