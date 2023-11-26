@@ -273,6 +273,8 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
      xlab = 'Time',ylim = range(-1,1))
 ```
 
+Tip: If the symbol '£' is not displayed correctly in your plots, use the Unicode character '\u00A3' instead.
+
 ![fig_consistency](https://raw.githubusercontent.com/marcoverpas/figures/main/consistency_check.png)
 
 ```R
