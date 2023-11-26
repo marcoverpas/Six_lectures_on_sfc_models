@@ -8,9 +8,9 @@ Lectures' slides are available here:
 
 - **Lecture B:** [A Toy Model with State Money and Bills](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-2-protected.pdf)
 
-- **Lecture C:** A Toy Model with Bank Money and Fixed Capital
+- **Lecture C:** [A Toy Model with Bank Money and Fixed Capital](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-3-protected.pdf)
 
-- **Lecture D:** Multi-Country SFC Models
+- **Lecture D:** [Multi-Country SFC Models](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-4-protected.pdf)
 
 - **Lecture E:** Ecological and Input-Output SFC Models
 
