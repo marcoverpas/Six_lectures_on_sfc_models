@@ -105,31 +105,31 @@ where $r$ is the interest rate and $B_h$ is households' holdings of bills. The s
 $$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} ) $$
 where $\theta$ is the average tax rate on total income before taxes.
 
-*Household wealth* (identity) `4`:
+*Equation `4`* - Household wealth (identity):
 $$V_h = V_{h,-1} + YD - C  $$
 
-*Consumption* (hehavioural) `5`:
+*Equation `5`* - Consumption (hehavioural):
 $$C = \alpha_1 \cdot YD + \alpha_2 \cdot V_{-1}  $$
 where $\alpha_1$ is the propensity to consume out of income and $\alpha_2$ is the propensity to consume out of wealth.
 
-*Cash held by households* (identity) `6`:
+*Equation `6`* - Cash held by households (identity):
 $$H_h = V_h - B_h  $$
 
-*Bills held by households* (behavioural) `7`:
+*Equation `7`* - Bills held by households (behavioural):
 $$\frac{B_h}{V_h} = \lambda_0 + \lambda_1 \cdot r - \lambda_2 \cdot \frac{YD}{V_h}  $$
 where $\lambda_0$ is the autonomous share of bills held by the households, $\lambda_1$ is the elasticity to the interest rate, and $\lambda_2$ captures households' liquidity preference.
 
-*Supply of bills* (identity) `8`:
+*Equation `8`* - Supply of bills (identity):
 $$B_s = B_{s,-1} + G - T + r_{-1} \cdot ( B_{s,-1} - B_{cb,-1} )  $$
 where $B_{cb}$ is the amount of bills held by the central bank.
 
-*Supply of cash* (identity) `9`:
+*Equation `9`* - Supply of cash (identity):
 $$H_s = H_{s,-1} + \Delta B_{cb} $$
 
-*Bills held by central bank* (identity) `10`:
+*Equation `10`* - Bills held by central bank (identity):
 $$B_{cb} = B_s - B_h $$
 
-*Interest rate* (behavioural) `11`:
+*Equation `11`* - Interest rate (behavioural):
 $$r = \bar{r} $$
 where $\bar{r}$ is the policy rate set by the central bank.
 
