@@ -93,7 +93,7 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-*National income* (identity) `1`: 
+*Equation `1`* - national income: 
 $$Y = C + G $$
 where $C$ is household consumption and $G$ is government expenditure.
 
