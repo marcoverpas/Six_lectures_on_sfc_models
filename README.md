@@ -93,15 +93,15 @@ Key assumptions are as follows:
 
 We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
 
-*Equation `1`* - national income: 
+*Equation `1`* - National income (identity): 
 $$Y = C + G $$
 where $C$ is household consumption and $G$ is government expenditure.
 
-*Disposable income* (identity) `2`:
+*Equation `2`* - Disposable income (identity):
 $$YD = Y - T + r_{-1} \cdot B_{h,-1} $$
 where $r$ is the interest rate and $B_h$ is households' holdings of bills. The subscript $-1$ stands for lagged variable.
 
-*Tax revenue* (behavioural) `3`:
+*Equation `3`* - Tax revenue (behavioural):
 $$T = \theta \cdot (Y +  r_{-1} \cdot B_{h,-1} ) $$
 where $\theta$ is the average tax rate on total income before taxes.
 
