@@ -91,7 +91,7 @@ Key assumptions are as follows:
 
 1. No ecosystem
 
-We can also quickly review Model PC equations, as we will need them when for the upcoming [Model IO-PC](#3_Introducing_input-output_interdependencies):
+We can also quickly review Model PC equations, as we will need them when for the upcoming [Model REG](#2_3_Model_REG), [Model IO-PC](#3_Introducing_input-output_interdependencies), and [Model EMP](#5_Making_it_empirical):
 
 *Equation `1`* - National income (identity): 
 $$Y = C + G $$
