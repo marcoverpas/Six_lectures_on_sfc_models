@@ -12,7 +12,7 @@ Lectures' slides are available here:
 
 - **Lecture D:** [Multi-Country SFC Models](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-4-protected.pdf)
 
-- **Lecture E:** Ecological and Input-Output SFC Models (*to be released on December 4th, 2023*)
+- **Lecture E:** [Ecological and Input-Output SFC Models](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-5-protected.pdf)
 
 - **Lecture F:** Empirical SFC Models (using `Bimets`) (*to be released on December 6th, 2023*)
 
