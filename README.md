@@ -428,15 +428,15 @@ In comparison to Model PC, additional assumptions include:
 
 Based on these assumptions, a few additional equations are required to transform Model PC into Model IO-PC. Notice that scalars are represented using *italic characters*, whereas vectors and matrices are represented using non-italic characters hereafter.
 
-*Equation `12`* - Vector of exogenously-set *unit prices* (behavioural):
+*Equation `12`* - Column vector of exogenously-set *unit prices* (behavioural):
 
 $$**\text{p}** = **\bar{\text{p}}** $$
 
-*Equation `13`* - Vector defining *composition of real consumption* (behavioural):
+*Equation `13`* - Column vector defining *composition of real consumption* (behavioural):
 
 $$**\text{B}_c** = **\bar{\text{B}}_c**  $$  
 
-*Equation `14`* - Vector defining *composition of real government expenditure* (behavioural):
+*Equation `14`* - Column vector defining *composition of real government expenditure* (behavioural):
 
 $$**\text{B}_g** = **\bar{\text{B}}_g** $$  
 
@@ -448,11 +448,11 @@ $$p_c = **\text{p}^T** \cdot **\text{B}_c** $$
 
 $$p_g = **\text{p}^T** \cdot **\text{B}_g** $$  
 
-*Equation `17`* - Vector of *final demands in real terms* (identity):
+*Equation `17`* - Column vector of *final demands in real terms* (identity):
 
 $$**\text{d}** = **\text{B}_c** \cdot c + **\text{B}_g** \cdot g $$  
 
-*Equation `18`* - Vector of *real gross outputs* (identity):
+*Equation `18`* - Column vector of *real gross outputs* (identity):
 
 $$**\text{x}** = **\text{A}** \cdot **\text{x}** + **\text{d}**, ~ with: **\text{A}**= \left(\begin{array}{cc} a_{11} & a_{12} \\
                                                                         a_{21} & a_{22}
