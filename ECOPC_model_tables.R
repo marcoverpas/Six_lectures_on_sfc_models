@@ -1,4 +1,4 @@
-# Model IO-PC for R: physical flow matrix and physical stock-flow matrix
+# Model ECO-PC for R: physical flow matrix and physical stock-flow matrix
 
 # Version: 9 November 2023
 
