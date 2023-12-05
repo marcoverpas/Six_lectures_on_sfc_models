@@ -16,7 +16,7 @@ Lectures' slides are available here:
 
 - **Lecture F:** [Empirical SFC Models (using `Bimets`)](https://www.marcopassarella.it/wp-content/uploads/SFC-Lecture-6-protected.pdf)
 
-Lecture slides B, C, D, E and F are protected, and so is Appendix A. Contact me (marco.veronesepassarella@univaq.it) to obtain the password. A more general description of lectures' contents is provided below.
+Lecture slides B, C, D, E and F are protected, and so is Appendix A. Contact me (marco.veronesepassarella@univaq.it) to obtain the password. A more general description of lectures' contents is available below.
 
 ## Table of Contents
 
