@@ -89,7 +89,7 @@ for (j in 1:nScenarios){
   for (i in 2:nPeriods){
   
     #Choose industry ***
-    for (z in 1:nIndustries){
+    #for (z in 1:nIndustries){
     
      #Define iterations
      for (iterations in 1:100){
@@ -199,7 +199,7 @@ for (j in 1:nScenarios){
       
       
       }
-    }
+    #}
   }
 }
 ################################################################################
