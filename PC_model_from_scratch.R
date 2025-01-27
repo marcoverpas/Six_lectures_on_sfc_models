@@ -3,11 +3,9 @@
 # Monetary Economics
 # Chapter 4 
 
-# Version: 30 May 2019; revised: 7 November 2023
+# Version: 30 May 2019; revised: 27 January 2025
 
-################################################################################
-
-#STEP 1: PREPARE THE WORK-SPACE
+#STEP 1: PREPARE THE WORK-SPACE ################################################################################
 
 #Clear environment
 rm(list=ls(all=TRUE))
@@ -24,10 +22,7 @@ nPeriods = 150
 #Number of scenarios
 nScenarios=3 
 
-
-################################################################################
-
-#STEP 2: SET THE COEFFICIENTS (EXOGENOUS VARIABLES AND PARAMETERS)
+#STEP 2: SET THE COEFFICIENTS (EXOGENOUS VARIABLES AND PARAMETERS) ################################################################################
 alpha11=0.65 #Autonomous propensity to consume out of income
 alpha12=2 #Elasticity of consumption propensity to interest rate
 alpha2=0.4 #Propensity to consume out of wealth
@@ -37,9 +32,7 @@ lambda2 = 0.01 #Elasticity of bills demand to yd/v
 theta=0.2 #Tax rate on income
 r_bar=matrix(data=0.025,nrow=nScenarios,ncol=nPeriods) #Interest rate as policy instrument
 
-################################################################################
-
-#STEP 3: CREATE VARIABLES AND ATTRIBUTE INITIAL VALUES
+#STEP 3: CREATE VARIABLES AND ATTRIBUTE INITIAL VALUES ################################################################################
 b_cb=matrix(data=0,nrow=nScenarios,ncol=nPeriods)#Government bills held by Central Bank
 b_h=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Government bills held by households
 b_s=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Government bills supplied by government
@@ -55,9 +48,7 @@ y_star=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Steady state GDP
 yd=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Disposable income of households
 alpha1=matrix(data=0.6,nrow=nScenarios,ncol=nPeriods) #Endogenous propensity to consume out of income
 
-################################################################################
-
-#STEP 4: RUN THE MODEL
+#STEP 4: RUN THE MODEL ################################################################################
 
 #STEP 4.A: DEFINE THE LOOPS
 
@@ -128,9 +119,7 @@ for (j in 1:nScenarios){
     }
   }
 
-################################################################################
-
-#STEP 5: CONSISTENCY CHECK (REDUNDANT EQUATION)
+#STEP 5: CONSISTENCY CHECK (REDUNDANT EQUATION) ################################################################################
 
 #Create consistency statement 
 aerror=0
@@ -149,9 +138,7 @@ plot(h_s[1,2:nPeriods]-h_h[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font
      cex.axis=1.5,cex.lab=1.5,ylab = '£',
      xlab = 'Time',ylim = range(-1,1))
 
-################################################################################
-
-#STEP 6: CREATE AND DISPLAY GRAPHS
+#STEP 6: CREATE AND DISPLAY GRAPHS ################################################################################
 
 #Set layout
 #layout(matrix(c(1,2), 1, 2, byrow = TRUE))
