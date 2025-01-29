@@ -5,9 +5,7 @@
 
 # Version: 30 May 2019; revised: 6 November 2022
 
-################################################################################
-
-#STEP 1: PREPARE THE WORK-SPACE
+#STEP 1: PREPARE THE WORK-SPACE ################################################################################
 
 #Clear environment
 rm(list=ls(all=TRUE))
@@ -24,9 +22,7 @@ nPeriods = 150
 #Number of scenarios
 nScenarios=6 
 
-################################################################################
-
-#STEP 2: SET THE COEFFICIENTS (EXOGENOUS VARIABLES AND PARAMETERS)
+#STEP 2: SET THE COEFFICIENTS (EXOGENOUS VARIABLES AND PARAMETERS) ################################################################################
 alpha2=0.1 #Propensity to consume out of wealth
 delta=0.1 #Depreciation rate
 gamma=0.15 #Reaction speed of adjustment of capital to its target value
@@ -37,9 +33,7 @@ alpha1=matrix(data=0.75,nrow=nScenarios,ncol=nPeriods) #Set autonomous propensit
 kappa=matrix(data=1,nrow=nScenarios,ncol=nPeriods)  #Capital-output ratio
 rl_bar=matrix(data=0.04,nrow=nScenarios,ncol=nPeriods)  #Rate of interests on bank loans - exogenously set
 
-################################################################################
-
-#STEP 3: CREATE VARIABLES AND ATTRIBUTE INITIAL VALUES
+#STEP 3: CREATE VARIABLES AND ATTRIBUTE INITIAL VALUES ################################################################################
 af=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Create variables and attribute values to stocks
 c_d=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Consumption goods demand by households
 c_s=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Consumption goods supply
@@ -64,10 +58,7 @@ y=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Income
 y_star=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Steady-state income
 yd=matrix(data=0,nrow=nScenarios,ncol=nPeriods) #Disposal Income of households
        
-
-################################################################################
-
-#STEP 4: RUN THE MODEL
+#STEP 4: RUN THE MODEL ################################################################################
 
 #STEP 4.A: DEFINE THE LOOPS
 
@@ -186,9 +177,7 @@ for (j in 1:nScenarios){
   }
 }
 
-################################################################################
-
-#STEP 5: CONSISTENCY CHECK (REDUNDANT EQUATION)
+#STEP 5: CONSISTENCY CHECK (REDUNDANT EQUATION) ################################################################################
 
 #Create consistency statement 
 aerror=0
@@ -207,9 +196,7 @@ plot(ms[1,2:nPeriods]-mh[1,2:nPeriods], type="l", col="green",lwd=3,lty=1,font.m
      cex.axis=1.5,cex.lab=1.5,ylab = '£',
      xlab = 'Time',ylim = range(-1,1))
 
-################################################################################
-
-#STEP 6: CREATE AND DISPLAY GRAPHS
+#STEP 6: CREATE AND DISPLAY GRAPHS ################################################################################
 
 #Change layout
 #layout(matrix(c(1,2), 1, 2, byrow = TRUE))
