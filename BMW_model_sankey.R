@@ -5,9 +5,7 @@
 
 # Version: 8 November 2022
 
-################################################################################
-
-#Sankey diagram of money transactions-flow and nominal changes in stocks
+#Sankey diagram of money transactions-flow and nominal changes in stocks 
 
 #Upload libraries for Sankey diagram
 library(networkD3)
@@ -64,7 +62,6 @@ links = as.data.frame(matrix(c(
 #Note: each row represents a link. The first number represents the node being
 #connected from. The second number represents the node connected to. The third
 #number is the value of the node.  
-
 
 byrow = TRUE, ncol = 3))
 names(links) = c("source", "target", "value")
