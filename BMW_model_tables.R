@@ -5,7 +5,7 @@
 
 # Version: 8 November 2023
 
-#Create BS and TFM tables ################################################################################
+#Prepare the environment ################################################################################
 
 #Upload libraries
 library(knitr)
