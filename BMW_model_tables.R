@@ -5,9 +5,7 @@
 
 # Version: 8 November 2023
 
-################################################################################
-
-#Create BS and TFM tables
+#Create BS and TFM tables ################################################################################
 
 #Upload libraries
 library(knitr)
@@ -18,17 +16,12 @@ yr=50
 #Choose a scenario (note: 1 = baseline)
 scen=1
 
-################################################################################
-################################################################################
-
-#Create row names for BS matrix
+#Create row names for BS matrix ################################################################################
 rownames<-c( "Deposits",
              "Loans",
              "Fixed capital",
              "Balance (net worth)",
              "Column total")
-
-################################################################################
 
 #Create households aggregates
 H <-c( round(mh[scen,yr], digits = 2),                                                                    
@@ -44,8 +37,6 @@ H_BS<-as.data.frame(H,row.names=rownames)
 #Print firms column
 kable(H_BS)
 
-################################################################################
-
 #Create firms aggregates
 P <-c( "",                                                                    
        round(-l_d[scen,yr], digits = 2),                                                                    
@@ -59,8 +50,6 @@ F_BS<-as.data.frame(P,row.names=rownames)
 
 #Print firms column
 kable(F_BS)
-
-################################################################################
 
 #Create banks aggregates
 B  <-c( round(-ms[scen,yr], digits = 2),                                                                    
@@ -76,8 +65,6 @@ B_BS<-as.data.frame(B,row.names=rownames)
 #Print firms column
 kable(B_BS)
 
-################################################################################
-
 #Create "row total" column
 Tot  <-c( round(mh[scen,yr]-ms[scen,yr], digits = 2),                                                                    
           round(-l_d[scen,yr]+l_s[scen,yr], digits = 2),                                                                    
@@ -92,16 +79,11 @@ Tot_BS<-as.data.frame(Tot,row.names=rownames)
 #Print firms column
 kable(Tot_BS)
 
-################################################################################
-
 #Create BS matrix
 BS_Matrix<-cbind(H_BS,F_BS,B_BS,Tot_BS)
 kable(BS_Matrix) #Unload kableExtra to use this
 
-################################################################################
-################################################################################
-
-#Create row names for TFM
+#Create row names for TFM ################################################################################
 rownames<-c( "Consumption",
              "Investment",
              "Production",
@@ -112,8 +94,6 @@ rownames<-c( "Consumption",
              "Change in loans",
              "Change in deposits",
              "Column total")
-
-################################################################################
 
 #Create households aggregates
 H <-c( round(-c_d[scen,yr], digits = 2),
@@ -134,8 +114,6 @@ H_TFM<-as.data.frame(H,row.names=rownames)
 #Print firms column
 kable(H_TFM)
 
-################################################################################
-
 #Create firms (current) aggregates
 Fc <-c( round(c_s[scen,yr], digits = 2),
         round(i_d[scen,yr], digits = 2),
@@ -154,8 +132,6 @@ Fc_TFM<-as.data.frame(Fc,row.names=rownames)
 
 #Print firms column
 kable(Fc_TFM)
-
-################################################################################
 
 #Create firms (capital) aggregates
 Fk <-c( "",
@@ -176,8 +152,6 @@ Fk_TFM<-as.data.frame(Fk,row.names=rownames)
 #Print firms column
 kable(Fk_TFM)
 
-################################################################################
-
 #Create banks aggregates
 B   <-c( "",
          "",
@@ -197,8 +171,6 @@ B_TFM<-as.data.frame(B,row.names=rownames)
 
 #Print firms column
 kable(B_TFM)
-
-################################################################################
 
 #Create "row total" column
 Tot   <-c(round(c_d[scen,yr]-c_s[scen,yr], digits = 2),
@@ -223,16 +195,11 @@ Tot_TFM<-as.data.frame(Tot,row.names=rownames)
 #Print firms column
 kable(Tot_TFM)
 
-################################################################################
-
 #Create TFM matrix
 TFM_Matrix<-cbind(H_TFM,Fc_TFM,Fk_TFM,B_TFM,Tot_TFM)
 kable(TFM_Matrix) #Unload kableExtra to use this
 
-################################################################################
-################################################################################
-
-#Create html and latex tables
+#Create html and latex tables ################################################################################
 
 #Upload libraries
 library(kableExtra)
