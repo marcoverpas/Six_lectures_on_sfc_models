@@ -89,7 +89,7 @@ for (j in 1:nScenarios){
       v[j,i] = v[j,i-1] + (yd[j,i] - cons[j,i])
       
       #Consumption function - eq. 4.5
-      cons[j,i] = alpha1[j,i]*yd[j,i] + alpha2*v[j,i-1]
+      cons[j,i] = alpha1[j,i]*yd[j,i] + alpha2*v[j,i]
       
       #Endogenous propensity to consume out of income ***
       if (j==3){ alpha1[j,i] = alpha11 - alpha12*r[j,i-1] }
