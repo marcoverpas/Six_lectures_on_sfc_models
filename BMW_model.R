@@ -96,7 +96,7 @@ for (j in 1:nScenarios){
       #STEP 4.C: DEFINE THE SYSTEM OF EQUATIONS        
       
       
-      #Behavioural equations and equilibrium condition
+      #Equilibrium conditions
       
       #Supply of consumption goods - eq. 7.1
       c_s[j,i] = c_d[j,i]
