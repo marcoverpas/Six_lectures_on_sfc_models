@@ -18,6 +18,8 @@ Lectures' slides are available here:
 
 Lecture slides B, C, D, E and F are protected, and so is Appendix A. Contact me (marco.veronesepassarella@univaq.it) to obtain the password. A more general description of lectures' contents is available below.
 
+:unlock: :copyright: *Note*: All the material in this repository is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1). You are encouraged to use it for non-commercial purposes, provided that proper credit is given.
+
 ## Table of Contents
 
 - [1 Introduction](#1_Introduction)
