@@ -290,7 +290,7 @@ for (j in 1:nScenarios){
         o2[j,i] = emis[j,i] - cen[j,i]                                      
         
         #Stock of energy reserves
-        k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - en[j,i]                       
+        k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - nen[j,i]                       
         
         #Energy resources converted to reserves 
         conv_e[j,i] = sigma_e*res_e[j,i]                                    
@@ -364,7 +364,7 @@ plot(100*(mat[2,2:30]/k_m[2,1:29])-100*(mat[1,2:30]/k_m[1,1:29]),type="l",
     col="coral3", lwd=3, lty=1, font.main=1,cex.main=1.5,
     main="Figure 3  Reserves depletion rates following climate-change \n induced reduction in propensity to consume",
     ylab = 'Index (%)',xlab = 'Time',cex.axis=1.5,cex.lab=1.5,ylim = range(-0.15,0))
-lines(100*(en[2,2:30]/k_e[2,1:29])-100*(en[1,2:30]/k_e[1,1:29]),col="cyan4", lwd=3, lty=1)
+lines(100*(nen[2,2:30]/k_e[2,1:29])-100*(nen[1,2:30]/k_e[1,1:29]),col="cyan4", lwd=3, lty=1)
 legend("bottomright",c("Matter","Energy"),  bty = "n",
        cex=1.5, lty=c(1,1), lwd=c(3,3), col = c("coral3","cyan4"), box.lty=0)
 
@@ -373,3 +373,4 @@ plot(temp[2,1:29]-temp[1,1:29],type="l",
      col="cornflowerblue", lwd=3, lty=1, font.main=1,cex.main=1.5,
      main="Figure 4  Change in atm. temperature following climate-change \n induced reduction in propensity to consume",
      ylab = 'C',xlab = 'Time',cex.axis=1.5,cex.lab=1.5,ylim = range(-0.005,0))
+
