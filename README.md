@@ -585,7 +585,7 @@ cen[j,i] = emis[j,i]/car
 o2[j,i] = emis[j,i] - cen[j,i]                                      
         
 #Stock of energy reserves
-k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - en[j,i]                       
+k_e[j,i] = k_e[j,i-1] + conv_e[j,i] - nen[j,i]                       
         
 #Energy resources converted to reserves 
 conv_e[j,i] = sigma_e*res_e[j,i]                                    
